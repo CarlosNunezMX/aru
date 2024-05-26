@@ -1,4 +1,4 @@
-import type { DirtyType } from "../utils/generics/ResponseOK";
+import type { DirtyType } from "../../utils/generics/ResponseOK.js";
 
 export type StudentInfoType = {
     alumcodigo: string;
