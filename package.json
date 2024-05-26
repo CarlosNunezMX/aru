@@ -1,10 +1,11 @@
 {
-  "name": "aru",
+  "name": "@carlosnunezmx/aru",
   "module": "dist/index.js",
   "type": "module",
   "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "description": "Just another UdeG Leo Wrapper",
+  "version": "0.5.0",
   "bugs": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://github.com/CarlosNunezMX/aru/issues"
@@ -15,13 +16,10 @@
     "name": "CarlosNuñezMX"
   },
   "scripts": {
-    "build": "tsc",
-    "docs": "typedoc",
-    "gh": "tsc && typedoc"
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "typedoc": "^0.25.13",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {

@@ -1,7 +1,7 @@
 import type { Login } from "../../auth/Login.js";
 import type { MethodNotAllowedType } from "../../error/method_now_allowed.js";
 import type { UnauthorizedType } from "../../error/unauthorized_type.js";
-import type { DirtySchedule } from "./ScheduleTypes.js";
+import type { DirtySchedule, Materia } from "./ScheduleTypes.js";
 
 import { RequestError } from "../../error/Request.js";
 import { AuthHeaderPreset } from "../../utils/CommonHeaders.js";
@@ -15,7 +15,7 @@ export type ScheduleInit = {
 /**
  * Get the student schedule, this contains the student schedule and the teacher info
  */
-export class Schedule extends AuthMethod{
+export class Schedule extends AuthMethod<Materia[]>{
     protected Route: string = "https://micro-leo.udg.mx/esc-alumnos/v1/:studentCode/:programID/:academicTerm/horarios";
     private props: ScheduleInit; 
     constructor(Auth: Login, init: ScheduleInit){
@@ -23,7 +23,7 @@ export class Schedule extends AuthMethod{
         this.props = init;
     }
 
-    async exec(): Promise<void> {
+    async exec(){
         await super.exec()
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
             .replace(':programID', this.props.program)
@@ -43,7 +43,7 @@ export class Schedule extends AuthMethod{
         }
 
         const data = await req.json() as DirtySchedule;
-        console.log(data.respuesta[0].profesores[0]);
+        return data.respuesta;
 
     }
 }
