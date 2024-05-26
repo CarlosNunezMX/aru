@@ -15,7 +15,9 @@
     "name": "CarlosNuñezMX"
   },
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "docs": "typedoc",
+    "gh": "tsc && typedoc"
   },
   "devDependencies": {
     "@types/bun": "latest",

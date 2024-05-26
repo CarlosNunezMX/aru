@@ -8,7 +8,7 @@ export { AverageAdvance } from "./student/AverageAdvance/AvAdvance.js";
 export * as Method from "./utils/Method.js";
 
 export type { credentials as UserCredentials } from "./auth/Login.js";
-export type { StudentInfoType, DirtyStudentInfoType, DomicilioFormated } from "./student/StudentInfo/InfoType.js";
+export type { StudentInfoType, DomicilioFormated } from "./student/StudentInfo/InfoType.js";
 
 export type { MethodNotAllowedType } from "./error/method_now_allowed.js";
 export type { UnauthorizedType } from "./error/unauthorized_type.js";
