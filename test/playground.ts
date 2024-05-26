@@ -1,4 +1,4 @@
-import {Schedule, Login, type ScheduleInit, type UserCredentials} from "../source/index";
+import {AverageAdvance, Login, type AverageAdvanceInit, type UserCredentials} from "../source/index";
 const Creds: UserCredentials = {
     // @ts-ignore
     Password: process.env.LEO_PASSWORD,
@@ -9,10 +9,10 @@ const Creds: UserCredentials = {
 const session = new Login(Creds);
 await session.exec();
 
-const options: ScheduleInit = {
-    ciclo: "2024A",
+const options: AverageAdvanceInit = {
+    initialCiclo: "2021-B",
     program: "BGC"
 };
 
-const schedule = new Schedule(session, options);
+const schedule = new AverageAdvance(session, options);
 await schedule.exec();
