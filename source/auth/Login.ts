@@ -13,10 +13,19 @@ type TokenType = {
     vigencia: Date | null;
 }
 
+/**
+ * User credentials for login into Leo
+ */
+
 export type credentials = {
     User: string;
     Password: string;
 }
+
+/**
+ * Used for login into the Leo, it's required for most of the methods.
+ * Use the method exec() before use for another class constructor
+ */
 
 export class Login extends Method {
     private User: string;
@@ -33,7 +42,10 @@ export class Login extends Method {
         this.User = credentials.User;
         this.Password = credentials.Password;
     }
-
+    /**
+     * Execute the login method, it's required for most of the methods.
+     * This will load the token and the student code on the class
+     */
     async exec(): Promise<void>{
         super.exec();
 
@@ -66,11 +78,13 @@ export class Login extends Method {
         this.StudentCode = credentials.respuesta.usua_id;
     }
 
+    /** Get the token and its vigency */
     getToken(): Required<TokenType>{
         return this.Token;
     }
 
-    checkVigencia(){
+    /** Check if you need to regenerate a token */
+    checkVigencia(): boolean{
         if(this.Token.vigencia === null || this.Token.token === null){
             return true;
         }

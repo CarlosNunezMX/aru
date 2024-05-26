@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "typedoc": "^0.25.13",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
@@ -26,6 +27,7 @@
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.2",
-    "bcrypt": "^5.1.1"
+    "bcrypt": "^5.1.1",
+    "jsdoc": "^4.0.3"
   }
 }

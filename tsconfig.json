@@ -27,5 +27,11 @@
     "declarationDir": "./types"
   },
   "include": ["source"],
-  "exclude": ["test/*", "dist/*"]
+  "exclude": ["test/*", "dist/*"],
+  "typedocOptions": {
+    "entryPoints": [
+      "source/*.ts" // <--- take everything from this location
+    ],
+    "out": "docs/typedoc" // <--- output directory
+  }
 }

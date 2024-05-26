@@ -1,0 +1,16 @@
+{
+    "plugins": [],
+    "source": {
+        "include": ["source"],
+        "includePattern": ".ts$",
+        "excludePattern": "(node_modules/|docs/|dist/|test/)"
+    },
+    "templates": {
+        "cleverLinks": false,
+        "monospaceLinks": false
+    },
+    "opts": {
+        "destination": "./docs",
+        "recurse": true
+    }
+}
