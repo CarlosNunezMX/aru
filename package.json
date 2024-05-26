@@ -1,9 +1,25 @@
 {
   "name": "aru",
-  "module": "index.ts",
+  "module": "dist/index.js",
   "type": "module",
+  "main": "dist/index.js",
+  "types": "./types/index.d.ts",
+  "description": "Just another UdeG Leo Wrapper",
+  "bugs": {
+    "email": "carlitosnu41@gmail.com",
+    "url": "https://github.com/CarlosNunezMX/aru/issues"
+  },
+  "homepage": "https://github.com/CarlosNunezMX/aru",
+  "author": {
+    "email": "carlitosnu41@gmail.com",
+    "name": "CarlosNuñezMX"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"

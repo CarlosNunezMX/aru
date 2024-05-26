@@ -1,15 +1,21 @@
-# aru
+# ARU - Un wrapper para UdG Leo más
+Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API facíl para interactuar con Leo(aka SIIAU 2) de manera sencilla y eficiente.
 
-To install dependencies:
+## Instalación
+> [!IMPORTANT]
+> Bun es recomendado para testear el proyecto, actualmente no he agreagdo la compilación a Javascript
 
-```bash
-bun install
-```
+1. Instalacion de dependecias.
+    ```bash
+    # bun 
+    bun i
+    # node
+    npm/pnpm/yarn i
+    ```
+2. (Node) Transpilación de Typescript
+    ```bash
+    npm run build
+    ```
 
-To run:
-
-```bash
-bun run index.ts
-```
-
-This project was created using `bun init` in bun v1.0.35. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+## Documentación
+Próximamente 😄

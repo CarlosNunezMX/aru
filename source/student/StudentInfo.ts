@@ -1,8 +1,9 @@
-import type { Login } from "../auth/Login";
-import { RequestError } from "../error/Request";
-import { AuthHeaderPreset } from "../utils/CommonHeaders";
-import { AuthMethod } from "../utils/Method";
-import type { DirtyStudentInfoType, StudentInfoType } from "./InfoType";
+import type { Login } from "../auth/Login.js";
+import type { DirtyStudentInfoType, StudentInfoType } from "./InfoType.js";
+
+import { RequestError } from "../error/Request.js";
+import { AuthHeaderPreset } from "../utils/CommonHeaders.js";
+import { AuthMethod } from "../utils/Method.js";
 
 export class StudentInfo extends AuthMethod<StudentInfoType>{
     constructor(Auth: Login){

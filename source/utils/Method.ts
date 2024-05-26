@@ -1,5 +1,5 @@
-import { Login } from "../auth/Login";
-import { LeoAuth } from "./crypto/AuthToken";
+import { Login } from "../auth/Login.js";
+import { LeoAuth } from "./crypto/AuthToken.js";
 
 export class Method{
     protected AuthToken: string;

@@ -1,12 +1,12 @@
-import type { LoginResponseType } from "./Login.response";
-import type { UnauthorizedType } from "../error/unauthorized_type";
+import type { LoginResponseType } from "./Login.response.js";
+import type { UnauthorizedType } from "../error/unauthorized_type.js";
 
-import { Method } from "../utils/Method";
-import { HeaderPreset } from "../utils/CommonHeaders";
-import { RequestError } from "../error/Request";
+import { Method } from "../utils/Method.js";
+import { HeaderPreset } from "../utils/CommonHeaders.js";
+import { RequestError } from "../error/Request.js";
 
-import { encryptPassword } from "../utils/crypto/Password";
-import type { MethodNotAllowedType } from "../error/method_now_allowed";
+import { encryptPassword } from "../utils/crypto/Password.js";
+import type { MethodNotAllowedType } from "../error/method_now_allowed.js";
 
 type TokenType = {
     token: string | null;
@@ -74,7 +74,7 @@ export class Login extends Method {
         if(this.Token.vigencia === null || this.Token.token === null){
             return true;
         }
-        
+
         const current = new Date(Date.now());
         if( current > this.Token.vigencia!){
             return false;
