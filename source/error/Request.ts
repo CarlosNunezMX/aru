@@ -1,3 +1,7 @@
+/**
+ * Class for handle http requests error by throwing this class
+ * @todo Documentar todos los errores
+ */
 export class RequestError<BodyType = null> extends Error{
     readonly status: number;
     readonly url: string;
@@ -9,7 +13,9 @@ export class RequestError<BodyType = null> extends Error{
         this.url = response.url;
         this.Response = response;
     }
-
+    /**
+     * Recovers response body if it's a json or text
+     */
     GetBody(): Promise<BodyType> | null {
         if(this.Response.headers.get("content-type")?.includes("application/json")){
             return (this.Response.json() as Promise<BodyType>);

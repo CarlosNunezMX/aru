@@ -1,3 +1,6 @@
+/**
+ * Error code 405
+ */
 export type MethodNotAllowedType = {
     timestamp: number;
     status: number;

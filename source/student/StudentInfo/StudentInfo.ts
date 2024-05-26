@@ -7,6 +7,9 @@ import { RequestError } from "../../error/Request.js";
 import { AuthHeaderPreset } from "../../utils/CommonHeaders.js";
 import { AuthMethod } from "../../utils/Method.js";
 
+/**
+ * Get the student info, photo and signature
+ */
 export class StudentInfo extends AuthMethod<StudentInfoType>{
     constructor(Auth: Login){
         super(Auth);
@@ -14,7 +17,7 @@ export class StudentInfo extends AuthMethod<StudentInfoType>{
 
     protected Route: string = "https://micro-leo.udg.mx/sii-alumnos/v1/:studentCode/datos-personales";
 
-    override async exec() {
+    async exec() {
         await super.exec();
         const url = new URL(this.Route.replace(":studentCode", this.Auth.StudentCode as string))
         const req = await fetch(url.toString(), {

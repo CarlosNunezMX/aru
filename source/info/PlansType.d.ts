@@ -1,5 +1,4 @@
 import type { DirtyType } from "../utils/generics/ResponseOK.js";
-
 export type Plans = {
     idcentro: string,
     siglacentro: string,

@@ -5,7 +5,7 @@ export { RequestError } from "./error/Request.js";
 export { StudentCard } from "./student/Card/StudentCard.js";
 export { StudentPlans } from "./info/Plans.js";
 export { AverageAdvance } from "./student/AverageAdvance/AvAdvance.js";
-
+export * as Method from "./utils/Method.js";
 
 export type { credentials as UserCredentials } from "./auth/Login.js";
 export type { StudentInfoType, DirtyStudentInfoType, DomicilioFormated } from "./student/StudentInfo/InfoType.js";

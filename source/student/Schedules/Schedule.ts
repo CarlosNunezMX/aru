@@ -11,6 +11,10 @@ export type ScheduleInit = {
     /** format 20xx-A|B */
     ciclo: string;
 }
+
+/**
+ * Get the student schedule, this contains the student schedule and the teacher info
+ */
 export class Schedule extends AuthMethod{
     protected Route: string = "https://micro-leo.udg.mx/esc-alumnos/v1/:studentCode/:programID/:academicTerm/horarios";
     private props: ScheduleInit; 
@@ -20,6 +24,7 @@ export class Schedule extends AuthMethod{
     }
 
     async exec(): Promise<void> {
+        await super.exec()
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
             .replace(':programID', this.props.program)
             .replace(':academicTerm', this.props.ciclo);
