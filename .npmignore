@@ -3,3 +3,4 @@ node_modules/*
 bun.lockb
 jsdoc.json
 .env
+source/*

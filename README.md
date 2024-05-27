@@ -1,10 +1,15 @@
-# ARU - Un wrapper para UdG Leo más
+# ARU - Un wrapper para UdeG Leo más
 Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API facíl para interactuar con Leo(aka SIIAU 2) de manera sencilla y eficiente.
 
 ## Instalación
-> [!IMPORTANT]
-> Bun es recomendado para testear el proyecto, actualmente no he agreagdo la compilación a Javascript
 
+### Instala el modulo ·v·
+1. Instala el modulo
+    ```bash
+    npm/bun/pnpm i @carlosnunezmx/aru
+    ```
+
+### Descarga y prueba el codigo fuente
 1. Instalacion de dependecias.
     ```bash
     # bun 
@@ -18,4 +23,5 @@ Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API f
     ```
 
 ## Documentación
-Próximamente 😄
+- [Typedoc documentations](https://carlosnunezmx.github.io/aru/docs/typedoc/index.html)
+- [**Ejemplos - Proximamente**](#)
