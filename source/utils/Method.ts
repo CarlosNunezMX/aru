@@ -7,7 +7,7 @@ import { LeoAuth } from "./crypto/AuthToken.js";
 export class Method{
     protected AuthToken: string;
     protected Route: string = "";
-    private isTokenUsed = false;
+    public isTokenUsed = false;
     private AuthTokenGenerator = new LeoAuth();
     
     constructor(){
@@ -18,14 +18,15 @@ export class Method{
      * Used for create a new token after it was used
      */
     protected recreateToken(){
-        if(!this.isTokenUsed){
+        if(this.isTokenUsed){
+            this.AuthToken = this.AuthTokenGenerator.encrypt();
             return;
         }
-        this.AuthToken = this.AuthTokenGenerator.encrypt();
+        this.isTokenUsed = true;
     }
 
     exec(){
-        this.recreateToken.bind(this)();
+        this.recreateToken();
     }
 }
 
@@ -42,7 +43,8 @@ export abstract class AuthMethod<Return = void> extends Method {
     // @ts-ignore
     async exec(): Promise<Return>{
         super.exec();
-        if(!this.Auth.checkVigencia())
-            await this.Auth.exec();
+        if(!this.Auth.checkVigencia()){
+            await this.Auth.exec.bind(this.Auth)();
+        }
     }
 }

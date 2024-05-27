@@ -1,11 +1,9 @@
 import type { Login } from "../../auth/Login.js";
-import type { UnauthorizedType } from "../../error/unauthorized_type.js";
-import type { MethodNotAllowedType } from "../../error/method_now_allowed.js";
 import type { AvAdvanceType, DirtyAvAdvance } from "./AvadvanceTypes.js";
 
 import { AuthMethod } from "../../utils/Method.js";
 import { AuthHeaderPreset } from "../../utils/CommonHeaders.js";
-import { RequestError } from "../../error/Request.js";
+import { ErrorHandling } from "../../error/Request.js";
 
 /**
  * Initial data for AverageAdvance
@@ -37,14 +35,8 @@ export class AverageAdvance extends AuthMethod<AvAdvanceType>{
             .replace(':initialAcademicTerm', this.props.initialCiclo);
 
         const req = await fetch(req_url, { headers: AuthHeaderPreset(this.AuthToken, this.Auth.getToken().token!) })
-        if(!req.ok){
-            if(req.status === 401){
-                throw new RequestError<UnauthorizedType>(req);
-            }
-            if(req.status === 405){
-                throw new RequestError<MethodNotAllowedType>(req);
-            }
-        }
+        if(!req.ok)
+            ErrorHandling(req);
         const data = await req.json() as DirtyAvAdvance;
         return data.respuesta;
     }

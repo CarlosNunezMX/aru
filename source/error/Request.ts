@@ -1,3 +1,7 @@
+import type { UnsupportedType } from "./UnsupportedType.js";
+import type { MethodNotAllowedType } from "./method_now_allowed.js";
+import type { UnauthorizedType } from "./unauthorized_type.js";
+
 /**
  * Class for handle http requests error by throwing this class
  * @todo Documentar todos los errores
@@ -25,4 +29,13 @@ export class RequestError<BodyType = null> extends Error{
         }
         return null;
     }
+}
+
+export function ErrorHandling(request: Response){
+    if(request.status === 401)
+        throw new RequestError<UnauthorizedType>(request)
+    if (request.status === 415)
+        throw new RequestError<UnsupportedType>(request);
+    if(request.status === 405)
+        throw new RequestError<MethodNotAllowedType>(request);
 }

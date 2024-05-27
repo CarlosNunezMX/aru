@@ -1,12 +1,10 @@
 import type { LoginResponseType } from "./Login.response.js";
-import type { UnauthorizedType } from "../error/unauthorized_type.js";
 
 import { Method } from "../utils/Method.js";
 import { HeaderPreset } from "../utils/CommonHeaders.js";
-import { RequestError } from "../error/Request.js";
+import { ErrorHandling } from "../error/Request.js";
 
 import { encryptPassword } from "../utils/crypto/Password.js";
-import type { MethodNotAllowedType } from "../error/method_now_allowed.js";
 
 type TokenType = {
     token: string | null;
@@ -36,7 +34,6 @@ export class Login extends Method {
     };
     protected Route: string = "https://micro-leo.udg.mx/login/v1/validar";
     public StudentCode?: string;
-
     constructor(credentials: credentials){
         super()
         this.User = credentials.User;
@@ -63,13 +60,8 @@ export class Login extends Method {
             headers: HeaderPreset(this.AuthToken),
             method: "POST"
         })
-        if(data.status !== 201 && data.status !== 200){
-            if(data.status == 401)
-                throw new RequestError<UnauthorizedType>(data);
-            if(data.status == 405)
-                throw new RequestError<MethodNotAllowedType>(data);
-            throw new RequestError<Record<string, any>>(data);
-        }
+        if(!data.ok)
+            ErrorHandling(data);
 
         const credentials = (await data.json() as LoginResponseType);
         
@@ -85,9 +77,12 @@ export class Login extends Method {
 
     /** Check if you need to regenerate a token */
     checkVigencia(): boolean{
+        
         if(this.Token.vigencia === null || this.Token.token === null){
             return true;
         }
+
+        
 
         const current = new Date(Date.now());
         if( current > this.Token.vigencia!){

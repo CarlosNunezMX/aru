@@ -1,10 +1,8 @@
 // Plans.ts
-import type { MethodNotAllowedType } from "../error/method_now_allowed.js";
-import type { UnauthorizedType } from "../error/unauthorized_type.js";
 import type { DirtyPlans, Plans } from "./PlansType.js";
 
 import { Login } from "../auth/Login.js";
-import { RequestError } from "../error/Request.js";
+import { ErrorHandling } from "../error/Request.js";
 import { AuthHeaderPreset } from "../utils/CommonHeaders.js";
 import { AuthMethod } from "../utils/Method.js";
 
@@ -28,14 +26,8 @@ export class StudentPlans extends AuthMethod<Plans>{
         })
 
 
-        if(!req.ok){
-            if(req.status === 401){
-                throw new RequestError<UnauthorizedType>(req);
-            }
-            if(req.status === 405){
-                throw new RequestError<MethodNotAllowedType>(req);
-            }
-        }
+        if(!req.ok)
+            ErrorHandling(req);
 
 
         const data = await req.json() as DirtyPlans;

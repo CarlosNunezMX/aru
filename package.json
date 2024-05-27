@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "description": "Just another UdeG Leo Wrapper",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "bugs": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://github.com/CarlosNunezMX/aru/issues"
@@ -19,15 +19,15 @@
     "build": "tsc"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
     "@types/bun": "latest",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "@types/bcrypt": "^5.0.2"
   },
   "dependencies": {
-    "@types/bcrypt": "^5.0.2",
-    "bcrypt": "^5.1.1",
-    "jsdoc": "^4.0.3"
+    "bcrypt": "^5.1.1"
   }
 }
