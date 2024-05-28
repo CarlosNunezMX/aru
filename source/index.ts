@@ -5,6 +5,7 @@ export { RequestError } from "./error/Request.js";
 export { StudentCard } from "./student/Card/StudentCard.js";
 export { StudentPlans } from "./info/Plans.js";
 export { AverageAdvance } from "./student/AverageAdvance/AvAdvance.js";
+export { RegisterSubject } from "./student/RegisterSubject/RegisterSubject.js";
 export * as Method from "./utils/Method.js";
 export * as Kardex from "./kardex/Kardex.js"
 

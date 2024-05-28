@@ -1,4 +1,4 @@
-import {Login, type UserCredentials, Kardex, StudentPlans} from "../source/index";
+import {Login, type UserCredentials, Kardex, StudentPlans, RegisterSubject } from "../source/index";
 const Creds: UserCredentials = {
     // @ts-ignore
     Password: process.env.LEO_PASSWORD,
@@ -21,4 +21,16 @@ const data: Kardex.KardexInit = {
 }
 
 const kardex = new Kardex.Kardex(session, data);
-await kardex.exec()
+const kardexRes = await kardex.exec();
+console.log(kardexRes);
+
+const registerSubject = new RegisterSubject(session, {
+    idalumno: Creds.User,
+    idprograma: studentPlans[0].idprograma,
+    nivel: studentPlans[0].nivel,
+    idciclo: "2024-B",
+    idcentro: studentPlans[0].idcentro,
+    cursos: ["1234"]
+})
+const registerRes = await registerSubject.exec();
+console.log(registerRes);
