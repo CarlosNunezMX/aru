@@ -5,7 +5,7 @@ import { Login } from "../auth/Login.js";
 export declare class Method {
     protected AuthToken: string;
     protected Route: string;
-    private isTokenUsed;
+    isTokenUsed: boolean;
     private AuthTokenGenerator;
     constructor();
     /**

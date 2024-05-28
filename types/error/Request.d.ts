@@ -14,3 +14,4 @@ export declare class RequestError<BodyType = null> extends Error {
      */
     GetBody(): Promise<BodyType> | null;
 }
+export declare function ErrorHandling(request: Response): void;

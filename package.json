@@ -5,10 +5,18 @@
   "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "description": "Just another UdeG Leo Wrapper",
-  "version": "0.6.1",
+  "version": "0.7.1",
   "bugs": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://github.com/CarlosNunezMX/aru/issues"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./auth": "./dist/auth/index.js", 
+    "./error": "./dist/error/index.js",
+    "./student": "./dist/student/index.js",
+    "./info": "./dist/info/index.js",
+    "./kardex": "./dist/kardex/index.js"
   },
   "homepage": "https://github.com/CarlosNunezMX/aru",
   "author": {
