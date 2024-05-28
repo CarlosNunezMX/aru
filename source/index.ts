@@ -6,7 +6,11 @@ export { StudentCard } from "./student/Card/StudentCard.js";
 export { StudentPlans } from "./info/Plans.js";
 export { AverageAdvance } from "./student/AverageAdvance/AvAdvance.js";
 export * as Method from "./utils/Method.js";
-export * as Kardex from "./kardex/Kardex.js"
+export * as Kardex from "./kardex/Kardex.js";
+
+export {RegistrarMateria} from "./student/RegistroMaterias/RegistrarMateria.js";
+export {EliminarMateria} from "./student/RegistroMaterias/EliminarMateria.js";
+
 
 export type { credentials as UserCredentials } from "./auth/Login.js";
 export type { StudentInfoType, DomicilioFormated } from "./student/StudentInfo/InfoType.js";
@@ -22,3 +26,4 @@ export type { AverageAdvanceInit } from "./student/AverageAdvance/AvAdvance.js"
 export type { AvAdvanceType, AvanceItem } from "./student/AverageAdvance/AvadvanceTypes.js"
 export type * as KardexTypes from "./kardex/KardexType.js"
 export * as ErrorTypes from "./error/index.js"
+export * as RegistroMateriaTypes from "./student/RegistroMaterias/RegistrarMateria.js";
