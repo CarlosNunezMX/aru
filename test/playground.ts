@@ -1,4 +1,4 @@
-import {Login, type UserCredentials, Kardex, StudentPlans} from "../source/index";
+import {Login, type UserCredentials, Kardex, StudentPlans, Projections} from "../source/index";
 const Creds: UserCredentials = {
     // @ts-ignore
     Password: process.env.LEO_PASSWORD,
@@ -22,3 +22,7 @@ const data: Kardex.KardexInit = {
 
 const kardex = new Kardex.Kardex(session, data);
 await kardex.exec()
+
+const projection = new Projections(session);
+const studentProjection = await projection.exec();
+console.log(studentProjection);

@@ -10,6 +10,7 @@ export * as Kardex from "./kardex/Kardex.js";
 
 export {RegistrarMateria} from "./student/RegistroMaterias/RegistrarMateria.js";
 export {EliminarMateria} from "./student/RegistroMaterias/EliminarMateria.js";
+export { Projections } from "./student/Projections/Projections.js";
 
 
 export type { credentials as UserCredentials } from "./auth/Login.js";
