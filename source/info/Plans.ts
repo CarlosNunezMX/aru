@@ -17,11 +17,9 @@ export class StudentPlans extends AuthMethod<Plans>{
 
     async exec() {
         await super.exec()
-        const url = new URL(
-            this.Route.replace(":studentCode", this.Auth.StudentCode!)
-        );
+        const url = this.Route.replace(":studentCode", this.Auth.StudentCode!);
 
-        const req = await fetch(url.toString(), {
+        const req = await fetch(url, {
             headers: AuthHeaderPreset(this.AuthToken, this.Auth.getToken().token!)
         })
 

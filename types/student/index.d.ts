@@ -10,3 +10,4 @@ export type * as CardTypes from "./Card/StudentCardTypes.js";
 export type * as ScheduleTypes from "./Schedules/ScheduleTypes.js";
 export * as InfoTypes from "./StudentInfo/InfoType.js";
 export * as RegistroMateriaTypes from "./RegistroMaterias/RegistrarMateria.js";
+export * as Credits from "./Credits/Credits.js";

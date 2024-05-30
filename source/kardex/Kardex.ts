@@ -4,32 +4,35 @@ import type { DirtyType } from "../utils/generics/ResponseOK.js";
 import { AuthMethod } from "../utils/Method.js";
 import { AuthHeaderPreset } from "../utils/CommonHeaders.js";
 import { ErrorHandling} from "../error/Request.js";
+import { StudentPlans } from "../info/Plans.js";
 
 export type KardexInit = {
-    campus: string;
-    ciclo: string;
-    cicloAdmision: string;
-    progam: string;
-    cede: string;
+    idcentro: string;
+    ciclefectivo: string;
+    cicladmision: string;
+    idprograma: string;
+    idsede: string;
 }
 
 export class Kardex extends AuthMethod<Kardex> {
     protected Route: string = "https://micro-leo.udg.mx/esc-alumnos/v1/kardex";
-    protected RequestBody: KardexInit;
-    constructor(Auth: Login, init: KardexInit) {
+    protected props?: KardexInit;
+    constructor(Auth: Login, init?: KardexInit) {
         super(Auth);
-        this.RequestBody = init;
+        this.props = init;
     }
 
     async exec() {
+        const plans = new StudentPlans(this.Auth);
+        const {cicladmision, ciclefectivo, idcentro, idprograma, idsede} = this.props || (await plans.exec())[0];
         await super.exec()
         const body = {
             idalumno: this.Auth.StudentCode!,
-            idcentro: this.RequestBody.campus,
-            idciclo: this.RequestBody.ciclo,
-            idcicloadmi: this.RequestBody.cicloAdmision,
-            idprograma: this.RequestBody.progam,
-            idsede: this.RequestBody.cede
+            idcentro,
+            idciclo: ciclefectivo,
+            idcicloadmi: cicladmision,
+            idprograma,
+            idsede
         };
         const request = await fetch(this.Route, {
             body: JSON.stringify(body),

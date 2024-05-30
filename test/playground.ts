@@ -1,4 +1,4 @@
-import {Login, type UserCredentials, Kardex, StudentPlans, Projections} from "../source/index";
+import {Login, type UserCredentials, Projections, Credits, StudentPlans} from "../source/index";
 const Creds: UserCredentials = {
     // @ts-ignore
     Password: process.env.LEO_PASSWORD,
@@ -9,20 +9,14 @@ const Creds: UserCredentials = {
 const session = new Login(Creds);
 await session.exec();
 
+
+// const projection = new Projections(session);
+// const studentProjection = await projection.exec();
+// console.log(studentProjection);
+
+// const credits = new Credits(session);
+// await credits.exec();
+
 const plans = new StudentPlans(session);
-const studentPlans = await plans.exec();
-
-const data: Kardex.KardexInit = {
-    campus: studentPlans[0].idcentro,
-    ciclo: "2024-A",
-    cede: studentPlans[0].idsede,
-    progam: studentPlans[0].idprograma,
-    cicloAdmision: studentPlans[0].cicladmision
-}
-
-const kardex = new Kardex.Kardex(session, data);
-await kardex.exec()
-
-const projection = new Projections(session);
-const studentProjection = await projection.exec();
-console.log(studentProjection);
+const studentPlan = await plans.exec();
+console.log(studentPlan);

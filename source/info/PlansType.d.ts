@@ -17,6 +17,7 @@ export type Plans = {
     idPlan: string,
     descnivel: string,
     certificacion: string,
+    emailudg: string;
 }[];
 
 export type DirtyPlans = DirtyType<Plans>;

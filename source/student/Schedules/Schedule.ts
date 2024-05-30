@@ -4,9 +4,10 @@ import type { DirtySchedule, Materia } from "./ScheduleTypes.js";
 import { AuthHeaderPreset } from "../../utils/CommonHeaders.js";
 import { AuthMethod } from "../../utils/Method.js";
 import { ErrorHandling } from "../../error/Request.js";
+import { StudentPlans } from "../../info/Plans.js";
 
 export type ScheduleInit = {
-    program: string;
+    idprograma?: string;
     /** format 20xx-A|B */
     ciclo: string;
 }
@@ -24,8 +25,9 @@ export class Schedule extends AuthMethod<Materia[]>{
 
     async exec(){
         await super.exec()
+        const idprograma = this.props.idprograma || (await new StudentPlans(this.Auth).exec())[0].idprograma;
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
-            .replace(':programID', this.props.program)
+            .replace(':programID', idprograma)
             .replace(':academicTerm', this.props.ciclo);
 
         const req = await fetch(req_url, {

@@ -2,7 +2,7 @@ import type { Login } from "../../auth/Login.js";
 import type { Materia } from "./ScheduleTypes.js";
 import { AuthMethod } from "../../utils/Method.js";
 export type ScheduleInit = {
-    program: string;
+    idprograma?: string;
     /** format 20xx-A|B */
     ciclo: string;
 };

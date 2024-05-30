@@ -1,10 +1,10 @@
 import type { Login } from "../../auth/Login.js";
 import { AuthMethod } from "../../utils/Method.js";
 export type RegistrarMateriaInit = {
-    program: string;
-    nivel: string;
+    idprograma?: string;
+    nivel?: string;
     ciclo: string;
-    centro: string;
+    idcentro?: string;
     /**
      * NRC's de las materias a registrar
      */
