@@ -28,5 +28,4 @@ test("Student.plans", () => {
     expect(data[0].idsede).toBeString();
     expect(data[0].emailudg).toBeString();
     expect(data[0].descnivel).toBeString();
-    expect("").toBeNumber()
 })
