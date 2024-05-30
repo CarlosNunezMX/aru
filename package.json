@@ -5,18 +5,36 @@
   "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "description": "Just another UdeG Leo Wrapper",
-  "version": "0.7.1",
+  "version": "0.7.5",
   "bugs": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://github.com/CarlosNunezMX/aru/issues"
   },
   "exports": {
-    ".": "./dist/index.js",
-    "./auth": "./dist/auth/index.js", 
-    "./error": "./dist/error/index.js",
-    "./student": "./dist/student/index.js",
-    "./info": "./dist/info/index.js",
-    "./kardex": "./dist/kardex/index.js"
+    ".": {
+      "default": "./dist/index.js",
+      "types": "./types/index.d.ts"
+    },
+    "./auth": {
+      "default": "./dist/auth/index.js",
+      "types": "./types/auth/index.d.ts"
+    },
+    "./error": {
+      "default": "./dist/error/index.js",
+      "types": "./types/error/index.d.ts"
+    },
+    "./student": {
+      "default": "./dist/student/index.js",
+      "types": "./types/student/index.d.ts"
+    },
+    "./info": {
+      "default": "./dist/info/index.js",
+      "types": "./types/info/index.d.ts"
+    },
+    "./kardex": {
+      "default": "./dist/kardex/index.js",
+      "types": "./types/kardex/index.d.ts"
+    }
   },
   "homepage": "https://github.com/CarlosNunezMX/aru",
   "author": {

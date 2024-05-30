@@ -32,3 +32,9 @@ Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API f
 ## Documentación
 - [Typedoc documentations](https://carlosnunezmx.github.io/aru/docs/typedoc/index.html)
 - [**Ejemplos - Proximamente**](#)
+
+## Contributors ❤️
+|[CarlosNunezMX](https://github.com/CarlosNunezMX)|[ManuelDeAlba](https://github.com/ManuelDeAlba)|
+---|---|
+|![CarlosNunezMX](https://avatars.githubusercontent.com/u/25675386?s=96&v=4)|![ManuelDeAlba](https://avatars.githubusercontent.com/u/59067891?s=96&v=4)|
+|Project Owner|Collaborator|
