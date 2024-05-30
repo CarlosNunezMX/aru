@@ -1,4 +1,9 @@
 name: Tests
+
+env:
+  LEO_USER: ${{ secrets.LEO_USER }}
+  LEO_PASSWORD: ${{ secrets.LEO_PASSWORD }}
+
 on:
   push:
     branches:
