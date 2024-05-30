@@ -1,5 +1,5 @@
 import { Login } from "../source/auth/Login";
-import { StudentInfo } from "../source/student/StudentInfo";
+import { StudentInfo } from "../source/student/StudentInfo/StudentInfo";
 import {expect, test} from "bun:test"
 
 const auth =  new Login({
