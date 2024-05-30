@@ -4,3 +4,4 @@ bun.lockb
 jsdoc.json
 .env
 source/*
+test/*
