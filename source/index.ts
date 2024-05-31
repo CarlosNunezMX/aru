@@ -6,7 +6,7 @@ export { RequestError } from "./error/Request.js";
 
 export { StudentPlans } from "./info/Plans.js";
 
-export * as Kardex from "./kardex/Kardex.js";
+export {Kardex} from "./kardex/Kardex.js";
 
 export { AverageAdvance } from "./student/AverageAdvance/AvAdvance.js";
 export { EliminarMateria } from "./student/RegistroMaterias/EliminarMateria.js";

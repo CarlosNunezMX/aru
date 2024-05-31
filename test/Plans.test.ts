@@ -1,18 +1,12 @@
 import {StudentPlans} from '../source/index';
-import {Login} from '../source/auth/Login';
+import common from "./common.ts";
 
 import {expect, test} from 'bun:test';
 
-const session = new Login({
-    // @ts-ignore
-    User: process.env.LEO_USER,
-    // @ts-ignore
-    Password: process.env.LEO_PASSWORD
-});
+if (!common.StudentCode)
+    await common.exec();
 
-await session.exec();
-
-const plans = new StudentPlans(session);
+const plans = new StudentPlans(common);
 const data = await plans.exec();
 
 test("Student.plans", () => {

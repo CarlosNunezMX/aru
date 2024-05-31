@@ -1,17 +1,12 @@
-import { Login } from "../source/auth/Login";
+import common from "./common";
 import { StudentInfo } from "../source/student/StudentInfo/StudentInfo";
 import {expect, test} from "bun:test"
 
-const auth =  new Login({
-    // @ts-ignore
-    User: process.env.LEO_USER,
-    // @ts-ignore
-    Password: process.env.LEO_PASSWORD
-})
 
-await auth.exec()
+if (!common.StudentCode)
+    await common.exec();
 
-const studentInfo = new StudentInfo(auth);
+const studentInfo = new StudentInfo(common);
 const info = await studentInfo.exec();
 
 test("Student.info", () => {

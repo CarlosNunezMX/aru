@@ -20,6 +20,15 @@ export type credentials = {
     Password: string;
 }
 
+export type Options = {
+    /** 
+     * @description It creates cache for some usual methods, example Plans methods and it will save in a new class.
+     * @todo Create cache
+     * @todo Create cache container class
+     *  */
+    createCache: boolean;
+};
+
 /**
  * Used for login into the Leo, it's required for most of the methods.
  * Use the method exec() before use for another class constructor
@@ -34,10 +43,12 @@ export class Login extends Method {
     };
     protected Route: string = "https://micro-leo.udg.mx/login/v1/validar";
     public StudentCode?: string;
-    constructor(credentials: credentials){
+    private options?: Partial<Options>;
+    constructor(credentials: credentials, options?: Partial<Options>){
         super()
         this.User = credentials.User;
         this.Password = credentials.Password;
+        this.options = options;
     }
     /**
      * Execute the login method, it's required for most of the methods.

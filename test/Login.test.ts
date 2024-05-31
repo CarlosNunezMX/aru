@@ -1,7 +1,5 @@
 import { Login } from "../source/auth/Login";
 import { expect, test} from "bun:test";
-import { RequestError } from "../source/error/Request";
-import type { UnauthorizedType } from "../source/error/unauthorized_type";
 
 const Auth = new Login({
     // @ts-ignore

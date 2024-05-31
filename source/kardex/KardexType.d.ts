@@ -1,4 +1,4 @@
-export type Kardex = {
+export type KardexType = {
     datosPersonales: {
         nombre: string;
     };
