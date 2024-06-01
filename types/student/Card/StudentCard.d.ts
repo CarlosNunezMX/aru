@@ -7,5 +7,6 @@ import type { Login } from "../../auth/Login.js";
 export declare class StudentCard extends AuthMethod<Card> {
     protected Route: string;
     constructor(Auth: Login);
+    private Encode;
     exec(): Promise<Card>;
 }
