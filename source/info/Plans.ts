@@ -17,6 +17,11 @@ export class StudentPlans extends AuthMethod<Plans>{
 
     async exec() {
         await super.exec()
+        const cache = this.getCache<Plans>(StudentPlans as typeof AuthMethod);
+        
+        if(cache)
+            return cache
+
         const url = this.Route.replace(":studentCode", this.Auth.StudentCode!);
 
         const req = await fetch(url, {
@@ -29,6 +34,7 @@ export class StudentPlans extends AuthMethod<Plans>{
 
 
         const data = await req.json() as DirtyPlans;
+        this.UpdateCache.bind(this)(data.respuesta, StudentPlans as typeof AuthMethod)
         return data.respuesta;
 
     }

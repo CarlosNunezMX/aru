@@ -17,8 +17,12 @@ export declare class Method {
 /**
  * Use this class to create a new method that requires a login, it contains the AuthToken and Token, remember to call the exec method before using the AuthToken by super.exec()
  */
-export declare abstract class AuthMethod<Return = void> extends Method {
+export declare abstract class AuthMethod<Return = void, initType = undefined> extends Method {
     protected Auth: Login;
-    constructor(Auth: Login);
+    ShouldUpCache: boolean;
+    protected Props?: initType;
+    constructor(Auth: Login, init?: initType);
     exec(): Promise<Return>;
+    UpdateCache<T>(data: T, c: typeof AuthMethod): void;
+    getCache<R>(c: typeof AuthMethod): R | undefined;
 }

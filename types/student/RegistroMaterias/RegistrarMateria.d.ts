@@ -15,8 +15,7 @@ export type MateriaRegistrada = string[];
 /**
  * Add a subject from the student's schedule by NRC
  */
-export declare class RegistrarMateria extends AuthMethod<MateriaRegistrada> {
-    Props: RegistrarMateriaInit;
+export declare class RegistrarMateria extends AuthMethod<MateriaRegistrada, RegistrarMateriaInit> {
     protected Route: string;
     constructor(Auth: Login, init: RegistrarMateriaInit);
     /**

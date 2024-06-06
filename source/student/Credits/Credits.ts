@@ -22,8 +22,13 @@ export class Credits extends AuthMethod<CreditsType>{
     protected Route: string = "https://micro-leo.udg.mx/esc-alumnos/v1/:studentCode/:programID/:initialAcademicTerm/creditos";
     async exec() {
         await super.exec();
+        if(this.Auth.Cache){
+            const cache = this.getCache<CreditsType>(Credits as typeof AuthMethod);
+            if(cache)
+                return cache;
+        }
         const plans = new StudentPlans(this.Auth);
-        const { cicladmision, idprograma } = this.props || (await plans.exec())[0];
+        const { cicladmision, idprograma } = this.props ||  this.Auth.getPlanfromCache(this.Auth.StudentCode!)![0] || (await plans.exec())[0];
         
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
             .replace(":programID", idprograma)
@@ -37,6 +42,7 @@ export class Credits extends AuthMethod<CreditsType>{
             ErrorHandling(req);
 
         const data = await req.json() as DirtyType<CreditsType>;
+        this.UpdateCache.bind(this)(data.respuesta, Credits as typeof AuthMethod)
         return data.respuesta;
     }
 }

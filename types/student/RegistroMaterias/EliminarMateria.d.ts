@@ -4,9 +4,8 @@ import { AuthMethod } from "../../utils/Method.js";
 /**
  * Delete a subject from the student's schedule by NRC
  */
-export declare class EliminarMateria extends AuthMethod<MateriaRegistrada> {
+export declare class EliminarMateria extends AuthMethod<MateriaRegistrada, RegistrarMateriaInit> {
     protected Route: string;
-    private Props;
     constructor(Auth: Login, init: RegistrarMateriaInit);
     /**
      * @todo Revisar que el tipo de dato de respuesta sea el adecuado.

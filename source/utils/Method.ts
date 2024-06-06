@@ -33,12 +33,14 @@ export class Method{
 /**
  * Use this class to create a new method that requires a login, it contains the AuthToken and Token, remember to call the exec method before using the AuthToken by super.exec()
  */
-export abstract class AuthMethod<Return = void> extends Method {
+export abstract class AuthMethod<Return = void, initType = undefined> extends Method {
     declare protected Auth: Login;
     ShouldUpCache: boolean = true;
-    constructor(Auth: Login){
+    protected Props?: initType;
+    constructor(Auth: Login, init?: initType){
         super();
         this.Auth = Auth;
+        this.Props = init;
     }
 
     // @ts-ignore
@@ -46,14 +48,20 @@ export abstract class AuthMethod<Return = void> extends Method {
         super.exec();
         if(!this.Auth.checkVigencia()){
             await this.Auth.exec.bind(this.Auth)();
+            this.ShouldUpCache = true;
         }
     }
 
+
     UpdateCache<T>(data: T, c: typeof AuthMethod): void{
-        if(this.ShouldUpCache)
+        if(!this.ShouldUpCache)
             return;
-        if(this.Auth.Cache)
+        if(this.Auth.Cache){
+            console.log("Setting cache");
+            
             this.Auth.Cache.setCache(this.Auth.StudentCode!, c, data);
+        }
+        this.ShouldUpCache = true;
     }
 
 

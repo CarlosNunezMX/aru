@@ -7,6 +7,6 @@ if(!process.env.LEO_USER || !process.env.LEO_PASSWORD) {
 const session = new Login({
     User: process.env.LEO_USER,
     Password: process.env.LEO_PASSWORD
-})
+}, {createCache: true})
 
 export default session;

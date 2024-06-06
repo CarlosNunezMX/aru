@@ -1,11 +1,13 @@
 import type { LoginResponseType } from "./Login.response.js";
 
-import { Method } from "../utils/Method.js";
+import { AuthMethod, Method } from "../utils/Method.js";
 import { HeaderPreset } from "../utils/CommonHeaders.js";
 import { ErrorHandling } from "../error/Request.js";
 
 import { encryptPassword } from "../utils/crypto/Password.js";
 import { Cache } from "./Cache.js";
+import type { Plans } from "../info/PlansType.js";
+import { StudentPlans } from "../info/Plans.js";
 
 type TokenType = {
     token: string | null;
@@ -59,6 +61,17 @@ export class Login extends Method {
      * Execute the login method, it's required for most of the methods.
      * This will load the token and the student code on the class
      */
+
+
+    getPlanfromCache(student: string): Plans | undefined {
+        if(this.Cache){
+            const cache = this.Cache.getCache<Plans>(StudentPlans as typeof AuthMethod, student)
+            return Array.isArray(cache) ? cache : [];
+        }
+
+        return [];
+    }
+
     async exec(): Promise<void>{
         super.exec();
 

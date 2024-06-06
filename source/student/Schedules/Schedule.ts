@@ -1,5 +1,6 @@
 import type { Login } from "../../auth/Login.js";
 import type { DirtySchedule, Materia } from "./ScheduleTypes.js";
+import type { Plans } from "../../info/PlansType.js";
 
 import { AuthHeaderPreset } from "../../utils/CommonHeaders.js";
 import { AuthMethod } from "../../utils/Method.js";
@@ -25,7 +26,13 @@ export class Schedule extends AuthMethod<Materia[]>{
 
     async exec(){
         await super.exec()
-        const idprograma = this.props.idprograma || (await new StudentPlans(this.Auth).exec())[0].idprograma;
+        if(this.Auth.Cache && !this.ShouldUpCache){
+            const cache = this.getCache<Materia[]>(Schedule as typeof AuthMethod);
+            if(cache)
+                return cache;
+        }
+
+        const idprograma = this.props.idprograma || this.getCache<Plans>(StudentPlans as typeof AuthMethod)![0].idprograma || (await new StudentPlans(this.Auth).exec())[0].idprograma;
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
             .replace(':programID', idprograma)
             .replace(':academicTerm', this.props.ciclo);
@@ -36,8 +43,8 @@ export class Schedule extends AuthMethod<Materia[]>{
 
         if(!req.ok)
             ErrorHandling(req);
-
         const data = await req.json() as DirtySchedule;
+        this.UpdateCache.bind(this)(data.respuesta, Schedule as typeof AuthMethod);
         return data.respuesta;
 
     }

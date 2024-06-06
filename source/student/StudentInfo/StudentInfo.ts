@@ -16,6 +16,10 @@ export class StudentInfo extends AuthMethod<StudentInfoType>{
     protected Route: string = "https://micro-leo.udg.mx/sii-alumnos/v1/:studentCode/datos-personales";
 
     async exec() {
+        const cache = this.getCache<StudentInfoType>(StudentInfo as typeof AuthMethod);
+        if(cache)
+            return cache;
+
         await super.exec();
         const url = new URL(this.Route.replace(":studentCode", this.Auth.StudentCode as string))
         const req = await fetch(url.toString(), {
@@ -26,6 +30,7 @@ export class StudentInfo extends AuthMethod<StudentInfoType>{
             ErrorHandling(req);
 
         const data = await req.json() as DirtyStudentInfoType;
+        this.UpdateCache.bind(this)(data.respuesta, StudentInfo as typeof AuthMethod)
         return data.respuesta;
     }
 }

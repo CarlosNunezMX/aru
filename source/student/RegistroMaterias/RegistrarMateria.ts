@@ -20,35 +20,35 @@ export type MateriaRegistrada = string[]
 /**
  * Add a subject from the student's schedule by NRC
  */
-export class RegistrarMateria extends AuthMethod<MateriaRegistrada> {
-    Props: RegistrarMateriaInit;
+export class RegistrarMateria extends AuthMethod<MateriaRegistrada, RegistrarMateriaInit> {
     protected Route: string = "https://micro-leo.udg.mx/esc-registro/v1/";
     constructor(Auth: Login, init: RegistrarMateriaInit){
-        super(Auth);
-        this.Props = init;
+        super(Auth, init);
+        
     }
      /**
      * @todo Revisar que el tipo de dato de respuesta sea el adecuado.
      */
     async exec(){
         await super.exec();
+        const cache = this.Auth.getPlanfromCache(this.Auth.StudentCode!);
         const plans = new StudentPlans(this.Auth);
-        if(this.Props.idcentro || this.Props.idprograma || this.Props.nivel){
+        if(this.Props!.idcentro || this.Props!.idprograma || this.Props!.nivel){
             const res = await plans.exec();
-            this.Props.idcentro = res[0].idcentro;
-            this.Props.idprograma = res[0].idprograma;
-            this.Props.nivel = res[0].nivel;
+            this.Props!.idcentro = cache![0].idcentro|| res[0].idcentro;
+            this.Props!.idprograma = cache![0].idprograma|| res[0].idprograma;
+            this.Props!.nivel = cache![0].nivel || res[0].nivel;
         }
         const request = await fetch(this.Route, {
             method: "POST",
             headers: AuthHeaderPreset(this.AuthToken, this.Auth.getToken().token!),
             body: JSON.stringify({
                 idalumno: this.Auth.StudentCode!,
-                idprograma: this.Props.idprograma,
-                nivel: this.Props.nivel,
-                idciclo: this.Props.ciclo,
-                idcentro: this.Props.idcentro,
-                cursos: this.Props.cursos
+                idprograma: this.Props!.idprograma,
+                nivel: this.Props!.nivel,
+                idciclo: this.Props!.ciclo,
+                idcentro: this.Props!.idcentro,
+                cursos: this.Props!.cursos
             })
         })
         

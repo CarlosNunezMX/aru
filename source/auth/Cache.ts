@@ -25,8 +25,4 @@ export class Cache{
     clearCache(student: string){
         this._Cache.delete(student);
     }
-
-    getPlanfromCache(student: string): Plans | undefined{
-        return this.getCache(StudentPlans as typeof AuthMethod, student);
-    }
 }

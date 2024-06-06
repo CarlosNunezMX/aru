@@ -1,4 +1,6 @@
 import { Method } from "../utils/Method.js";
+import { Cache } from "./Cache.js";
+import type { Plans } from "../info/PlansType.js";
 type TokenType = {
     token: string | null;
     vigencia: Date | null;
@@ -29,11 +31,13 @@ export declare class Login extends Method {
     protected Route: string;
     StudentCode?: string;
     private options?;
+    Cache?: Cache;
     constructor(credentials: credentials, options?: Partial<Options>);
     /**
      * Execute the login method, it's required for most of the methods.
      * This will load the token and the student code on the class
      */
+    getPlanfromCache(student: string): Plans | undefined;
     exec(): Promise<void>;
     /** Get the token and its vigency */
     getToken(): Required<TokenType>;

@@ -30,7 +30,10 @@ export class AverageAdvance extends AuthMethod<AvAdvanceType>{
     }
 
     async exec() {
-        const {idprograma, cicladmision} = this.props || (await new StudentPlans(this.Auth).exec())[0];
+        const cache = this.getCache<AvAdvanceType>(AverageAdvance as typeof AuthMethod);
+        if(cache)
+            return cache;
+        const {idprograma, cicladmision} = this.props || this.Auth.getPlanfromCache(this.Auth.StudentCode!)![0] || (await new StudentPlans(this.Auth).exec())[0];
         await super.exec()
         const req_url = this.Route.replace(':studentCode', this.Auth.StudentCode!)
             .replace(':programID', idprograma)
@@ -40,6 +43,7 @@ export class AverageAdvance extends AuthMethod<AvAdvanceType>{
         if(!req.ok)
             ErrorHandling(req);
         const data = await req.json() as DirtyAvAdvance;
+        this.UpdateCache(data.respuesta, AverageAdvance as typeof AuthMethod);
         return data.respuesta;
     }
 }

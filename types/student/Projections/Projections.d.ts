@@ -9,9 +9,8 @@ export type ProjectionInit = {
 /**
  * Get the student projection, this contains the pending subjects to take
  */
-export declare class Projections extends AuthMethod<ProjectionSubjectType[]> {
+export declare class Projections extends AuthMethod<ProjectionSubjectType[], ProjectionInit> {
     protected Route: string;
-    private props?;
     constructor(Auth: Login, init?: ProjectionInit);
     exec(): Promise<ProjectionSubjectType[]>;
 }

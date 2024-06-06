@@ -6,17 +6,19 @@ const Creds: UserCredentials = {
     User: process.env.LEO_USER
 }
 
-const session = new Login(Creds);
+const session = new Login(Creds, {createCache: true});
 await session.exec();
 
 
-// const projection = new Projections(session);
-// const studentProjection = await projection.exec();
-// console.log(studentProjection);
+const projection = new Projections(session);
+const studentProjection = await projection.exec();
 
-// const credits = new Credits(session);
-// await credits.exec();
+const credits = new Credits(session);
+await credits.exec();
 
 const plans = new StudentPlans(session);
 const studentPlan = await plans.exec();
-console.log(studentPlan);
+
+
+
+console.log(session.Cache);
