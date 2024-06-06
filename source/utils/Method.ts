@@ -35,6 +35,7 @@ export class Method{
  */
 export abstract class AuthMethod<Return = void> extends Method {
     declare protected Auth: Login;
+    ShouldUpCache: boolean = true;
     constructor(Auth: Login){
         super();
         this.Auth = Auth;
@@ -46,5 +47,20 @@ export abstract class AuthMethod<Return = void> extends Method {
         if(!this.Auth.checkVigencia()){
             await this.Auth.exec.bind(this.Auth)();
         }
+    }
+
+    UpdateCache<T>(data: T, c: typeof AuthMethod): void{
+        if(this.ShouldUpCache)
+            return;
+        if(this.Auth.Cache)
+            this.Auth.Cache.setCache(this.Auth.StudentCode!, c, data);
+    }
+
+
+    getCache<R>(c: typeof AuthMethod): R | undefined{
+        if(this.ShouldUpCache)
+            return;
+        if(this.Auth.Cache)
+            return this.Auth.Cache?.getCache<R>(c, this.Auth.StudentCode!);
     }
 }

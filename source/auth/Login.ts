@@ -5,6 +5,7 @@ import { HeaderPreset } from "../utils/CommonHeaders.js";
 import { ErrorHandling } from "../error/Request.js";
 
 import { encryptPassword } from "../utils/crypto/Password.js";
+import { Cache } from "./Cache.js";
 
 type TokenType = {
     token: string | null;
@@ -44,11 +45,15 @@ export class Login extends Method {
     protected Route: string = "https://micro-leo.udg.mx/login/v1/validar";
     public StudentCode?: string;
     private options?: Partial<Options>;
+    Cache?: Cache;
     constructor(credentials: credentials, options?: Partial<Options>){
         super()
         this.User = credentials.User;
         this.Password = credentials.Password;
         this.options = options;
+
+        if(this.options?.createCache)
+            this.Cache = new Cache();
     }
     /**
      * Execute the login method, it's required for most of the methods.
