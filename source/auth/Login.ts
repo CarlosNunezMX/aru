@@ -48,13 +48,13 @@ export class Login extends Method {
     public StudentCode?: string;
     private options?: Partial<Options>;
     Cache?: Cache;
-    constructor(credentials: credentials, options?: Partial<Options>){
+    public constructor(credentials: credentials, options?: Partial<Options>) {
         super()
         this.User = credentials.User;
         this.Password = credentials.Password;
         this.options = options;
 
-        if(this.options?.createCache)
+        if (this.options?.createCache)
             this.Cache = new Cache();
     }
     /**
@@ -64,7 +64,7 @@ export class Login extends Method {
 
 
     getPlanfromCache(student: string): Plans | undefined {
-        if(this.Cache){
+        if (this.Cache) {
             const cache = this.Cache.getCache<Plans>(StudentPlans as typeof AuthMethod, student)
             return Array.isArray(cache) ? cache : [];
         }
@@ -72,7 +72,7 @@ export class Login extends Method {
         return [];
     }
 
-    async exec(): Promise<void>{
+    async exec(): Promise<void> {
         super.exec();
 
         // Preparar consulta
@@ -82,41 +82,48 @@ export class Login extends Method {
             pwd: encryptPassword(this.Password)
         });
         url.search = params.toString();
-        
+
 
         // Realizar consulta
         const data = await fetch(url.toString(), {
             headers: HeaderPreset(this.AuthToken),
             method: "POST"
         })
-        if(!data.ok)
+        if (!data.ok)
             ErrorHandling(data);
 
         const credentials = (await data.json() as LoginResponseType);
-        
+
         this.Token.token = credentials.respuesta.id_token;
         this.Token.vigencia = new Date(credentials.respuesta.vigencia);
         this.StudentCode = credentials.respuesta.usua_id;
     }
 
     /** Get the token and its vigency */
-    getToken(): Required<TokenType>{
+    getToken(): Required<TokenType> {
         return this.Token;
     }
 
     /** Check if you need to regenerate a token */
-    checkVigencia(): boolean{
-        
-        if(this.Token.vigencia === null || this.Token.token === null){
+    checkVigencia(): boolean {
+
+        if (this.Token.vigencia === null || this.Token.token === null) {
             return true;
         }
 
-        
+
 
         const current = new Date(Date.now());
-        if( current > this.Token.vigencia!){
+        if (current > this.Token.vigencia!) {
             return false;
         }
         return true;
+    }
+
+    setToken(token: Required<TokenType>): void {
+        this.Token = token;
+        if (this.checkVigencia()) {
+            throw "Token isn't vigent!"
+        }
     }
 }
