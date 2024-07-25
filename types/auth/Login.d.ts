@@ -43,5 +43,6 @@ export declare class Login extends Method {
     getToken(): Required<TokenType>;
     /** Check if you need to regenerate a token */
     checkVigencia(): boolean;
+    setToken(token: Required<TokenType>): void;
 }
 export {};
