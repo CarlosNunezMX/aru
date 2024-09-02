@@ -26,3 +26,11 @@ export type { ProjectionSubjectType } from "./student/Projections/ProjectionsTyp
 export * as RegistroMateriaTypes from "./student/RegistroMaterias/RegistrarMateria.js";
 export type { StudentInfoType, DomicilioFormated } from "./student/StudentInfo/InfoType.js";
 export type { ScheduleInit } from "./student/Schedules/Schedule.js";
+export type { CentroEducativo } from "./centros/centros/centro.js";
+export { Centros } from "./centros/centros/centros.js";
+export { ProgramasCentros } from "./centros/programas/programas.js";
+export type { Programa } from "./centros/programas/programa.js";
+export type { Ciclo } from "./centros/ciclos/ciclo.js";
+export { Ciclos } from "./centros/ciclos/ciclos.js";
+export type { MateriaOferta, OfertaAcademicaRequest } from "./centros/oferta/oferta.js";
+export { OfertaAcademica } from "./centros/oferta/ofertaAcademica.js";

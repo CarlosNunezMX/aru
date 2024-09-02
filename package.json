@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "description": "Just another UdeG Leo Wrapper",
-  "version": "0.8.2",
+  "version": "0.8.4",
   "bugs": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://github.com/CarlosNunezMX/aru/issues"
@@ -34,11 +34,16 @@
     "./kardex": {
       "default": "./dist/kardex/index.js",
       "types": "./types/kardex/index.d.ts"
+    },
+    "./oferta": {
+      "default": "./dist/centros/index.js",
+      "types": "./types/centros/index.d.ts"
     }
   },
   "homepage": "https://github.com/CarlosNunezMX/aru",
   "author": {
     "email": "carlitosnu41@gmail.com",
+    "url": "https://carlosnunezmx.tech",
     "name": "CarlosNuñezMX"
   },
   "scripts": {

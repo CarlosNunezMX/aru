@@ -26,7 +26,11 @@ export class StudentCard extends AuthMethod<Card> {
     await super.exec()
     const url = this.Route.replace(":studentCode", this.Encode())
 
-    const request = await fetch(url);
+    const request = await fetch(url, {
+      tls: {
+        rejectUnauthorized: false
+      }
+    });
 
     const data = await request.json() as DirtyCard;
 
