@@ -5,3 +5,4 @@ jsdoc.json
 .env
 source/*
 test/*
+.idea/*
