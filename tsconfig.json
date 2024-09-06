@@ -30,6 +30,7 @@
   "exclude": ["test/*", "dist/*"],
   "typedocOptions": {
     "entryPoints": [
+      "source/*.d.ts",
       "source/*.ts" // <--- take everything from this location
     ],
     "out": "docs/typedoc" // <--- output directory
