@@ -5,11 +5,11 @@ Estas son algunas de las funciones que se esperan inmplementar en un futuro.
 - [x] Iniciar sesión en la API
 - [ ] Implementar metodos para la obtención de
     - [ ] Calificaciones
-    - [ ] Datos del estudiante
+    - [x] Datos del estudiante
     - [ ] Orden de pago
     - [ ] Pre-agendar
     - [ ] Más modulos
-- [ ] Aglomeración de todos los metodos en una clase cliente
+- [x] Aglomeración de todos los metodos en una clase cliente
 
 ## Expectativas
 Se busca crear una forma fácil de interactuar, utilizando 
