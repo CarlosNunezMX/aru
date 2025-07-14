@@ -10,11 +10,10 @@
   "module": "source/index.ts",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/jsonwebtoken": "^9.0.10",
-    "typescript": "^5.4.5"
+    "@types/jsonwebtoken": "^9.0.10"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0",
+    "typescript": "^5.0.0"
   },
   "bugs": {
     "email": "carlitosnu41@gmail.com",
@@ -25,5 +24,13 @@
   "type": "module",
   "dependencies": {
     "jsonwebtoken": "^9.0.2"
+  },
+  "exports": {
+    ".": {
+      "default": "./source/index.ts"
+    },
+    "./mdoules": {
+      "default": "./source/modules"
+    }
   }
 }
