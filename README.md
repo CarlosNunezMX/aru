@@ -27,5 +27,5 @@ bun i github:/CarlosNunezMX/aru#v2
 ## Contributors ❤️
 |[CarlosNunezMX](https://github.com/CarlosNunezMX)|[ManuelDeAlba](https://github.com/ManuelDeAlba)|[Lord Friky](https://github.com/lordfriky)|
 ---|---|--|
-|![CarlosNunezMX](https://avatars.githubusercontent.com/u/25675386?s=96&v=4)|![ManuelDeAlba](https://avatars.githubusercontent.com/u/59067891?s=96&v=4)|![Lord Friky](https://avatars.githubusercontent.com/u/24846044?v=4)|
+|![CarlosNunezMX](https://avatars.githubusercontent.com/u/25675386?s=96&v=4)|![ManuelDeAlba](https://avatars.githubusercontent.com/u/59067891?s=96&v=4)|![Lord Friky](https://avatars.githubusercontent.com/u/24846044?s=96&v=4)|
 |Project Owner|Collaborator|Collaborator|
