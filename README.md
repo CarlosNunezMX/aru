@@ -10,31 +10,22 @@
 Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API facíl para interactuar con Leo(aka SIIAU 2) de manera sencilla y eficiente.
 ## Instalación
 
-### Instala el modulo ·v·
-1. Instala el modulo
-    ```bash
-    npm/bun/pnpm i @carlosnunezmx/aru
-    ```
-
+### Beta version
+> Warning: Expected breaking changes. **Only works with bun**
+```bash
+bun i github:/CarlosNunezMX/aru#v2
+```
 ### Descarga y prueba el codigo fuente
 1. Instalacion de dependecias.
     ```bash
     # bun 
     bun i
-    # node
-    npm/pnpm/yarn i
     ```
-2. (Node) Transpilación de Typescript
-    ```bash
-    npm run build
-    ```
-
 ## Documentación
-- [Typedoc documentations](https://carlosnunezmx.github.io/aru/docs/typedoc/index.html)
-- [**Ejemplos - Proximamente**](#)
+    - [Documentación general (en construcción)](./docs/index.md)
 
 ## Contributors ❤️
-|[CarlosNunezMX](https://github.com/CarlosNunezMX)|[ManuelDeAlba](https://github.com/ManuelDeAlba)|
+|[CarlosNunezMX](https://github.com/CarlosNunezMX)|[ManuelDeAlba](https://github.com/ManuelDeAlba)|[Lord Friky](https://github.com/lordfriky)|
 ---|---|
-|![CarlosNunezMX](https://avatars.githubusercontent.com/u/25675386?s=96&v=4)|![ManuelDeAlba](https://avatars.githubusercontent.com/u/59067891?s=96&v=4)|
-|Project Owner|Collaborator|
+|![CarlosNunezMX](https://avatars.githubusercontent.com/u/25675386?s=96&v=4)|![ManuelDeAlba](https://avatars.githubusercontent.com/u/59067891?s=96&v=4)|![Lord Friky](https://avatars.githubusercontent.com/u/24846044?v=4)|
+|Project Owner|Collaborator|Collaborator|
