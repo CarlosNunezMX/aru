@@ -1,64 +1,29 @@
 {
   "name": "@carlosnunezmx/aru",
-  "module": "dist/index.js",
-  "type": "module",
-  "main": "dist/index.js",
-  "types": "./types/index.d.ts",
-  "description": "Just another UdeG Leo Wrapper",
-  "version": "0.8.5",
-  "bugs": {
-    "email": "carlitosnu41@gmail.com",
-    "url": "https://github.com/CarlosNunezMX/aru/issues"
-  },
-  "exports": {
-    ".": {
-      "default": "./dist/index.js",
-      "types": "./types/index.d.ts"
-    },
-    "./auth": {
-      "default": "./dist/auth/index.js",
-      "types": "./types/auth/index.d.ts"
-    },
-    "./error": {
-      "default": "./dist/error/index.js",
-      "types": "./types/error/index.d.ts"
-    },
-    "./student": {
-      "default": "./dist/student/index.js",
-      "types": "./types/student/index.d.ts"
-    },
-    "./info": {
-      "default": "./dist/info/index.js",
-      "types": "./types/info/index.d.ts"
-    },
-    "./kardex": {
-      "default": "./dist/kardex/index.js",
-      "types": "./types/kardex/index.d.ts"
-    },
-    "./oferta": {
-      "default": "./dist/centros/index.js",
-      "types": "./types/centros/index.d.ts"
-    }
-  },
-  "homepage": "https://github.com/CarlosNunezMX/aru",
+  "version": "1.9.0",
   "author": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://carlosnunezmx.tech",
     "name": "CarlosNuñezMX"
   },
-  "scripts": {
-    "build": "tsc"
-  },
+  "main": "source/index.ts",
+  "module": "source/index.ts",
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
     "@types/bun": "latest",
+    "@types/jsonwebtoken": "^9.0.10",
     "typescript": "^5.4.5"
   },
   "peerDependencies": {
     "typescript": "^5.0.0",
-    "@types/bcrypt": "^5.0.2"
   },
+  "bugs": {
+    "email": "carlitosnu41@gmail.com",
+    "url": "https://github.com/CarlosNunezMX/aru/issues"
+  },
+  "description": "Just another UdeG Leo Wrapper",
+  "homepage": "https://github.com/CarlosNunezMX/aru",
+  "type": "module",
   "dependencies": {
-    "bcrypt": "^5.1.1"
+    "jsonwebtoken": "^9.0.2"
   }
 }

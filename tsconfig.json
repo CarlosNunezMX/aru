@@ -3,15 +3,16 @@
     // Enable latest features
     "lib": ["ESNext"],
     "target": "ESNext",
-    "module": "NodeNext",
+    "module": "esnext",
     "moduleDetection": "force",
     "jsx": "react-jsx",
     "allowJs": true,
     "rootDir": "./source",
     "outDir": "./dist",
+
     
     // Bundler mode
-    "moduleResolution": "NodeNext",
+    "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
 
     // Best practices
@@ -23,8 +24,12 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
-    "declaration": true,
-    "declarationDir": "./types"
+    "baseUrl": "./",
+    "paths": {
+      "@common/*": ["./source/common/*"],
+      "@auth/*": ["./source/auth/*"],
+      "@interfaces/*": ["./source/interfaces/*"]
+    }
   },
   "include": ["source"],
   "exclude": ["test/*", "dist/*"],
