@@ -30,7 +30,7 @@
       "default": "./source/index.ts"
     },
     "./mdoules": {
-      "default": "./source/modules"
+      "default": "./source/modules/index.ts"
     }
   }
 }

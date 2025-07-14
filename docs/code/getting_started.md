@@ -3,6 +3,8 @@ Esta es una guía para entender el flujo de trabajo de este
 modulo.
 > Espera cambios agresivos, esta guía no es definitiva
 
+**👉 [Nuevo] - Clase cliente (🛠️ En construcción) > [Cliente](client.md)**
+
 ## Fetch
 Se utiliza para hacer las peticiones internas del modulo, para evitar cosas legales, me reservo el derecho de no compartir la privateKey.
 
@@ -19,10 +21,15 @@ const fetch = new Fetch(key, /** session? **/);
 Para esto ya debemos de haber establecido una sesión en el 
 controlador.
 ```ts
+// Peticiones manuales
 await fetch.fetch<T>(url, {
     method: "POST",
     body: "test"
 });
+
+// Modulos incluidos
+import {StudentData} from "@carlosnunezmx/aru/modules"
+await StudentData(fetch, session);
 ```
 
 ## Manejo de sesiones

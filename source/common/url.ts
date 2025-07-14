@@ -17,7 +17,7 @@ export default function buildURL<Path extends string>(url: Path, req: RouteParam
     let newURL = url;
     for(let key of keys)
         // @ts-ignore
-        newURL.replace(`:${key}`, req[key])        
+        newURL = newURL.replace(`:${key}`, req[key])        
 
 
     return newURL;
