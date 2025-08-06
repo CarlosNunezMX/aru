@@ -7,6 +7,9 @@
     <img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/w/CarlosNunezMX/aru?style=for-the-badge&logo=github&label=Actividad">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/CarlosNunezMX/aru?display_timestamp=author&style=for-the-badge&logo=github&label=%C3%9Altimo%20Commit">
 </p>
+
+> Para consultar la documentacion de la v2 consulte la rama `v2`, la cual se encuentra en fase experimental.
+
 Este wrapper esta creado con Bun, Typescript y Bcrypt, el cual entrega una API facíl para interactuar con Leo(aka SIIAU 2) de manera sencilla y eficiente.
 ## Instalación
 
