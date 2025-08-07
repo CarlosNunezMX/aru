@@ -8,6 +8,6 @@ export default async function StudentData(fetch: Fetch, session: SessionToken.Se
         codigo: session.userID
     });
 
-    const res = await fetch.fetch<PersonalData>(url, {});
+    const res = await fetch.fetch<PersonalData>(url);
     return res;
 }

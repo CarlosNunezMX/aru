@@ -1,5 +1,5 @@
 export interface Response<T>{
     codigo: number;
     mensaje: string;
-    respuesta?: T;
+    respuesta?: T | {error: string}[];
 };

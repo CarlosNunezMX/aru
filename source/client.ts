@@ -2,9 +2,9 @@ import type SessionToken from "@auth/index";
 import { createSession } from "@auth/index";
 import Fetch from "@common/fetch";
 import NotSessionError from "@common/sessionError";
+import type { LaunchCB } from "@interfaces/Client";
 import type { PrivateKey } from "jsonwebtoken";
 
-export type LaunchCB<T> = (fetch: Fetch, session: SessionToken.Session) => Promise<T>;
 
 export class Client {
     session?: SessionToken.Session;

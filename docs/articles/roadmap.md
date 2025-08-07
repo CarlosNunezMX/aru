@@ -6,8 +6,10 @@ Estas son algunas de las funciones que se esperan inmplementar en un futuro.
 - [ ] Implementar metodos para la obtención de
     - [ ] Calificaciones
     - [x] Datos del estudiante
-    - [ ] Orden de pago
+    - [-] Orden de pago
     - [ ] Pre-agendar
+    - [x] Oferta academica
+    - [x] Registro de materias
     - [ ] Más modulos
 - [x] Aglomeración de todos los metodos en una clase cliente
 

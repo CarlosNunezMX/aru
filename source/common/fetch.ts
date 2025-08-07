@@ -26,10 +26,9 @@ export default class Fetch {
         }
     }
 
-    async fetch<T>(url: string, req: RequestInit): Promise<T> {
+    async fetch<T>(url: string, req: RequestInit = {}): Promise<T> {
         try {
             const reqBody = this.buildBody.bind(this)(req);
-            console.log(reqBody)
             const res = await fetch(url, reqBody);
             const type = res.headers.get("content-type") || "";
             const isJSON = type?.includes("application/json")
@@ -48,8 +47,11 @@ export default class Fetch {
             }
 
             if (!isJSON) throw new Error("Expected JSON output");
+            const {respuesta} = (body as Response<T>)
+            if(Array.isArray(respuesta) && respuesta[0].error)
+                throw new HttpError(res.status, respuesta[0].error);
 
-            return (body as Response<T>).respuesta!;
+            return respuesta! as T;
 
         } catch (err: unknown) {
             if (err instanceof HttpError)

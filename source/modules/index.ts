@@ -1,2 +1,9 @@
 import StudentData from "./data";
-export {StudentData};
+export { StudentData };
+
+import Oferta from "./oferta";
+export { Oferta };
+
+import Agenda from "./agenda";
+export { Agenda };
+

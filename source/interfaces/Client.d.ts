@@ -1,0 +1,1 @@
+export type LaunchCB<T> = (fetch: Fetch, session: SessionToken.Session) => Promise<T>;
