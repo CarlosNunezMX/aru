@@ -1,8 +1,6 @@
 import type SessionToken from "@auth/index";
 import type Fetch from "@common/fetch";
-import buildURL from "@common/url";
 import type { AruCarreras } from "@interfaces/carreras/Carreras";
-import type { LaunchCB } from "@interfaces/Client";
 import type { RegistroInit } from "@interfaces/modules/agenda/registro";
 
 export const RegistroMaterias =
