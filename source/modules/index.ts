@@ -7,3 +7,5 @@ export { Oferta };
 import Agenda from "./agenda";
 export { Agenda };
 
+import Credencial from "./soyalumno/credencial";
+export {Credencial};
