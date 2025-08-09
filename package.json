@@ -31,6 +31,7 @@
     },
     "./mdoules": {
       "default": "./source/modules/index.ts"
-    }
+    },
+    "./types/*": "./source/interfaces/*.d.ts"
   }
 }
