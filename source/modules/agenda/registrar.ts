@@ -1,11 +1,12 @@
 import type SessionToken from "@auth/index";
 import type Fetch from "@common/fetch";
+import type { LaunchCB } from "@interfaces/Client";
 import type { AruCarreras } from "@interfaces/carreras/Carreras";
 import type { RegistroInit } from "@interfaces/modules/agenda/registro";
 
 export const RegistroMaterias =
     (materias: string[], carrera: AruCarreras.AnyCentro, centro: string, ciclo: string, nivel = "LI") => {
-        return async (fetch: Fetch, session: SessionToken.Session) => {
+        const _: LaunchCB<void> = async (fetch: Fetch, session: SessionToken.Session) => {
             const url = "https://leoalumnos-svc.udg.mx/alum/api/registro/";
             const body = {
                 cursos: materias,
@@ -17,11 +18,11 @@ export const RegistroMaterias =
             } satisfies RegistroInit;
 
 
-            const res = await fetch.fetch<never>(url, {
+            await fetch.fetch(url, {
                 method: "POST",
                 body: JSON.stringify(body)
             })
-
         }
-    }
-    ;
+
+        return _;
+    };

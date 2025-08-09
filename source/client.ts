@@ -22,10 +22,12 @@ export class Client {
     }
 
     async launch<T>(fn: LaunchCB<T>): Promise<T> {
-        if(!this.session)
+        if (!this.session)
             throw new NotSessionError();
 
         const response = await fn(this.fetch, this.session);
         return response;
     }
 }
+
+

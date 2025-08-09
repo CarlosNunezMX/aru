@@ -1,10 +1,11 @@
 import type SessionToken from "@auth/index";
 import type Fetch from "@common/fetch";
 import HttpError from "@common/httpError";
+import type { LaunchCB } from "@interfaces/Client";
 import type { AruCarreras } from "@interfaces/carreras/Carreras";
 
-const ValidarRegistro = (centro: string, carrera: AruCarreras.AnyCentro, ciclo: string) =>
-    async (fetch: Fetch, session: SessionToken.Session) => {
+const ValidarRegistro = (centro: string, carrera: AruCarreras.AnyCentro, ciclo: string) => {
+    const _: LaunchCB<boolean> = async (fetch: Fetch, session: SessionToken.Session) => {
         try {
 
             const url = "https://leoalumnos-svc.udg.mx/alum/api/registro/validaciones-alumnos";
@@ -22,12 +23,14 @@ const ValidarRegistro = (centro: string, carrera: AruCarreras.AnyCentro, ciclo: 
 
             return true;
         } catch (err) {
-            if(!(err instanceof HttpError))
+            if (!(err instanceof HttpError))
                 throw err;
-            if(err.code !== 201) throw err;
+            if (err.code !== 201) throw err;
             return false;
 
         }
     };
 
+    return _;
+}
 export default ValidarRegistro;

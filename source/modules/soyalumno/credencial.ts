@@ -1,4 +1,5 @@
 import buildURL from "@common/url";
+import type { LaunchCB } from "@interfaces/Client";
 import type { Card } from "@interfaces/modules/soyalumno";
 
 function Encode(code: string): string {
@@ -6,7 +7,7 @@ function Encode(code: string): string {
     return btoa(btoa(format));
 }
 
-export default async function Credencial(id: string) {
+const Credencial: LaunchCB<Card> = async (id: string) => {
     const url = buildURL("https://soyudg.udg.mx/alumnos/show?encryptedId=:studentCode", {
         studentCode: Encode(id)
     });
@@ -17,6 +18,7 @@ export default async function Credencial(id: string) {
         }
     })
     const json = await data.json() as { data: Card };
-
     return json.data;
 }
+
+export default Credencial;
