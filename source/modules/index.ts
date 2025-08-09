@@ -8,4 +8,7 @@ import Agenda from "./agenda";
 export { Agenda };
 
 import Credencial from "./soyalumno/credencial";
-export {Credencial};
+export { Credencial };
+
+import PlanesEstudios from "./planes";
+export { PlanesEstudios };
