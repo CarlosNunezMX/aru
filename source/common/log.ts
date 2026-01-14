@@ -8,12 +8,12 @@ export namespace DebugLogger {
                 date
             }
         }
-        private handle(){
-            const isDEV = process.env["NODE_ENV"] === "production";
-            return isDEV;
+        private get isDev(){
+            return process.env["NODE_ENV"] !== "production";
         }
         error(type: ERROR_TYPE, ...log: any) {
-            if(!this.handle())
+            console.log(this.isDev)
+            if(!this.isDev)
                 return;
             const info = this.getInfo();
             console.error(`[${type}] at ${info.date} - `, ...log);

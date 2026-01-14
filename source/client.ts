@@ -21,12 +21,11 @@ export class Client {
         return this;
     }
 
-    async launch<T>(fn: LaunchCB<T>): Promise<T> {
+    async launch<T>(fn: (fetch: Fetch, session: SessionToken.Session) => Promise<T>): Promise<T> {
         if (!this.session)
             throw new NotSessionError();
 
-        const response = await fn(this.fetch, this.session);
-        return response;
+        return await fn(this.fetch, this.session);
     }
 }
 
