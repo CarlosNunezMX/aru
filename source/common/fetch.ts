@@ -18,7 +18,7 @@ export default class Fetch {
     return {
       ...req,
       headers: {
-        Referer: "	https://leoalumnos.udg.mx/",
+        Referer: "https://leoalumnos.udg.mx/",
         Origin: "https://leoalumnos.udg.mx",
         authorization: `Bearer ${createISS(this.key)}`,
         "authorization-key": `Bearer ${
@@ -29,7 +29,6 @@ export default class Fetch {
         "Content-Type": "application/json",
         ...req.headers,
       },
-      verbose: true,
     } as RequestInit;
   }
 
