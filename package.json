@@ -1,6 +1,6 @@
 {
   "name": "@carlosnunezmx/aru",
-  "version": "2.1.1",
+  "version": "2.1.3",
   "author": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://carlosnunezmx.tech",
@@ -29,7 +29,7 @@
     ".": {
       "default": "./source/index.ts"
     },
-    "./mdoules": {
+    "./modules": {
       "default": "./source/modules/index.ts"
     },
     "./types/*": "./source/interfaces/*.d.ts"

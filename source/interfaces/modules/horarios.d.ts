@@ -1,39 +1,45 @@
-export namespace AruHorario {
+export namespace Schedule {
+  export interface Item {
+    crn: string;
+    idcurso: string;
+    nombrecurso: string;
+    numeseccion: string;
+    idcampus: string;
+    creditos: string;
+    horarios: Schedule[];
+    profesores: Professor[];
+    tiporegistro: string;
+  }
+  export type WeekDay =
+    | "Lunes"
+    | "Martes"
+    | "Miércoles"
+    | "Jueves"
+    | "Viernes"
+    | "Sábado";
+  export interface Hour {
+    dia: WeekDay;
+    hora: string;
+    idedificio: string;
+    edificio: string;
+    numesalon: string;
+  }
 
-    export type DiaSem = "Lunes" | "Martes" | "Miercoles" | "Jueves" | "Viernes" | "Sábado";
-    export interface Hora {
-        /**
-         * @description ```
-         * 0900
-         *  ^ ^
-         *  H M
-         * ```
-         */
-        horainicio: string;
-        /**
-         * @description ```
-         * 0900
-         *  ^ ^
-         *  H M
-         * ```
-         */
-        horafin: string;
-        dia: DiaSem;
-        idedificio: string;
-        descedificio: string;
-        aula: string;
+  export interface Professor {
+    nombres: string;
+    apellidos: string;
+    idprofesor: string;
+  }
 
-    };
-
-    export interface Profesor {
-        indiprimario: string;
-        nombprofesor: string;
-    }
-
-    export type Horario = {
-        fechainicio: string;
-        fechafin: string;
-        horas: Hora[]
-    }
-
+  export type Schedule = {
+    /**
+     * dd-mm-yyyy
+     */
+    fechainicio: string;
+    /**
+     * dd-mm-yyyy
+     */
+    fechafin: string;
+    horas: Hour[];
+  };
 }

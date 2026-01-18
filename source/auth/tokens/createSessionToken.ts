@@ -16,7 +16,7 @@ export namespace SessionToken {
       .charCodeAt(0);
   }
   // function n->9988->nd.
-  function clean(token: string) {
+  export function clean(token: string) {
     const separatorIndex = token.indexOf(SEPARATOR);
     const separated = token.slice(0, separatorIndex);
     const toMove = token.charAt(separatorIndex + 1);
@@ -28,7 +28,7 @@ export namespace SessionToken {
     return reduce + reduced + SEPARATOR + toMove;
   }
   // Equivale a n->9988->nc
-  function encode(sessionID: string, key: string = MAGIC_KEY): string {
+  export function encode(sessionID: string, key: string = MAGIC_KEY): string {
     const sessionIDLenght = sessionID.length;
     const toMove = Math.floor(15 * Math.random() + 33);
 
@@ -61,7 +61,6 @@ export namespace SessionToken {
       token += String.fromCharCode(acc + toMoved);
     }
 
-    console.log(token, transformedSessionID)
     return token;
   }
   export class Session {

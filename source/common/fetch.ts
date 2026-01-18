@@ -3,11 +3,12 @@ import HttpError from "./httpError.js";
 import { type Response } from "@interfaces/Common.js";
 import { debugLogger } from "./log.js";
 import SessionToken, { createISS } from "@auth/index.js";
+import type { LaunchCB } from "@interfaces/Client.js";
 
 export default class Fetch {
   constructor(
     private key: PrivateKey,
-    private session?: SessionToken.Session
+    private session?: SessionToken.Session,
   ) {}
 
   public setSession(session: SessionToken.Session) {
@@ -18,6 +19,8 @@ export default class Fetch {
     return {
       ...req,
       headers: {
+        Referer: "	https://leoalumnos.udg.mx/",
+        Origin: "https://leoalumnos.udg.mx",
         authorization: `Bearer ${createISS(this.key)}`,
         "authorization-key": `Bearer ${
           !!this.session
@@ -27,7 +30,8 @@ export default class Fetch {
         "Content-Type": "application/json",
         ...req.headers,
       },
-    };
+      verbose: true,
+    } as RequestInit;
   }
 
   async fetch<T>(url: string, req: RequestInit = {}): Promise<T> {
@@ -43,6 +47,7 @@ export default class Fetch {
       else body = await res.text();
 
       if (!res.ok) {
+        console.log(body);
         const errorMessage =
           typeof body === "string"
             ? body

@@ -12,7 +12,6 @@ export namespace DebugLogger {
             return process.env["NODE_ENV"] !== "production";
         }
         error(type: ERROR_TYPE, ...log: any) {
-            console.log(this.isDev)
             if(!this.isDev)
                 return;
             const info = this.getInfo();

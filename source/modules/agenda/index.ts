@@ -1,6 +1,6 @@
-import EliminarMateria from "./eliminar";
-import { RegistroMaterias } from "./registrar";
-import ValidarRegistro from "./validar";
+import EliminarMateria from "./Eliminar";
+import { RegistroMaterias } from "./Registrar";
+import ValidarRegistro from "./Validar";
 
 export default {
     ValidarRegistro,

@@ -3,7 +3,7 @@ import Session from "./_session";
 import { StudentData } from "../source/modules";
 
 const session = await Session;
-const results = await session.launch(StudentData);
+const results = await StudentData(session);
 
 test("Test Student Data fields", () => {
   expect(results).toBeObject();

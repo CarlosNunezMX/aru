@@ -1,4 +1,4 @@
-import StudentData from "./data";
+import StudentData from "./alumno/data";
 export { StudentData };
 
 import Oferta from "./oferta";
@@ -10,5 +10,5 @@ export { Agenda };
 import Credencial from "./soyalumno/credencial";
 export { Credencial };
 
-import PlanesEstudios from "./planes";
+import PlanesEstudios from "./alumno/planes";
 export { PlanesEstudios };

@@ -7,7 +7,7 @@ type ExtractParams<Path extends string> =
     ? ExtractParamName<`:${Param}`>
     : never;
 
-type RouteParams<Path extends string> = {
+export type RouteParams<Path extends string> = {
   [K in ExtractParams<Path>]: string;
 };
 
