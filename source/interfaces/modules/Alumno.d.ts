@@ -1,4 +1,4 @@
-export interface PersonalData {
+export interface IAlumno {
   alumcodigo: string;
   nombre: string;
   genero: "M" | "F";
@@ -14,10 +14,10 @@ export interface PersonalData {
   desctiposangr?: string;
   lugadomicilioDB: string;
   domicilio: string;
-  lugadomicilio: Address;
+  lugadomicilio: IDireccion;
 }
 
-interface Address {
+interface IDireccion {
   pais: string;
   estado: string;
   municipio: string;

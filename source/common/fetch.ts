@@ -3,7 +3,6 @@ import HttpError from "./httpError.js";
 import { type Response } from "@interfaces/Common.js";
 import { debugLogger } from "./log.js";
 import SessionToken, { createISS } from "@auth/index.js";
-import type { LaunchCB } from "@interfaces/Client.js";
 
 export default class Fetch {
   constructor(
@@ -34,7 +33,7 @@ export default class Fetch {
     } as RequestInit;
   }
 
-  async fetch<T>(url: string, req: RequestInit = {}): Promise<T> {
+  async fetch<T = unknown>(url: string, req: RequestInit = {}): Promise<T> {
     try {
       const reqBody = this.buildBody.bind(this)(req);
       const res = await fetch(url, reqBody);

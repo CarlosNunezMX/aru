@@ -18,6 +18,8 @@
     // Best practices
     "strict": true,
     "skipLibCheck": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
 
     // Some stricter flags (disabled by default)

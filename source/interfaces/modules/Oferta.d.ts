@@ -1,6 +1,6 @@
 import type { AruCarreras } from "@interfaces/carreras/Carreras";
 import type { AruUtils } from "@interfaces/Centros";
-import type { AruHorario } from "./horarios";
+import type { AruHorario } from "./Horarios";
 
 export namespace AruOferta {
 

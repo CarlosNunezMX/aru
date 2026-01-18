@@ -1,5 +1,5 @@
 import buildURL from "@common/url";
-import { type Schedule } from "@interfaces/modules/horarios";
+import { type Schedule } from "@interfaces/modules/Horarios";
 import type { Client } from "source/client";
 
 interface HorarioProps {
@@ -7,7 +7,7 @@ interface HorarioProps {
   ciclo: string;
 }
 
-function Horario({ carrera, ciclo }: HorarioProps, client: Client): Promise<Schedule.Item[]> {
+function Horario(client: Client,{ carrera, ciclo }: HorarioProps): Promise<Schedule.Item[]> {
   const url = buildURL(
     "https://leoalumnos-svc.udg.mx/alum/api/alumnos-esc/:code/:carrera/:ciclo/horarios",
     {

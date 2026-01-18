@@ -1,9 +1,9 @@
 import { expect, test } from "bun:test";
 import Session from "./_session";
-import { StudentData } from "../source/modules";
+import { Alumno } from "../source/modules";
 
 const session = await Session;
-const results = await StudentData(session);
+const results = await Alumno.Alumno(session);
 
 test("Test Student Data fields", () => {
   expect(results).toBeObject();

@@ -7,7 +7,7 @@ interface RegistroMateriasProps {
   carrera: AruCarreras.AnyCentro;
   centro: string;
   ciclo: string;
-  nivel: string;
+  nivel: string | "LI";
 }
 
 export default async function RegistrarMaterias(
