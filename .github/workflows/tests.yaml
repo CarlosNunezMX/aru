@@ -3,7 +3,7 @@ name: Tests
 env:
   LEO_USER: ${{ secrets.LEO_USER }}
   LEO_PASSWORD: ${{ secrets.LEO_USER }}
-  LEO_PASSWORD: ${{ secrets.LEO_PASSWORD }}
+  LEO_KEY: ${{ secrets.LEO_KEY }}
 
 on:
   push:
