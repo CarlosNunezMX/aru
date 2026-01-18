@@ -2,12 +2,13 @@ name: Tests
 
 env:
   LEO_USER: ${{ secrets.LEO_USER }}
+  LEO_PASSWORD: ${{ secrets.LEO_USER }}
   LEO_PASSWORD: ${{ secrets.LEO_PASSWORD }}
 
 on:
   push:
     branches:
-      - master # Execute on every push
+      - v2 # Execute on every push
   workflow_dispatch: # Execute on manual trigger
 
 jobs:
