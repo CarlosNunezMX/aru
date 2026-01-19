@@ -10,7 +10,7 @@ interface RegistroMateriasProps {
   nivel: string | "LI";
 }
 
-export default async function RegistrarMaterias(
+export async function RegistrarMaterias(
   client: Client,
   { carrera, centro, ciclo, materias, nivel = "LI" }: RegistroMateriasProps,
 ): Promise<void> {

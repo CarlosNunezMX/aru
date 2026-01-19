@@ -7,7 +7,7 @@ interface HorarioProps {
   ciclo: string;
 }
 
-function Horario(client: Client,{ carrera, ciclo }: HorarioProps): Promise<Schedule.Item[]> {
+export function Horario(client: Client, { carrera, ciclo }: HorarioProps): Promise<Schedule.Item[]> {
   const url = buildURL(
     "https://leoalumnos-svc.udg.mx/alum/api/alumnos-esc/:code/:carrera/:ciclo/horarios",
     {
@@ -19,4 +19,3 @@ function Horario(client: Client,{ carrera, ciclo }: HorarioProps): Promise<Sched
 
   return client.fetch.fetch<Schedule.Item[]>(url);
 }
-export default Horario;

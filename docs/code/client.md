@@ -22,11 +22,11 @@ comenzaremos con importarlos
 import { StudentData } from "@carlosnunezmx/aru/modules";
 ```
 Al importar un modulo este será una función que se utiliza con el cliente o sin el,
-pero en este caso lo usaremos con el metodo `launch()`, el cual recibe un callback(modulo).
+pero en este caso lo usaremos pasandole el cliente como argumento.
 
 ```ts
 // Code ...
-const myData = await client.launch(StudentData);
+const myData = await StudentData(client);
 ```
 Si quieres ver un ejemplo puedes consultar [**StudentData**](../../source/modules/data.ts)
 

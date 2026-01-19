@@ -1,5 +1,4 @@
-import Adeudos from "./adeudos";
-import Alumno from "./Alumno";
-import Horario from "./Horario";
-import PlanesEstudios from "./Planes";
-export default { Adeudos, Alumno, Horario, PlanesEstudios };
+export { Adeudos } from "./Adeudos";
+export { Alumno } from "./Alumno";
+export { Horario } from "./Horario";
+export { PlanesEstudios } from "./Planes";

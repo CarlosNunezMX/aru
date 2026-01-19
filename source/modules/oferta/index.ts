@@ -1,9 +1,4 @@
-import Carreras from "./Carreras";
-import Centros from "./Centros";
-import OfertaAcademica from "./Oferta";
+export { Carreras } from "./Carreras";
+export { Centros } from "./Centros";
+export { OfertaAcademica } from "./Oferta";
 
-export default {
-    Carreras,
-    OfertaAcademica,
-    Centros
-}

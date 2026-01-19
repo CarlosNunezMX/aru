@@ -2,7 +2,7 @@ import buildURL from "@common/url";
 import type { AruOferta } from "@interfaces/modules/Oferta";
 import type { Client } from "source/client";
 
-async function retriveCarreras(client: Client, centro: string): Promise<AruOferta.Carreras[]> {
+export async function Carreras(client: Client, centro: string): Promise<AruOferta.Carreras[]> {
   const url = buildURL(
     "https://leoalumnos-svc.udg.mx/alum/api/programas/:centro/programas-centros",
     {
@@ -13,4 +13,3 @@ async function retriveCarreras(client: Client, centro: string): Promise<AruOfert
   return await client.fetch.fetch<AruOferta.Carreras[]>(url);
 }
 
-export default retriveCarreras;

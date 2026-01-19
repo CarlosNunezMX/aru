@@ -1,0 +1,9 @@
+{
+  "name": "@carlosnunezmx/aru",
+  "version": "2.1.3",
+  "exports": {
+    ".": "./source/index.ts",
+    "./modules": "./source/modules/index.ts",
+    "./types": "./source/interfaces/*.d.ts"
+  }
+}

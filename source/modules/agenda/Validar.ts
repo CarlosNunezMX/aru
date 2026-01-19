@@ -8,7 +8,7 @@ interface ValidarRegistroProps {
   ciclo: string;
 }
 
-async function ValidarRegistro(
+export async function ValidarRegistro(
   client: Client,
   { carrera, centro, ciclo }: ValidarRegistroProps,
 ): Promise<boolean> {
@@ -35,4 +35,3 @@ async function ValidarRegistro(
   }
 }
 
-export default ValidarRegistro;

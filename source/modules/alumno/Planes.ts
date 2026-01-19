@@ -1,15 +1,13 @@
-import type SessionToken from "@auth/index";
-import type Fetch from "@common/fetch";
 import buildURL from "@common/url";
 import type Plan from "@interfaces/Planes";
+import type { Client } from "source/client";
 
-const PlanesEstudios  = async (fetch: Fetch, session: SessionToken.Session): Promise<Plan[]> => {
+export async function PlanesEstudios(client: Client): Promise<Plan[]> {
   const url = buildURL("https://leoalumnos-svc.udg.mx/alum/api/alumnos-esc/:code/planes-estudios", {
-    code: session.userID
+    code: client.session!.userID
   });
 
-  return await fetch.fetch<Plan[]>(url);
+  return await client.fetch.fetch<Plan[]>(url);
 
 }
 
-export default PlanesEstudios;

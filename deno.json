@@ -1,0 +1,9 @@
+{
+  "name": "@carlosnunezmx/aru",
+  "version": "2.1.3",
+  "importMap": "./import_map.json",
+  "exports": {
+    ".": "./source/index.ts",
+    "./modules": "./source/modules/index.ts"
+  }
+}

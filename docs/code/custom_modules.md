@@ -1,17 +1,21 @@
 # Modulos personalizados
 > **Inestable:** Espere cambios importantes a la API
 
-Se pueden crear modulos personalizados utilizando funciones que sean callbacks,
-se tienen que configurar con dos parametros, las cuales cumplan con el siguiente 
-tipado
+Se pueden crear modulos personalizados, apartir de recibir el cliente como
+argumento, este por si solo posee:
+  * La sesion del usuario
+  * Un wrapper para la funcion fetch, la cual, llena la peticion
+    con los datos requeridos para que Leo acepte la petición
 
 ```ts
-export type LaunchCB<T> = (fetch: Fetch, session: SessionToken.Session) => Promise<T>;
+import {Client} from "@carlosnunezmx/aru";
+export async function doSomething(client: Client): Promise<any>{
+  client.session!; // contiene datos de la sesión, tales como el ID del 
+                   // estudiante
+  client.fetch.fetch() // usalo como un fetch normal, este
+                       // se encarga de lo demás 
+}; 
 ```
-
-* Fetch: Utilizamos este campo, ya que fetch será donde hagamos nuestras peticiones, haciendo 
-    shadowning a la api original
-* session: Se pueden obtener datos del usuario a travez de la clase sesssion
 
 ## Helpers
 Se han programado varias funciones que pueden ayudar al desarrollo de modulos personalizados,

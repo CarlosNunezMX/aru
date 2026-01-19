@@ -5,39 +5,27 @@ modulo.
 
 **👉 [Nuevo] - Clase cliente (🛠️ En construcción) > [Cliente](client.md)**
 
-## Fetch
-Se utiliza para hacer las peticiones internas del modulo, para evitar cosas legales, me reservo el derecho de no compartir la privateKey.
 
-Al instanciarla, se puede compartir una sesion y se debe compartir la key para la firma de tokens
+# Configurar nuestro cliente
+
+Nuestro cliente de comunicación con leo, requiere
+que se proporcione la key para la firma de los tokens,
+una vez instanciado, se puede iniciar sesion en la plataforma
+de Leo
 
 ```ts
-import {Fetch} from "@carlosnunezmx/aru"
+import {Client} from "@carlosnunezmx/aru"
 import {readFileSync} from "node:fs"
 const key = readFileSync("key.pem")
-const fetch = new Fetch(key, /** session? **/);
+const client = new Client(key); // creacion de cliente
+await client.login("usr", "pwd"); // inicio de sesion
 ```
 
 ### Hacer peticiones autenticadas
 Para esto ya debemos de haber establecido una sesión en el 
 controlador.
 ```ts
-// Peticiones manuales
-await fetch.fetch<T>(url, {
-    method: "POST",
-    body: "test"
-});
-
 // Modulos incluidos
 import {StudentData} from "@carlosnunezmx/aru/modules"
-await StudentData(fetch, session);
-```
-
-## Manejo de sesiones
-Se pueden mantener varias sesiones abiertas, para esto se puede utilizar la siguiente forma:
-```ts
-import { createSession } from "@carlosnunezmx/aru"
-
-const session = await createSession();
-fetch.setSession(session)
-// tambien fetch.setSession.bind(fetch)(session)
+await StudentData(client);
 ```

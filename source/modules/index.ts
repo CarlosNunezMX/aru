@@ -1,18 +1,11 @@
-import StudentData from "./alumno/Alumno";
-export { StudentData };
 
-import Oferta from "./oferta";
-export { Oferta };
+export * as Oferta from "./oferta";
 
-import Agenda from "./agenda";
-export { Agenda };
+export * as Agenda from "./agenda";
 
-import Credencial from "./soyalumno/credencial";
-export { Credencial };
+export * as Credencial from "./soyalumno/credencial";
 
-import PlanesEstudios from "./alumno/Planes";
-export { PlanesEstudios };
+export * as PlanesEstudios from "./alumno/Planes";
 
-import Alumno from "./alumno";
+export * as Alumno from "./alumno";
 
-export { Alumno };

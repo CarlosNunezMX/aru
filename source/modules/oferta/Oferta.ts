@@ -1,7 +1,4 @@
-import type SessionToken from "@auth/index";
-import type Fetch from "@common/fetch";
 import type { AruCentros } from "@interfaces/Centros";
-import type { LaunchCB } from "@interfaces/Client";
 import { type AruCarreras } from "@interfaces/carreras/Carreras";
 import type { AruOferta } from "@interfaces/modules/Oferta";
 import type { Client } from "source/client";
@@ -12,7 +9,7 @@ interface OfertaParams {
   ciclo: string;
 }
 
-async function OfertaAcademica(
+export async function OfertaAcademica(
   client: Client,
   { carrera, ciclo, idCentro }: OfertaParams,
 ): Promise<AruOferta.Oferta<AruCentros.Centros, AruCarreras.AnyCentro>> {
@@ -27,4 +24,3 @@ async function OfertaAcademica(
   });
 }
 
-export default OfertaAcademica;

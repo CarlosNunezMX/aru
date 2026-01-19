@@ -1,0 +1,6 @@
+{
+  "@common/": "./source/common/",
+  "@auth/": "./source/auth/",
+  "@modules/": "./source/modules/",
+  "@interfaces/": "./source/interfaces"
+}

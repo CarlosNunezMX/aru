@@ -8,7 +8,8 @@ export default class Fetch {
   constructor(
     private key: PrivateKey,
     private session?: SessionToken.Session,
-  ) {}
+    private debug: boolean = true
+  ) { }
 
   public setSession(session: SessionToken.Session) {
     this.session = session;
@@ -21,14 +22,14 @@ export default class Fetch {
         Referer: "https://leoalumnos.udg.mx/",
         Origin: "https://leoalumnos.udg.mx",
         authorization: `Bearer ${createISS(this.key)}`,
-        "authorization-key": `Bearer ${
-          !!this.session
-            ? this.session.getSessionToken.bind(this.session)()
-            : ""
-        }`,
+        "authorization-key": `Bearer ${!!this.session
+          ? this.session.getSessionToken.bind(this.session)()
+          : ""
+          }`,
         "Content-Type": "application/json",
         ...req.headers,
       },
+      verbose: this.debug
     } as RequestInit;
   }
 

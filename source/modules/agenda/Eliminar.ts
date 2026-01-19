@@ -9,7 +9,7 @@ interface EliminarMateriaProps {
   nivel: string;
 }
 
-export default async function EliminarMateria(
+export async function EliminarMateria(
   client: Client,
   { carrera, centro, ciclo, cursos, nivel = "LI" }: EliminarMateriaProps,
 ): Promise<void> {
@@ -23,7 +23,7 @@ export default async function EliminarMateria(
     cursos,
   };
 
-  const res = await client.fetch.fetch(url, {
+  await client.fetch.fetch(url, {
     method: "DELETE",
     body: JSON.stringify(body),
   });
