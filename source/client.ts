@@ -10,8 +10,8 @@ export class Client {
   constructor(key: PrivateKey, debug: boolean = false) {
     this._fetch = new Fetch(key, undefined, debug);
   }
-  async login(usr: string, pwd: string) {
-    this._session = await createSession(usr, pwd, this._fetch);
+  async login(usr: string, pwd: string, hashedPassword?: boolean) {
+    this._session = await createSession(usr, pwd, this._fetch, hashedPassword);
     this._fetch.setSession(this._session);
     return this;
   }
