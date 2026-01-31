@@ -1,0 +1,13 @@
+export { Adeudos } from './Adeudos.js';
+export { Alumno } from './Alumno.js';
+export { Horario } from './Horario.js';
+export { a as PlanesEstudios } from '../../Planes-D36lNsHs.js';
+import '../../client.js';
+import '../../common/fetch.js';
+import 'jsonwebtoken';
+import '../../auth/tokens/createSessionToken.js';
+import '../../interfaces/modules/Alumno.js';
+import '../../interfaces/modules/Horarios.d.js';
+import '../../interfaces/Planes.d.js';
+import '../../interfaces/Centros.d.js';
+import '../../interfaces/carreras/Carreras.d.js';

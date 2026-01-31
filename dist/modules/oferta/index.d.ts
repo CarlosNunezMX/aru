@@ -1,0 +1,11 @@
+export { Carreras } from './Carreras.js';
+export { Centros } from './Centros.js';
+export { OfertaAcademica } from './Oferta.js';
+import '../../interfaces/Centros.d.js';
+import '../../interfaces/modules/Oferta.d.js';
+import '../../interfaces/carreras/Carreras.d.js';
+import '../../interfaces/modules/Horarios.d.js';
+import '../../client.js';
+import '../../common/fetch.js';
+import 'jsonwebtoken';
+import '../../auth/tokens/createSessionToken.js';
