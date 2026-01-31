@@ -13,11 +13,9 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-      - name: Use Node.js
-        uses: actions/setup-node@v4
+      - uses: oven-sh/setup-bun@v1 # Setup bun
         with:
-          node-version: 20
-          registry-url: https://registry.npmjs.org/
+            bun-version: latest # You can also use a specific version
 
       - name: Detect version change
         id: versioncheck
@@ -40,14 +38,10 @@ jobs:
 
       - name: Install dependencies
         if: steps.versioncheck.outputs.changed == 'true'
-        run: npm ci
-
-      - name: Publish to npm
+        run: bun i --frozen-lockfile
+      - name: Build source code
         if: steps.versioncheck.outputs.changed == 'true'
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
+        run: bun run build
       - name: Create Tag
         if: steps.versioncheck.outputs.changed == 'true'
         run: |
