@@ -38,7 +38,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.versioncheck.outputs.changed == 'true'
-        run: bun i --frozen-lockfile
+        run: bun i
       - name: Build source code
         if: steps.versioncheck.outputs.changed == 'true'
         run: bun run build
