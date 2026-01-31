@@ -1,9 +1,9 @@
 {
   "name": "@carlosnunezmx/aru",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "author": {
     "email": "carlitosnu41@gmail.com",
-    "url": "https://carlosnunezmx.tech",
+    "url": "https://carlosnunezmx.qzz.io",
     "name": "CarlosNuñezMX"
   },
   "main": "source/index.ts",
@@ -44,6 +44,9 @@
     "./modules": {
       "import": "./dist/modules/index.js",
       "types": "./dist/modules/index.d.ts"
+    },
+    "./types": {
+      "types": "./source/interfaces/*.d.ts"
     }
   }
 }
