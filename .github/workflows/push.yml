@@ -5,6 +5,10 @@ on:
     branches:
       - v2
 
+permissions:
+  contents: write
+  actions: write
+
 jobs:
   publish:
     runs-on: ubuntu-latest
