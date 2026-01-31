@@ -2,7 +2,7 @@
   "compilerOptions": {
     // Enable latest features
     "lib": ["ESNext"],
-    "types": ["node","bun"],
+    "types": ["node","@types/bun"],
     "target": "ESNext",
     "module": "esnext",
     "moduleDetection": "force",
