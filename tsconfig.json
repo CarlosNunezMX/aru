@@ -1,33 +1,45 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "lib": ["ESNext"],
-    "types": ["node","@types/bun"],
+    "lib": [
+      "ESNext"
+    ],
     "target": "ESNext",
-    "module": "esnext",
-    "moduleDetection": "force",
-    "rootDir": "./source",
-    "outDir": "./dist/pkg",
-
-    
+    "module": "ESNext",
     // Bundler mode
     "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
-
     // Best practices
     "strict": true,
     "skipLibCheck": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
-
-   "baseUrl": "./",
+    "baseUrl": "./",
     "paths": {
-      "@common/*": ["./source/common/*"],
-      "@auth/*": ["./source/auth/*"],
-      "@modules/*": ["./source/modules/*"],
-      "@interfaces/*": ["./source/interfaces/*"]
-    }
+      "@common/*": [
+        "./source/common/*"
+      ],
+      "@auth/*": [
+        "./source/auth/*"
+      ],
+      "@modules/*": [
+        "./source/modules/*"
+      ],
+      "@interfaces/*": [
+        "./source/interfaces/*"
+      ]
+    },
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "outDir": "dist",
+    "isolatedModules": true,
   },
-  "include": ["source"],
+  "include": [
+    "source"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ]
 }

@@ -1,10 +1,10 @@
-import type { AruCarreras } from "@interfaces/carreras/Carreras";
+import type { Carreras } from "@interfaces/carreras/Carreras";
 import type { RegistroInit } from "@interfaces/modules/agenda/registro";
 import type { Client } from "source/client";
 
 interface RegistroMateriasProps {
   materias: string[];
-  carrera: AruCarreras.AnyCentro;
+  carrera: Carreras.AnyCentro;
   centro: string;
   ciclo: string;
   nivel: string | "LI";

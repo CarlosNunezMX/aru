@@ -1,5 +1,5 @@
 import buildURL from "@common/url";
-import { type Schedule } from "@interfaces/modules/Horarios";
+import type { Schedule } from "@interfaces/modules/Horarios";
 import type { Client } from "source/client";
 
 interface HorarioProps {

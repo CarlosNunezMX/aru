@@ -1,37 +1,35 @@
-import type { AruCarreras } from "@interfaces/carreras/Carreras";
-import type { AruUtils } from "@interfaces/Centros";
-import type { AruHorario } from "./Horarios";
-
-export namespace AruOferta {
-
-    export interface Centros {
-        idcentro: string;
-        siglas: AruUtils.Centros;
-        descripcion: string;
-    }
+import type { Carreras } from "@interfaces/carreras/Carreras";
+import type { Centros } from "@interfaces/Centros";
+import type { Schedule } from "./Horarios";
 
 
-    export interface Carreras<T extends AruUtils.Centros = AruUtils.Centros> {
-        idcentro: string;
-        programa: AruUtils.TSelectCarrera<T>;
-        desprograma: string;
-    }
-
-    export interface Oferta<Centro extends AruUtils.Centros = AruUtils.Centros, Carrera extends AruUtils.TSelectCarrera<Centro>> {
-        idciclo: string;
-        subjmateria: string
-        idsede: string;
-        idprograma: Carrera;
-        crn: string;
-        idmateria: string;
-        descmateria: string;
-        seccion: string;
-        creditos: string;
-        cupos: string;
-        cupodisponibl: string;
-        estacrn: string;
-        horarios: AruHorario.Horario[];
-        profesores: AruHorario.Profesor[];
-    }
-
+export interface OfertaCentro {
+  idcentro: string;
+  siglas: Centros;
+  descripcion: string;
 }
+
+
+export interface OfertaCarreras<T extends Centros> {
+  idcentro: string;
+  programa: AruUtils.TSelectCarrera<T>;
+  desprograma: string;
+}
+
+export interface Oferta<Centro extends Centros, Carrera extends Carreras.TSelectCarrera<Centro>> {
+  idciclo: string;
+  subjmateria: string
+  idsede: string;
+  idprograma: Carrera;
+  crn: string;
+  idmateria: string;
+  descmateria: string;
+  seccion: string;
+  creditos: string;
+  cupos: string;
+  cupodisponibl: string;
+  estacrn: string;
+  horarios: Schedule.Schedule[];
+  profesores: Schedule.Professor[];
+}
+

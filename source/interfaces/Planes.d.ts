@@ -1,14 +1,14 @@
-import type { AruCentros } from "./Centros";
-import type { AruCarreras } from "./carreras/Carreras";
+import type { Centros } from "./Centros";
+import type { Carreras } from "./carreras/Carreras";
 
 export default interface Plan {
   idcentro: string;
-  siglacentro: AruCentros.Centros;
-  siiacampus: AruCentros.Centros;
+  siglacentro: Centros;
+  siiacampus: Centros;
   desccentro: string;
   idsede: string;
   descsede: string;
-  idprograma: AruCarreras.AnyCentro;
+  idprograma: Carreras.AnyCentro;
   descprograma: string;
   cicladmision: string;
   ciclefectivo: string;

@@ -1,6 +1,6 @@
 import type { PrivateKey } from "jsonwebtoken";
 import HttpError from "./httpError.js";
-import { type Response } from "@interfaces/Common.js";
+import type { Response } from "@interfaces/Common.js";
 import { debugLogger } from "./log.js";
 import SessionToken, { createISS } from "@auth/index.js";
 

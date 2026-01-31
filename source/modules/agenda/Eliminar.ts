@@ -1,9 +1,9 @@
-import type { AruCarreras } from "@interfaces/carreras/Carreras";
+import type { Carreras } from "@interfaces/carreras/Carreras";
 import type { Client } from "source/client";
 
 interface EliminarMateriaProps {
   cursos: string[];
-  carrera: AruCarreras.AnyCentro;
+  carrera: Carreras.AnyCentro;
   centro: string;
   ciclo: string;
   nivel: string;

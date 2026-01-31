@@ -1,10 +1,10 @@
 import HttpError from "@common/httpError";
-import type { AruCarreras } from "@interfaces/carreras/Carreras";
+import type { Carreras } from "@interfaces/carreras/Carreras";
 import type { Client } from "source/client";
 
 interface ValidarRegistroProps {
   centro: string;
-  carrera: AruCarreras.AnyCentro;
+  carrera: Carreras.AnyCentro;
   ciclo: string;
 }
 
