@@ -1,0 +1,608 @@
+import { C as Client } from '../client-BK3WocjP.js';
+import 'jsonwebtoken';
+
+type Centros$1 =
+  'CUAAD' | 'CUCBA' | 'CUCEA' |
+  'CUCEI' | 'CUCS' | 'CUCSH' |
+  'CUALTOS' | 'CUCI' | 'CUCOSTA' |
+  'CUCSUR' | 'CUSUR' | 'SEMS' |
+  'CUVALLES' | 'CUNORTE' | 'CULAGOS' |
+  'SUV' | 'CUTONALA' | 'CUTLAJO' |
+  'CUGDL' | 'CUTLAQUE' | 'CUCHAPALA';
+
+declare namespace Carreras$1 {
+
+  export type CUAAD =
+    "BMU" | "ARQ" | "MUS" | "PAV" | "PAVD" | "DIAM" |
+    "MIPC" | "DIA" | "AVP" | "AED" | "LUMA" | "MECI" |
+    "PAEC" | "SPME" | "SPMF" | "NAET" | "ARA" | "PAVP" |
+    "DCG" | "PAE" | "PAVF" | "PTM" | "SPMD" | "BMUA" | "NAED" |
+    "PAVE" | "UMA" | "MIUD" | "NAVP" | "MIDD" | "PMM" | "DUCT" |
+    "RMDP" | "RNAV" | "RNMP" | "NAVF" | "MICI" | "MIMU" | "MIUR" |
+    "DUCU" | "MIEU" | "MIAQ" | "ARV" | "AVF" | "AET" | "ARE" | "RNAE" |
+    "MUIA" | "DIN" | "MUI" | "MIDA" | "MIGD" | "MPEG" | "IAR" |
+    "MUSE" | "MUSC" | "MUSD" | "MUSP" | "MUSO" | "DIMO" | "PMMI" |
+    "MUSS" | "MUSA" | "MUSI" | "MUSU" | "MUST" | "MIAT" | "MAEE" |
+    "MAEO" | "MAED" | "MAPE" | "MEDE" | "MAET" | "DOAC" | "MAEA" |
+    "LAET" | "ICA" | "MPMU" | "MCOM" | "MDIC" | "MUCA" | "MAPA" |
+    "MERG" | "MAUT" | "MDIN" | "MCIA" | "LAID" | "LAMU" | "LARQ" |
+    "MEEA" | "MALI" | "SPMP" | "DCTS" | "MECM" | "LDII" | "MINN" |
+    "MGDE" | "LDAT" | "LDCG" | "LDIA" | "LIAR" | "MDCD" | "DHAS" |
+    "MEER" | "MELI" | "MCIU" | "LMPM" | "LMCO" | "DMOD" | "DTSC" |
+    "MLPE" | "LMCS" | "LMDC" | "LMCA" | "PMU" | "SPAT" | "MLEX" | "MTME";
+
+  export type CUCEI =
+    "MEL" | "MIET" | "MIPF" | "MIQI" | "DUPR" | "MILI" | "MITE" |
+    "MIMC" | "QFB" | "IND" | "DCM" | "DDCM" | "PEL" | "MICQ" |
+    "IIE" | "MIEC" | "QUI" | "ICT" | "TEC" | "MIPR" | "DCPB" |
+    "MIHD" | "CIV" | "RMEM" | "MIFI" | "CEL" | "IQU" | "IIP" |
+    "IPF" | "XVA" | "ICI" | "PIP" | "PIN" | "PRC" | "DVIT" |
+    "MIPB" | "MIIG" | "PME" | "XEF" | "MIFM" | "MIQC" | "DUCF" |
+    "DUCI" | "MIQU" | "MIIE" | "MIIQ" | "DUIQ" | "MISC" | "MIIN" |
+    "DUPB" | "MIHI" | "MIEM" | "RMIC" | "RMAN" | "BIM" | "MIVA" |
+    "MIFA" | "MIPA" | "XVAL" | "MIBI" | "DUBI" | "MIAL" | "MIFR" |
+    "MICN" | "DUCE" | "RMCI" | "RDCI" | "MIQM" | "DUCQ" | "RMSI" |
+    "RMMA" | "RMIQ" | "MIQA" | "MIFS" | "RMPF" | "MCFI" | "MCAL" |
+    "MPFO" | "PEC" | "RDIQ" | "RMQC" | "MCCA" | "MIIM" | "MMHA" |
+    "FIS" | "INF" | "MAT" | "COM" | "PHE" | "PSS" | "MIPT" | "DUHD" |
+    "UCT" | "DCFI" | "MICR" | "INFC" | "INFI" | "MITL" | "MIAP" |
+    "MISI" | "INAB" | "LINA" | "LIMA" | "LQFB" | "LQUI" | "INCE" |
+    "INBI" | "INCO" | "INME" | "INDU" | "LIFI" | "MAPB" | "DOCQ" |
+    "MAIE" | "LTEI" | "MPTE" | "MEMA" | "MAII" | "MAAF" | "INRO" |
+    "DUFS" | "LCMA" | "IGFO" | "MITA" | "MISE" | "DOEC" | "ICIV" |
+    "ITOG" | "DOPB" | "DTPB" | "ILOT" | "MCEC" | "MAFI" | "MACM" |
+    "MBCI" | "MCAP" | "DOCF" | "LDSW" | "MNOA" | "DOCM" | "DCMM" |
+    "ICOM" | "MACQ" | "MMAT" | "MINQ" | "DINQ" | "DCIC" | "MMCE" |
+    "MHOM" | "DBIS" | "DCED" | "DCEM" | "DCES" | "DCEP" | "INNI" |
+    "INFO" | "TSEP" | "TSSI" | "DUPT" | "INQU" | "MCM" | "MIMT" |
+    "MING" | "MCTE" | "DCTE" | "DDMA" | "MCRA" | "DDEO" | "DCMC" |
+    "DCAS" | "DSEP" | "TSCA" | "MMHO" | "MCOF" | "TSMI" | "TSMF" |
+    "DCEC" | "DFIS" | "DICA" | "MCFA" | "DSLP" | "DEOP" | "DCBI" |
+    "MCIV" | "INEA" | "IMEI" | "INES" | "ICIM" | "LSII" | "LMEC" |
+    "LIEA" | "DCIQ" | "MCFE";
+
+  export type CUCBA =
+    "AGR" | "MVZ" | "MISA" | "MIDC" | "MCAG" | "LBPB" | "DUBE" | "PRN" |
+    "PPU" | "RMSA" | "RMOP" | "RMCP" | "RMCB" | "RDCP" | "RMEA" | "AGN" |
+    "CALI" | "MCSA" | "RXAG" | "MAGR" | "BIO" | "MIBM" | "DUBM" | "DUAF" |
+    "MIAF" | "RDCB" | "UAF" | "MCC" | "RDCO" | "DCC" | "MICD" | "DREG" |
+    "DRGL" | "DUCD" | "MIAM" | "MABI" | "MCIN" | "LCAG" | "MAAP" | "MIPU" |
+    "LICB" | "MBIO" | "LMVZ" | "MCAC" | "MCON" | "DCCA" | "DCCN" | "AGRO" |
+    "MTSE" | "MNOA" | "LALI" | "EPPO" | "MEAM" | "ECPG" | "MCBN" | "DCIN" |
+    "DCBN" | "DBNE" | "DBIN" | "DUME" | "MCBM" | "MASA" | "MBPB" | "DUDE" |
+    "LCBI" | "DBPN";
+
+  export type CUCEA =
+    "SIN" | "MER" | "RHU" | "AFS" | "MPPG" | "TUR" | "CPU" | "MIDE" | "EFIN" |
+    "MTAG" | "AGPP" | "MTAI" | "MIGI" | "ECO" | "NIN" | "IEC" | "IGP" | "RMAU" |
+    "RMAD" | "RMIM" | "RMFI" | "RMPE" | "RMNE" | "PRT" | "PSE" | "CPUA" | "MITI" |
+    "RXFI" | "MICO" | "MIDI" | "MIMP" | "MIMR" | "MIGS" | "MIAU" | "DUNE" | "MITO" |
+    "MIFN" | "MIGU" | "MINE" | "MIEI" | "MITB" | "MIFE" | "DUTI" | "PGHI" | "MIEO" |
+    "XCE" | "MIGL" | "MIRE" | "AGP" | "MIAN" | "TURA" | "MIGO" | "ADM" | "EAIM" |
+    "LGEA" | "MIDM" | "MINT" | "MINI" | "MITR" | "MGSP" | "MITP" | "MTDI" | "MITC" |
+    "MITL" | "MIAP" | "MTAD" | "MTEM" | "MIGP" | "MAER" | "DEGE" | "TUCA" | "DEHA" |
+    "DEIN" | "LIGE" | "MAPO" | "RDNE" | "MEEC" | "LCOP" | "LAFI" | "LIME" | "LINI" |
+    "LAGP" | "LTIN" | "LECO" | "LIAD" | "MATI" | "RMCO" | "DOCA" | "DOEE" | "DPPD" |
+    "MNEI" | "GSST" | "MITA" | "LRPC" | "LGNG" | "METU" | "MADM" | "MIAD" | "MESI" |
+    "MGEL" | "MDIM" | "MFIN" | "INNE" | "MISG" | "MESF" | "MEES" | "MDAT" | "LMED" |
+    "RMAS" | "MREC" | "MNEG" | "MECO" | "MRIC" | "MGPE" | "MGES" | "MTEA" | "DISN" |
+    "DCER" | "DCEA" | "DCNE" | "DCPP" | "DTIS" | "DTIA" | "DTIW" | "MGPS" | "LIGA" |
+    "DECO" | "LIRH" | "MAEC" | "MIME" | "TURI" | "TSTI" | "DGPV" | "MITN" | "DUCA" |
+    "MNET" | "MVIO" | "MEVG" | "MPOP" | "MASJ" | "LACG";
+
+
+  export type CUCS =
+    "ENF" | "XNE" | "MISA" | "RXPS" | "RXCP" | "MIET" | "RXEG" | "NUT" | "CEN" |
+    "MIPE" | "MIPN" | "MIPL" | "RXPC" | "MGSO" | "DIP" | "DEN" | "MISP" | "DUSP" |
+    "DUTR" | "ENFS" | "LSAD" | "NENF" | "CFD" | "LUM" | "RXNE" | "RXPE" | "RXUM" |
+    "MIMM" | "DUCL" | "RXMR" | "RXOQ" | "ENFA" | "ITF" | "IAS" | "LEC" | "LEP" |
+    "XPE" | "XEN" | "XOR" | "XOD" | "CFDA" | "NUTA" | "LEM" | "VSP" | "DENA" |
+    "XPR" | "TPPD" | "MIST" | "DUMM" | "MISO" | "TPRI" | "LEN" | "DUCS" | "MICL" |
+    "RDGH" | "RDBM" | "RMNH" | "RMSA" | "RDST" | "RXCM" | "RXAC" | "RXAN" | "RXAV" |
+    "RXCG" | "RXPR" | "RXCO" | "RXDE" | "RXGA" | "RXGE" | "RXGI" | "RXHE" | "RXME" |
+    "RXML" | "RXMI" | "RXNF" | "RXNU" | "RXOF" | "RXOR" | "RXOT" | "RXRU" | "RMPC" |
+    "RXCC" | "RXEP" | "RXMF" | "RXHP" | "RXUG" | "XRM" | "XDS" | "RXSP" | "RXSM" |
+    "RXMQ" | "XCL" | "LEG" | "MICF" | "LPER" | "MIPP" | "CENS" | "MITF" | "MIGR" |
+    "RXCI" | "MISL" | "MINH" | "RMCM" | "RMST" | "RXAP" | "RXCA" | "RXEN" | "RXIN" |
+    "RXMT" | "RXOM" | "RXAE" | "MNAD" | "MIPS" | "DUGH" | "RXMG" | "MCSA" | "RXGR" |
+    "RXDQ" | "RXPM" | "RXRE" | "RXMD" | "RXOC" | "RXID" | "MCPA" | "PSC" | "PES" |
+    "GEME" | "MIBM" | "DUCB" | "DUBM" | "RXUR" | "MCP" | "RXIP" | "RXRI" | "EMCL" |
+    "NIEN" | "DMCL" | "MCMF" | "MCCR" | "MCCM" | "EOHP" | "EGNP" | "EMFA" | "MCST" |
+    "OFTA" | "EMMF" | "MIPO" | "EGEM" | "RMGS" | "RXCR" | "RDFA" | "BGAI" | "ECPI" |
+    "EHEM" | "EMIN" | "EDEP" | "ESNF" | "ESUG" | "LAD" | "ESMR" | "MCNS" | "DCNS" |
+    "ECAL" | "MIDU" | "ESAP" | "TEFI" | "MEGS" | "ESCO" | "MIAM" | "MARC" | "MINO" |
+    "EOPE" | "EPRO" | "ESPE" | "ESOR" | "ENDO" | "EOME" | "ECOL" | "MANE" | "ERON" |
+    "ESGO" | "EMER" | "MSET" | "TSTR" | "TSRI" | "TSPD" | "TSES" | "ETYO" | "LPGI" |
+    "LNTO" | "MCPE" | "LEEF" | "LENF" | "EHCI" | "ENFE" | "LCFD" | "LICD" | "EDER" |
+    "DCNT" | "EODP" | "MPSI" | "ESGE" | "TSTF" | "EBAM" | "MAPS" | "ABO" | "DUFA" |
+    "MCIN" | "MISD" | "EOCC" | "ESRE" | "XNO" | "EACV" | "ECTA" | "ECPE" | "MAGE" |
+    "MSAP" | "DUM" | "DCSO" | "ECLA" | "LICF" | "EINP" | "EOFT" | "EPED" | "EIDT" |
+    "EMTA" | "ERMQ" | "ENEU" | "EMAT" | "MANH" | "ENEF" | "NIEF" | "ENEM" | "BIMO" |
+    "DCBM" | "DBMM" | "MFAR" | "DOFA" | "ECAR" | "EPMA" | "EMFM" | "EINF" | "EEND" |
+    "ECIG" | "MIDO" | "EUGI" | "MPMB" | "EMUR" | "EUGE" | "EONC" | "MEFD" | "EMMI" |
+    "LPOD" | "MBIO" | "MEFG" | "EECP" | "EEPE" | "EEQG" | "EBRH" | "EESP" | "EEGE" |
+    "EECI" | "MAMM" | "DOMM" | "EFNE" | "EMRE" | "EPER" | "EUPE" | "ECIO" | "EOBT" |
+    "EEON" | "EDPE" | "DGEH" | "EAIC" | "EECA" | "ECPR" | "ESGM" | "MSPU" | "ENPE" |
+    "MPCL" | "EAIP" | "EHEP" | "ENEP" | "EONP" | "EOTP" | "EGAS" | "EHIC" | "ECCA" |
+    "EPTO" | "ETRI" | "EPTM" | "MAFE" | "EDTE" | "MSCL" | "MPAB" | "DCOC" | "NCTE" |
+    "ETOR" | "EHOP" | "EMPD" | "CAEM" | "ESDE" | "DOIN" | "DFAR" | "EODO" | "ESEN" |
+    "CAEN" | "CAOT" | "CALD" | "CAEP" | "CASO" | "EMEC" | "EMEP" | "EMRA" | "EPDI" |
+    "EHEI" | "CACC" | "EERI" | "ENEO" | "MNMI" | "LITE" | "EGIO" | "DSAP" | "ESLO" |
+    "MNEU" | "MCBN" | "DCIN" | "DCBN" | "DBNE" | "DBIN" | "MECS" | "DUSD" | "EMAD" |
+    "ESNE" | "LEE" | "MASA" | "MEFI" | "MIOD" | "MPSA" | "EURO" | "ECBM" | "ECOC" |
+    "EMCR" | "EFRO" | "EPSI" | "ESML" | "MAGH" | "DPSA" | "DPTR" | "LNTF" | "MINC" |
+    "MNUH" | "TSSL" | "MGER" | "MMME" | "EMPP" | "ESAN" | "CAME" | "CARP" | "CAMP" |
+    "MSAT" | "MAES" | "DMIM" | "EDIO" | "ECIM" | "EGAT" | "ECIP" | "EDII" | "ESCA" |
+    "EMED" | "EREU" | "LBCM" | "RTUM" | "EMRC" | "DNUT" | "ETEN" | "DTRA" | "CMGL" |
+    "EMAP" | "ESOP" | "EMON" | "EMTF" | "EENN" | "EENP" | "ESHE" | "EHON" | "ESTO" |
+    "ECOP" | "EGED" | "EDEM" | "LTER" | "LAPG" | "LRAI" | "LCBI" | "EANU" | "EMOL" |
+    "ELOG";
+
+  export type CUCSH =
+    "ING" | "LHI" | "SOC" | "MDNS" | "LEIN" | "MIHM" | "MIEF" |
+    "MIEE" | "MIDL" | "MICU" | "LHTO" | "DUEU" | "DULL" |
+    "RMCS" | "DER" | "FIL" | "HIS" | "MDAS" | "MDPC" |
+    "MDCO" | "MDNF" | "MDF" | "MIIC" | "DERR" | "MDCA" |
+    "MDCF" | "MIEL" | "COP" | "LSOC" | "RMID" | "DUED" |
+    "DIS" | "MIGT" | "MDI" | "EPG" | "EIN" | "DES" |
+    "IDL" | "ICP" | "IEI" | "MILC" | "DUSO" | "DULE" |
+    "RMSO" | "RMLA" | "RMLS" | "RMFL" | "RMTS" | "RXED" |
+    "RXEA" | "RMLL" | "XEA" | "LEX" | "LFI" | "LGE" |
+    "DUID" | "GEOT" | "EINT" | "EPGO" | "LTS" | "XEL" |
+    "LFIL" | "LLHI" | "LGEO" | "DESR" | "RMHM" | "RMDE" |
+    "LDI" | "SOCI" | "TSO" | "LTSO" | "NTS" | "MDNA" |
+    "LHT" | "ANT" | "DFR" | "EPGB" | "GEO" | "LLH" |
+    "MILA" | "REIN" | "MCMF" | "MCCR" | "MCCM" | "INED" |
+    "IDE" | "DCDR" | "MCNS" | "DCNS" | "MACI" | "MARC" |
+    "MINO" | "DOED" | "DOHU" | "MDRE" | "MCIP" | "DCIP" |
+    "MIES" | "DUCN" | "DERC" | "ABO" | "DOHI" | "MHIM" |
+    "MCPO" | "DCPO" | "MLEI" | "MDEE" | "MNES" | "MDEA" |
+    "MASP" | "MDCR" | "MCOR" | "MNOR" | "MCOA" | "DECH" |
+    "DESE" | "MELM" | "MRIG" | "LCRI" | "LESC" | "MACP" |
+    "DOCP" | "MGPT" | "MBIO" | "MAEF" | "DCOA" | "DEMA" |
+    "MLEE" | "MACS" | "MLIE" | "MGDS" | "LLEH" | "DCIS" |
+    "LANT" | "MHME" | "LTRA" | "LTRS" | "SDOI" | "LRIN" |
+    "MFPL" | "MECL" | "MLIA" | "MLAP" | "DOCH" | "DOGO" |
+    "MEME" | "MCSD" | "MCSE" | "MCSL" | "MCSC" | "MIDF" |
+    "DGTL" | "MACU" | "MESG" | "MIDR" | "MDAD" | "MICC" |
+    "LCPU" | "LDIF" | "LDOI";
+
+  export type CUALTOS =
+    "AIN" | "MVZ" | "MEL" | "DER" | "IND" | "DERR" | "CPU" |
+    "NENF" | "ENFA" | "CEL" | "NIN" | "DES" | "NUTA" |
+    "DENA" | "RMAD" | "RMIM" | "CPUA" | "LEN" | "RMNA" |
+    "IBI" | "DUEN" | "MIEN" | "MIMP" | "MINA" | "DESR" |
+    "MIAN" | "RXGR" | "MCPA" | "PSC" | "ADM" | "INF" |
+    "COM" | "SPE" | "IDE" | "MCNA" | "INFC" | "INFI" |
+    "LEMA" | "LAD" | "MIDU" | "ESOR" | "LCOP" | "LINI" |
+    "LIAD" | "ENDO" | "LQFB" | "INCO" | "MARE" | "DOER" |
+    "LPGI" | "LNTO" | "MCPE" | "LENF" | "LICD" | "EODP" |
+    "INAG" | "INSP" | "DERE" | "DERC" | "ABO" | "ESPA" |
+    "MPAS" | "MISD" | "MSAP" | "NIEF" | "DECH" | "DESE" |
+    "DOBI" | "MIAD" | "MAPI" | "EPAA" | "EPAP" | "EPAB" |
+    "EMFM" | "EMUR" | "MBIO" | "LMVZ" | "EEQG" | "EECI" |
+    "RMAS" | "ETRI" | "MNEG" | "EODO" | "ICOM" | "ESEN" |
+    "CACM" | "CACT" | "CALD" | "MPIA" | "EMRA" | "INNI" |
+    "CACV" | "CAMC" | "TSUP" | "AEMA" | "ENUC" | "MIPI";
+
+  export type CUCI =
+    "QFB" | "DER" | "MER" | "RHU" | "IND" | "MCA" | "DERR" |
+    "DCB" | "CPU" | "NENF" | "NIN" | "IQU" | "IIP" |
+    "TSI" | "TAR" | "MIED" | "MICA" | "CPUA" | "ABT" |
+    "DESR" | "AGN" | "MIAN" | "PER" | "PSC" | "ADM" |
+    "INF" | "COM" | "TPER" | "IDE" | "LABT" | "DCIE" |
+    "LDTS" | "INOB" | "LCOP" | "LIME" | "LINI" | "LIAD" |
+    "LQFB" | "INCO" | "INDU" | "DOCL" | "MICP" | "MDRE" |
+    "LPGI" | "LNTO" | "MCPE" | "LENF" | "MCBA" | "DOBM" |
+    "MCIE" | "DERC" | "ABO" | "LCPN" | "DOBL" | "DOCN" |
+    "NIEF" | "DECH" | "MIAD" | "LENP" | "IMEC" | "MACP" |
+    "DOCP" | "DEMA" | "DOCS" | "AGRO" | "MSEC" | "RMAS" |
+    "MNEG" | "MSSO" | "MSCO" | "ICOM" | "MCBI" | "MSAN" |
+    "MMAL" | "MMED" | "MCAU" | "MFAP" | "MSMA" | "MATE" |
+    "DLBI" | "DLFI" | "DLMA" | "DLME" | "DLCA" | "DLTA" |
+    "DLSP" | "LDTE" | "DMCA" | "DMFA" | "DMSM" | "DMTE" |
+    "DMBI" | "DMFI" | "DMMA" | "DMME" | "INNI" | "INFO" |
+    "INQU" | "LIRH" | "MACN" | "IMED" | "LCIE" | "MGPB" |
+    "MBAG" | "MBGI" | "MEIN" | "MEGE";
+
+  export type CUCSUR =
+    "AGR" | "OBR" | "DER" | "LEMR" | "MEMC" | "MEGC" | "DERR" |
+    "MDCA" | "TUR" | "CPU" | "PCI" | "MEMR" | "LEMC" |
+    "DUBE" | "NUTA" | "PEM" | "TEE" | "PTE" | "CPUA" |
+    "MIIR" | "MITB" | "MIFE" | "MEC" | "MIRN" | "MIEG" |
+    "RNA" | "LIRN" | "TURB" | "ADM" | "INOB" | "TUC" |
+    "TUCB" | "LCOP" | "LAFI" | "LIAD" | "MDRE" | "LNTO" |
+    "LENF" | "DERC" | "ABO" | "DECH" | "DESE" | "IMEC" |
+    "ITEL" | "MMRN" | "MECA" | "DEMA" | "MPEC" | "IPCI" |
+    "LART" | "LATE" | "TEMA" | "MAEM" | "DOMA" | "ESJA" |
+    "DUME" | "MCBM" | "TURI" | "LBM" | "MFDS" | "DUDE" |
+    "MIAG" | "EMED";
+
+  export type CUSUR =
+    "MVZ" | "MILI" | "CEN" | "DER" | "DERR" | "MTAG" | "NENF" |
+    "ENFA" | "MTAI" | "NIN" | "LEC" | "LEP" | "TAR" |
+    "NUTA" | "LEM" | "RMPA" | "LTS" | "CENS" | "LLHI" |
+    "AGN" | "MIAN" | "LTSO" | "PER" | "TET" | "RXAG" |
+    "MAGR" | "MCPA" | "PSC" | "TEL" | "PES" | "MICD" |
+    "LLH" | "MCP" | "LABT" | "MCCN" | "MTDI" | "MIAP" |
+    "MTAD" | "MTEM" | "LEMA" | "LAD" | "LPCE" | "LDTS" |
+    "MIDU" | "LCOP" | "LINI" | "DOAN" | "PTA" | "MESO" |
+    "MDRE" | "TSES" | "LPGI" | "LNTO" | "MCPE" | "LENF" |
+    "ENFE" | "LCFD" | "LICD" | "DERC" | "ABO" | "MISD" |
+    "PCAV" | "DPCV" | "MSAP" | "INSB" | "IGEO" | "NIEF" |
+    "DDHU" | "DECH" | "MIAD" | "EMFM" | "MIDO" | "LENP" |
+    "EMUR" | "EMMI" | "ITEL" | "LMVZ" | "DEMA" | "DPVS" |
+    "LLEH" | "AGRO" | "MSPU" | "DCAN" | "MNEG" | "LTRA" |
+    "LTRS" | "INGE" | "MTEA" | "MERU" | "MDHE" | "DDHE" |
+    "MPRA" | "EMED" | "MGPU";
+
+  export type SEMS =
+    "BGC" | "BTI" | "BGAI" | "BTR" | "BTW" | "BTPD" | "BTHI" |
+    "BTAP" | "BTGO" | "TPEI" | "TPIN" | "TPAL" | "BTAR" |
+    "BTUR" | "TPPL" | "TPPQ" | "TPP" | "TPE" | "BTS" |
+    "BGCN" | "BTDC" | "BTQM" | "BTEN" | "BTAD" | "TPMI" |
+    "TPMF" | "TPQI" | "TPSI" | "BITA" | "BITD" | "BTSC" |
+    "TPBI" | "TPMC" | "TPEA" | "TPTE" | "BSEC" | "BAGE" |
+    "TPEL" | "TPBT" | "TPMA" | "TPTC";
+
+
+  export type CUVALLES =
+    "SIN" | "DER" | "DERR" | "TUR" | "CPU" | "MTAG" | "NENF" |
+    "MTAI" | "PRN" | "EDU" | "CPUA" | "MEC" | "AGN" |
+    "MIAN" | "LTSO" | "NTS" | "TURA" | "PSC" | "ADM" |
+    "INF" | "LIEC" | "INED" | "MITP" | "MTDI" | "MITL" |
+    "MTAD" | "MTEM" | "MEDI" | "DCMA" | "MCNO" | "LIGO" |
+    "LCOP" | "LTIN" | "LIAD" | "LQFB" | "MAIM" | "MESO" |
+    "LPGI" | "LNTO" | "MCPE" | "LENF" | "MINS" | "IIEN" |
+    "DERC" | "DCNO" | "DODI" | "MSAP" | "INSB" | "IGEO" |
+    "IDMM" | "MSWE" | "NIEF" | "DECH" | "DESE" | "MGEH" |
+    "IMEC" | "IELC" | "MNRC" | "MESI" | "AGRO" | "LIED" |
+    "LTRA" | "LTRS" | "INGE" | "MTEA" | "MCMA" | "MPSA" |
+    "TURI" | "INNA" | "LIAI" | "DDSO" | "MCME" | "MNRE" |
+    "DSOC" | "DCME";
+
+  export type CUNORTE =
+    "CEN" | "DER" | "DERR" | "MTAG" | "NENF" | "ENFA" | "MTAI" |
+    "NUTA" | "PIN" | "EDU" | "CPUA" | "IEL" | "CENS" |
+    "AGN" | "MIAN" | "TET" | "TURA" | "PSC" | "ADM" |
+    "TEL" | "LIEC" | "ANT" | "MTDI" | "MTAD" | "MTEM" |
+    "DOED" | "LCOP" | "LIAD" | "INME" | "MDRE" | "LPGI" |
+    "LNTO" | "LENF" | "DERC" | "MSAP" | "NIEF" | "DECH" |
+    "DESE" | "IELC" | "ITEL" | "DEMA" | "AGRO" | "MSPU" |
+    "LIED" | "LANT" | "MNEG" | "MANT" | "METC" | "MTEA" |
+    "MATR" | "LEDI" | "TURI" | "TELE" | "LMAN" | "LIMN" |
+    "LDET";
+
+  export type CULAGOS =
+    "SIN" | "MEL" | "DER" | "IND" | "DERR" | "CPU" | "CEL" |
+    "DES" | "PST" | "CPUA" | "MIIT" | "IAI" | "IBI" |
+    "IEL" | "MEC" | "DESR" | "MCTM" | "MCTO" | "MCTB" |
+    "MCTN" | "DCTM" | "DCTO" | "DCTN" | "PSC" | "ADM" |
+    "INF" | "COM" | "LIEC" | "HUM" | "DUIT" | "IME" |
+    "INFC" | "INFI" | "LCOP" | "LTIN" | "LIAD" | "INCE" |
+    "INCO" | "INME" | "INDU" | "LHLE" | "LHHI" | "LHPS" |
+    "LPGI" | "DERC" | "ABO" | "LHAN" | "DCTB" | "NIEF" |
+    "DECH" | "DESE" | "LLCE" | "LENP" | "IMEC" | "IELC" |
+    "MERE" | "MHCU" | "IVDE" | "IBIO" | "LHUM" | "INNI" |
+    "LIFA" | "LIAL" | "LIJA" | "TELE" | "MBIB" | "DBIB" |
+    "MACT" | "DOCT" | "MBBI" | "DBBI";
+
+  export type SUV =
+    "BIB" | "BDI" | "TEC" | "EDU" | "EDUA" | "ADO" | "LGC" |
+    "LSC" | "DSAE" | "MGSP" | "BGAI" | "MGGI" | "MADI" |
+    "MVAL" | "MADE" | "MDEM" | "MAEV" | "LTEI" | "LGEC" |
+    "LBGC" | "LPD" | "LGOS" | "LED" | "MATP" | "MDOE" |
+    "MGAV" | "MDIG" | "LADO" | "LSEC" | "MDDI" | "MGEL" |
+    "MPDI" | "MGCU" | "DGCU" | "MAPD" | "LMED" | "LDSW" |
+    "MEMS" | "MAAV" | "MALU";
+
+  export type CUTONALA =
+    "DERR" | "CPUA" | "RXEP" | "MCPA" | "ECAL" | "LIDA" | "LHAR" |
+    "LIEL" | "MAAE" | "DAEN" | "MATT" | "DOTT" | "LIGO" |
+    "ICCO" | "LCOP" | "NANO" | "MACO" | "LNTO" | "MCPE" |
+    "LEEF" | "LENF" | "MCOP" | "DERC" | "MMOT" | "DAGE" |
+    "MGGL" | "LICF" | "EOFT" | "DDHU" | "DECH" | "EMFM" |
+    "EMUR" | "MBIO" | "DAE" | "MCAE" | "DAYE" | "INGC" |
+    "INEL" | "INAN" | "LHIA" | "LIAR" | "MUTT" | "DIMS" |
+    "ETOR" | "LESL" | "MCIU" | "EERI" | "MAEG" | "DOCG" |
+    "EGIO" | "MACA" | "INEN" | "LGER" | "LIAN" | "LIHA" |
+    "LISP" | "MIGA" | "EPSI" | "MGLO" | "MDEH" | "EMOL"
+
+  export type CUTLAJO =
+    "LINI" | "LIAD" | "INBI" | "LPGI" | "LNTO" | "MCPE" | "LENF" |
+    "LICD" | "ICIV" | "IMEC" | "INGM" | "INCI" | "IDIS" |
+    "LBIO" | "LAGE" | "LTEF" | "LITE" | "LCPS" | "LCOS" |
+    "IMED" | "LIDI" | "LINB" | "LNBI" | "CAME" | "CARP" |
+    "CAMP" | "LCAT" | "AELE" | "CMGE" | "EMON" | "EMRF";
+
+  export type CUGDL =
+    "BIB" | "EDU" | "EDUA" | "ADO" | "LGC" | "LSC" | "DSAE" |
+    "MGGI" | "MADI" | "MVAL" | "MADE" | "MDEM" | "MAEV" |
+    "LGEC" | "LBGC" | "LPD" | "LED" | "MATP" | "MDOE" |
+    "MGAV" | "MDIG" | "LADO" | "LSEC" | "MDDI" | "MPDI" |
+    "MGCU" | "DGCU" | "MAPD" | "MEMS" | "MAAV" | "MALU" |
+    "LIFN" | "LACD" | "LTBI" | "LCIB" | "LCDI";
+
+  export type CUTLAQUE = "INDU" | "DECH" | "INNE" | "INFO" | "TURI";
+
+  export type CUCHAPALA =
+    "LIGO" | "LENF" | "IDSO" | "IANT" | "LGIC" | "LNES" |
+    "IROA" | "LCIS" | "LPSC" | "LIRA";
+
+  export type CUCOSTA =
+    "ARQ" | "DER" | "PEP" | "AVP" | "DERR" | "TUR" | "CPU" |
+    "DUDS" | "MIC" | "MTAG" | "DCG" | "XTF" | "DUBE" |
+    "MISU" | "CIV" | "ENFA" | "MTAI" | "DES" | "ITF" |
+    "CFDA" | "CML" | "RMAD" | "RMIM" | "RMFI" | "PDG" |
+    "CPUA" | "MIGE" | "RXEP" | "MIMP" | "MITB" | "MITF" |
+    "MIGF" | "MIAN" | "TET" | "PML" | "TURB" | "ARV" |
+    "AVF" | "BIO" | "MCPA" | "PSC" | "ADM" | "COM" |
+    "TEL" | "DUST" | "MIDM" | "MIDS" | "IDE" | "MITP" |
+    "MTDI" | "MITC" | "MITL" | "MIAP" | "MTAD" | "MTEM" |
+    "INOB" | "TUC" | "TUCB" | "MICE" | "LCOP" | "LIAD" |
+    "INCO" | "LPGI" | "LNTO" | "MCPE" | "LENF" | "LCFD" |
+    "MDST" | "DERC" | "DOCI" | "MCGE" | "MDSU" | "DDES" |
+    "MITA" | "LARQ" | "ICIV" | "DECH" | "DESE" | "MIAD" |
+    "EMFM" | "EMUR" | "LARC" | "ITEL" | "LICB" | "MDIM" |
+    "DGEN" | "IVDE" | "RMAS" | "LDCG" | "LIAR" | "MNEG" |
+    "LTRA" | "LTRS" | "ICOM" | "DCST" | "MCRE" | "DUME" |
+    "ECBM" | "EMCR" | "TURI" | "PEF" | "LIC" | "DUDE" |
+    "LICM"
+
+  export type AnyCentro =
+    CUAAD | CUCEI | CUCBA | CUCEA |
+    CUCS | CUCSH | CUALTOS | CUCI |
+    CUCOSTA | CUCSUR | CUSUR | SEMS |
+    CUVALLES | CUNORTE | CULAGOS |
+    SUV | CUTONALA | CUTLAJO |
+    CUTLAQUE | CUCHAPALA;
+
+  export type CentrosCarrerasMap = {
+    CUCEI: CUCEI;
+    CUCS: CUCS;
+    CUCEA: CUCEA;
+    CUAAD: CUAAD;
+    CUCBA: CUCBA;
+    CUCSH: CUCSH;
+    CUALTOS: CUALTOS;
+    CUCI: CUCI;
+    CUCOSTA: CUCOSTA;
+    CUCSUR: CUCSUR;
+    CUSUR: CUSUR;
+    SEMS: SEMS;
+    CUVALLES: CUVALLES;
+    CUNORTE: CUNORTE;
+    CULAGOS: CULAGOS;
+    SUV: SUV;
+    CUTONALA: CUTONALA;
+    CUTLAJO: CUTLAJO;
+    CUGDL: CUGDL;
+    CUTLAQUE: CUTLAQUE;
+    CUCHAPALA: CUCHAPALA;
+  }
+
+  export type SelectCentroCarreras<T extends keyof CentrosCarrerasMap> = CentrosCarrerasMap[T];
+}
+
+declare namespace Schedule {
+  export interface Item {
+    crn: string;
+    idcurso: string;
+    nombrecurso: string;
+    numeseccion: string;
+    idcampus: string;
+    creditos: string;
+    horarios: Schedule[];
+    profesores: Professor[];
+    tiporegistro: string;
+  }
+  export type WeekDay =
+    | "Lunes"
+    | "Martes"
+    | "Miércoles"
+    | "Jueves"
+    | "Viernes"
+    | "Sábado";
+  export interface Hour {
+    dia: WeekDay;
+    hora: string;
+    idedificio: string;
+    edificio: string;
+    numesalon: string;
+  }
+
+  export interface Professor {
+    nombres: string;
+    apellidos: string;
+    idprofesor: string;
+  }
+
+  export type Schedule = {
+    /**
+     * dd-mm-yyyy
+     */
+    fechainicio: string;
+    /**
+     * dd-mm-yyyy
+     */
+    fechafin: string;
+    horas: Hour[];
+  };
+}
+
+interface OfertaCentro {
+  idcentro: string;
+  siglas: Centros$1;
+  descripcion: string;
+}
+
+
+interface OfertaCarreras<T extends Centros$1> {
+  idcentro: string;
+  programa: Carreras$1.SelectCentroCarreras<T>;
+  desprograma: string;
+}
+
+interface Oferta<Centro extends Centros$1, Carrera extends Carreras$1.SelectCentroCarreras<Centro>> {
+  idciclo: string;
+  subjmateria: string
+  idsede: string;
+  idprograma: Carrera;
+  crn: string;
+  idmateria: string;
+  descmateria: string;
+  seccion: string;
+  creditos: string;
+  cupos: string;
+  cupodisponibl: string;
+  estacrn: string;
+  horarios: Schedule.Schedule[];
+  profesores: Schedule.Professor[];
+}
+
+declare function Carreras(client: Client, centro: string): Promise<OfertaCarreras<Centros$1>[]>;
+
+declare function Centros(client: Client): Promise<OfertaCentro[]>;
+
+interface OfertaParams {
+    idCentro: string;
+    carrera: Carreras$1.AnyCentro;
+    ciclo: string;
+}
+declare function OfertaAcademica(client: Client, { carrera, ciclo, idCentro }: OfertaParams): Promise<Oferta<Centros$1, Carreras$1.AnyCentro>>;
+
+declare const index$2_Carreras: typeof Carreras;
+declare const index$2_Centros: typeof Centros;
+declare const index$2_OfertaAcademica: typeof OfertaAcademica;
+declare namespace index$2 {
+  export { index$2_Carreras as Carreras, index$2_Centros as Centros, index$2_OfertaAcademica as OfertaAcademica };
+}
+
+interface EliminarMateriaProps {
+    cursos: string[];
+    carrera: Carreras$1.AnyCentro;
+    centro: string;
+    ciclo: string;
+    nivel: string;
+}
+declare function EliminarMateria(client: Client, { carrera, centro, ciclo, cursos, nivel }: EliminarMateriaProps): Promise<void>;
+
+interface RegistroMateriasProps {
+    materias: string[];
+    carrera: Carreras$1.AnyCentro;
+    centro: string;
+    ciclo: string;
+    nivel: string | "LI";
+}
+declare function RegistrarMaterias(client: Client, { carrera, centro, ciclo, materias, nivel }: RegistroMateriasProps): Promise<void>;
+
+interface ValidarRegistroProps {
+    centro: string;
+    carrera: Carreras$1.AnyCentro;
+    ciclo: string;
+}
+declare function ValidarRegistro(client: Client, { carrera, centro, ciclo }: ValidarRegistroProps): Promise<boolean>;
+
+declare const index$1_EliminarMateria: typeof EliminarMateria;
+declare const index$1_RegistrarMaterias: typeof RegistrarMaterias;
+declare const index$1_ValidarRegistro: typeof ValidarRegistro;
+declare namespace index$1 {
+  export { index$1_EliminarMateria as EliminarMateria, index$1_RegistrarMaterias as RegistrarMaterias, index$1_ValidarRegistro as ValidarRegistro };
+}
+
+type Card = {
+    sede: string;
+    firmaRector: string;
+    imss: string;
+    nombre: string;
+    error?: string;
+    nombreRector: string;
+    apellido_paterno: string;
+    apellido_materno: string;
+    centro: string;
+    curp: string;
+    foto: string;
+    centroDesc: string;
+    firma: string;
+
+    tarjeta_informador: Array<unknown>
+}
+
+declare function Credencial(id: string): Promise<Card>;
+
+declare const credencial_Credencial: typeof Credencial;
+declare namespace credencial {
+  export { credencial_Credencial as Credencial };
+}
+
+interface Plan {
+  idcentro: string;
+  siglacentro: Centros$1;
+  siiacampus: Centros$1;
+  desccentro: string;
+  idsede: string;
+  descsede: string;
+  idprograma: Carreras$1.AnyCentro;
+  descprograma: string;
+  cicladmision: string;
+  ciclefectivo: string;
+  idestatus: string;
+  descestatus: string;
+  tipoestatus: string;
+  idPlan: string;
+  descnivel: string;
+  certificacion: unknown;
+  emailudg: string;
+}
+
+declare function PlanesEstudios(client: Client): Promise<Plan[]>;
+
+declare const Planes_PlanesEstudios: typeof PlanesEstudios;
+declare namespace Planes {
+  export { Planes_PlanesEstudios as PlanesEstudios };
+}
+
+declare function Adeudos(client: Client): Promise<never[]>;
+
+interface IAlumno {
+    alumcodigo: string;
+    nombre: string;
+    genero: "M" | "F";
+    fechnacimient: string;
+    curp: string;
+    rfc?: string;
+    imss: string;
+    email: string;
+    teleemergenci: string;
+    foto: string;
+    firma: string;
+    tiposangre?: string;
+    desctiposangr?: string;
+    lugadomicilioDB: string;
+    domicilio: string;
+    lugadomicilio: IDireccion;
+}
+interface IDireccion {
+    pais: string;
+    estado: string;
+    municipio: string;
+    cp: string;
+}
+
+declare function Alumno(client: Client): Promise<IAlumno>;
+
+interface HorarioProps {
+    carrera: string;
+    ciclo: string;
+}
+declare function Horario(client: Client, { carrera, ciclo }: HorarioProps): Promise<Schedule.Item[]>;
+
+declare const index_Adeudos: typeof Adeudos;
+declare const index_Alumno: typeof Alumno;
+declare const index_Horario: typeof Horario;
+declare const index_PlanesEstudios: typeof PlanesEstudios;
+declare namespace index {
+  export { index_Adeudos as Adeudos, index_Alumno as Alumno, index_Horario as Horario, index_PlanesEstudios as PlanesEstudios };
+}
+
+export { index$1 as Agenda, index as Alumno, credencial as Credencial, index$2 as Oferta, Planes as PlanesEstudios };
