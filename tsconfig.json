@@ -5,10 +5,8 @@
     "target": "ESNext",
     "module": "esnext",
     "moduleDetection": "force",
-    "jsx": "react-jsx",
-    "allowJs": true,
     "rootDir": "./source",
-    "outDir": "./dist",
+    "outDir": "./dist/pkg",
 
     
     // Bundler mode
@@ -22,11 +20,7 @@
     "strictNullChecks": true,
     "noFallthroughCasesInSwitch": true,
 
-    // Some stricter flags (disabled by default)
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noPropertyAccessFromIndexSignature": false,
-    "baseUrl": "./",
+   "baseUrl": "./",
     "paths": {
       "@common/*": ["./source/common/*"],
       "@auth/*": ["./source/auth/*"],
@@ -35,5 +29,4 @@
     }
   },
   "include": ["source"],
-  
 }

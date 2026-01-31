@@ -1,4 +1,4 @@
-export { createSession, createISS } from "./auth/index";
+export * from "./auth/index";
 
 import Fetch from "./common/fetch";
 export { Fetch };
@@ -6,10 +6,11 @@ export { Fetch };
 import HttpError from "./common/httpError";
 import type NotSession from "./common/sessionError"
 export { type NotSession };
-export {HttpError}
+export { HttpError }
 
 import { Client } from "./client";
 export default Client;
 
 import buildURL from "./common/url"
 export { buildURL };
+

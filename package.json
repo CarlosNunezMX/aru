@@ -1,6 +1,6 @@
 {
   "name": "@carlosnunezmx/aru",
-  "version": "2.1.5",
+  "version": "2.2.0",
   "author": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://carlosnunezmx.tech",
@@ -10,10 +10,14 @@
   "module": "source/index.ts",
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/jsonwebtoken": "^9.0.10"
+    "@types/jsonwebtoken": "^9.0.10",
+    "tsc-alias": "^1.8.16"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "optionalDependencies": {
+    "bcrypt": "^5.1.1"
   },
   "bugs": {
     "email": "carlitosnu41@gmail.com",
@@ -23,16 +27,26 @@
   "homepage": "https://github.com/CarlosNunezMX/aru",
   "type": "module",
   "dependencies": {
+    "@types/bcrypt": "^6.0.0",
     "jsonwebtoken": "^9.0.2"
+  },
+  "private": true,
+  "scripts": {
+    "build:package": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
+    "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
+    "build": "npm run build:package & npm run build:types"
   },
   "exports": {
     ".": {
-      "default": "./source/index.ts"
+      "import": "./dist/pkg/index.js",
+      "types": "./dist/types/index.d.ts"
     },
     "./modules": {
-      "default": "./source/modules/index.ts"
+      "import": "./dist/pkg/modules/index.js",
+      "types": "./dist/types/modules/index.d.ts"
     },
-    "./types/*": "./source/interfaces/*.d.ts"
-  },
-  "private": true
+    "./types": {
+      "types": "./dist/types/interfaces/*.d.ts"
+    }
+  }
 }
