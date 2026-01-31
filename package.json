@@ -34,7 +34,8 @@
   "scripts": {
     "build:package": "tsc -p tsconfig.json && tsc-alias -p tsconfig.json",
     "build:types": "tsc -p tsconfig.types.json && tsc-alias -p tsconfig.types.json",
-    "build": "npm run build:package & npm run build:types"
+    "build": "npm run build:package & npm run build:types",
+    "prepare": "npm run build"
   },
   "exports": {
     ".": {
