@@ -1,6 +1,6 @@
 {
   "name": "@carlosnunezmx/aru",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": {
     "email": "carlitosnu41@gmail.com",
     "url": "https://carlosnunezmx.tech",
@@ -34,8 +34,7 @@
   "private": true,
   "scripts": {
     "build": "tsup",
-    "clean": "rm -rf dist",
-    "prepare": "npm run build"
+    "clean": "rm -rf dist"
   },
   "exports": {
     ".": {
@@ -45,9 +44,6 @@
     "./modules": {
       "import": "./dist/modules/index.js",
       "types": "./dist/modules/index.d.ts"
-    },
-    "./types": {
-      "types": "./dist/interfaces/*.d.ts"
     }
   }
 }

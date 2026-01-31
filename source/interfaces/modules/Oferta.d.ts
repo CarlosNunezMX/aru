@@ -12,11 +12,11 @@ export interface OfertaCentro {
 
 export interface OfertaCarreras<T extends Centros> {
   idcentro: string;
-  programa: AruUtils.TSelectCarrera<T>;
+  programa: Carreras.SelectCentroCarreras<T>;
   desprograma: string;
 }
 
-export interface Oferta<Centro extends Centros, Carrera extends Carreras.TSelectCarrera<Centro>> {
+export interface Oferta<Centro extends Centros, Carrera extends Carreras.SelectCentroCarreras<Centro>> {
   idciclo: string;
   subjmateria: string
   idsede: string;
