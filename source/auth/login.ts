@@ -15,7 +15,8 @@ export default async function createSession(usr: string, pwd: string, fetch: Fet
 
   return new SessionToken.Session(
     res.id_token,
-    res.usua_id
+    res.usua_id,
+    new Date(res.vigencia)
   )
 
 }

@@ -66,12 +66,17 @@ export namespace SessionToken {
   export class Session {
     constructor(
       public sessionID: string,
-      public userID: string
+      public userID: string,
+      public readonly expiration: Date
     ) { }
     getSessionToken() {
       const key = decode(clean(TOKEN_KEY));
       const encodedStudentID = encode(this.sessionID, key);
       return encodedStudentID;
+    }
+
+    public isExpirated(): boolean {
+      return this.expiration >= new Date();
     }
   }
 }
