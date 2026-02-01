@@ -50,5 +50,7 @@ jobs:
         if: steps.versioncheck.outputs.changed == 'true'
         run: |
           VERSION=$(jq -r .version package.json)
+          git add dist -f
+          git commit -m "LAUCHED $VERSION"
           git tag "v$VERSION"
           git push origin "v$VERSION"
