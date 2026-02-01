@@ -9,7 +9,7 @@ export default async function createSession(usr: string, pwd: string, fetch: Fet
     method: "POST",
     body: JSON.stringify({
       usr: usr,
-      pwd: hashedPassword ? pwd : hashPassword(pwd)
+      pwd: hashedPassword ? pwd : await hashPassword(pwd)
     })
   });
 

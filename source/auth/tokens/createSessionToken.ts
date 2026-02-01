@@ -48,6 +48,7 @@ export namespace SessionToken {
     return clean(text);
   }
 
+  // Equivale a n->9988->dc
   export function decode(transformedSessionID: string, key: string = MAGIC_KEY): string {
     const toMoved = retrivetoMove(transformedSessionID);
     const length = transformedSessionID.slice(0, transformedSessionID.indexOf(SEPARATOR)).length;

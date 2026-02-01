@@ -33,7 +33,7 @@
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
-    "isolatedModules": true,
+    "isolatedModules": true
   },
   "include": [
     "source"
