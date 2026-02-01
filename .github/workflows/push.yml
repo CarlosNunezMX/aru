@@ -46,6 +46,11 @@ jobs:
       - name: Build source code
         if: steps.versioncheck.outputs.changed == 'true'
         run: bun run build
+      - name: Configure git
+        if: steps.versioncheck.outputs.changed == 'true'
+        run: |
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
       - name: Create Tag
         if: steps.versioncheck.outputs.changed == 'true'
         run: |
