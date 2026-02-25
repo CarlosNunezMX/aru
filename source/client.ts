@@ -1,4 +1,3 @@
-import type SessionToken from "@auth/index";
 import { Session, createSession } from "@auth/index";
 import Fetch from "@common/fetch";
 import NotSessionError from "@common/sessionError";
