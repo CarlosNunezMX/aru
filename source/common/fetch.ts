@@ -2,16 +2,16 @@ import type { PrivateKey } from "jsonwebtoken";
 import HttpError from "./httpError.js";
 import type { Response } from "@interfaces/Common.js";
 import { debugLogger } from "./log.js";
-import SessionToken, { createISS } from "@auth/index.js";
+import SecurityToken, { Session, createISS } from "@auth/index.js";
 
 export default class Fetch {
   constructor(
     private key: PrivateKey,
-    private session?: SessionToken.Session,
-    private debug: boolean = true
-  ) { }
+    private session?: Session,
+    private debug: boolean = true,
+  ) {}
 
-  public setSession(session: SessionToken.Session) {
+  public setSession(session: Session) {
     this.session = session;
   }
 
@@ -22,14 +22,15 @@ export default class Fetch {
         Referer: "https://leoalumnos.udg.mx/",
         Origin: "https://leoalumnos.udg.mx",
         authorization: `Bearer ${createISS(this.key)}`,
-        "authorization-key": `Bearer ${!!this.session
-          ? this.session.getSessionToken.bind(this.session)()
-          : ""
-          }`,
+        "authorization-key": `Bearer ${
+          !!this.session
+            ? SecurityToken.getSessionToken(this.session!.sessionID)
+            : ""
+        }`,
         "Content-Type": "application/json",
         ...req.headers,
       },
-      verbose: this.debug
+      verbose: this.debug,
     } as RequestInit;
   }
 

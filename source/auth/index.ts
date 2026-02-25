@@ -1,7 +1,7 @@
 import createSession from "./login.js";
-import createISS from "./tokens/createISS.js";
-import { SessionToken } from "./tokens/createSessionToken.js";
+import createISS from "./createISS.js";
+import SecurityToken from "./securityTokens.js";
+import { Session } from "./session.js";
 
-export default SessionToken;
-export { createISS, createSession };
-
+export default SecurityToken;
+export { createISS, createSession, Session };
