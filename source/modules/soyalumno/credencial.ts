@@ -1,5 +1,6 @@
 import buildURL from "@common/url";
 import type { Card } from "@interfaces/modules/soyalumno";
+import SoyAlumnoNoDisponible from "./NoDisponible";
 
 function Encode(code: string): string {
   const format = `${code}-${Math.floor(Date.now() / 1e3)}`;
@@ -20,6 +21,6 @@ export async function Credencial(id: string) {
     },
   });
   const json = (await data.json()) as { code: number; data: Card };
-  if (!json.data) throw new Error("Modulo de credenciales no disponible");
+  if (!json.data) new SoyAlumnoNoDisponible();
   return json.data;
 }
