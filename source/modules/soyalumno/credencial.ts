@@ -7,15 +7,19 @@ function Encode(code: string): string {
 }
 
 export async function Credencial(id: string) {
-  const url = buildURL("https://soyudg.udg.mx/alumnos/show?encryptedId=:studentCode", {
-    studentCode: Encode(id)
-  });
+  const url = buildURL(
+    "https://soyudg.udg.mx/alumnos/show?encryptedId=:studentCode",
+    {
+      studentCode: Encode(id),
+    },
+  );
 
   const data = await fetch(url, {
     tls: {
-      rejectUnauthorized: false
-    }
-  })
-  const json = await data.json() as { data: Card };
+      rejectUnauthorized: false,
+    },
+  });
+  const json = (await data.json()) as { code: number; data: Card };
+  if (!json.data) throw new Error("Modulo de credenciales no disponible");
   return json.data;
-};
+}
