@@ -8,40 +8,56 @@ const SEPARATOR = "~";
 const TOKEN_KEY = "yvICnGtE@IENOuAv$tIFLyABLAALnMBI~$4";
 
 export default class SecurityToken {
+  private static padKey(targetLength: number, key: string): string {
+    if (targetLength <= 0) return "";
+    let padded = "";
+    let repeats = Math.floor(targetLength / key.length + 1);
+    while (repeats > 0) {
+      padded += key;
+      repeats--;
+    }
+    return padded.substring(0, targetLength);
+  }
+
   private static retrivetoMove(transformed: string) {
     const cositaPosition = transformed.indexOf(SEPARATOR);
     return transformed
       .slice(cositaPosition + 1, cositaPosition + 2)
       .charCodeAt(0);
   }
-  // function n->9988->nd.
+
+  // Equivale a n->9988->nd.
   static clean(token: string) {
     const separatorIndex = token.indexOf(SEPARATOR);
     const separated = token.slice(0, separatorIndex);
     const toMove = token.charAt(separatorIndex + 1);
-    // @ts-ignore
-    const numb = token.charAt(separatorIndex + 2) as number;
+
+    const numbStr = token.slice(separatorIndex + 2);
+    const numb = parseInt(numbStr, 10);
+
     const reduce = separated.slice(numb);
-    const reduced = token.slice(0, numb);
+    const reduced = separated.slice(0, numb); // CORRECCIÓN: Extraer de 'separated', no de 'token'
 
     return reduce + reduced + SEPARATOR + toMove;
   }
+
   // Equivale a n->9988->nc
   static encode(sessionID: string, key: string = MAGIC_KEY): string {
     const sessionIDLenght = sessionID.length;
     const toMove = Math.floor(15 * Math.random() + 33);
-
     const magic = 122 - toMove + 1;
+
+    const paddedKey = this.padKey(sessionIDLenght, key);
+
     let text = "";
-
     for (let i = 0; i < sessionIDLenght; i++) {
-      let acc = sessionID.charCodeAt(i) - toMove + key.charCodeAt(i) - toMove;
-
+      let acc =
+        sessionID.charCodeAt(i) - toMove + paddedKey.charCodeAt(i) - toMove;
       text += String.fromCharCode((acc % magic) + toMove);
     }
 
-    text += SEPARATOR + String.fromCharCode(toMove) + text;
-    return this.clean(text);
+    text += SEPARATOR + String.fromCharCode(toMove);
+    return text;
   }
 
   // Equivale a n->9988->dc
@@ -50,15 +66,16 @@ export default class SecurityToken {
     key: string = MAGIC_KEY,
   ): string {
     const toMoved = this.retrivetoMove(transformedSessionID);
-    const length = transformedSessionID.slice(
-      0,
-      transformedSessionID.indexOf(SEPARATOR),
-    ).length;
+    const separatorIndex = transformedSessionID.indexOf(SEPARATOR);
+    const separated = transformedSessionID.slice(0, separatorIndex);
+    const length = separated.length;
     const transformToMoved = 122 - toMoved + 1;
+
+    const paddedKey = this.padKey(length, key);
 
     let token = "";
     for (let i = 0; i < length; i++) {
-      let acc = transformedSessionID.charCodeAt(i) - key.charCodeAt(i);
+      let acc = separated.charCodeAt(i) - paddedKey.charCodeAt(i);
       if (acc < 0) acc = transformToMoved + acc;
       token += String.fromCharCode(acc + toMoved);
     }
