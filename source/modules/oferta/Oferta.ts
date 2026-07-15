@@ -5,14 +5,14 @@ import type { Client } from "source/client";
 
 interface OfertaParams {
   idCentro: string;
-  carrera: Carreras.AnyCentro;
+  carrera: Carreras.AnyCentro | string;
   ciclo: string;
 }
 
 export async function OfertaAcademica(
   client: Client,
   { carrera, ciclo, idCentro }: OfertaParams,
-): Promise<Oferta<Centros, Carreras.AnyCentro>> {
+): Promise<Oferta<Centros, Carreras.AnyCentro>[]> {
   const url = "https://leoalumnos-svc.udg.mx/alum/api/ofertas/horas-nrc";
   return client.fetch.fetch(url, {
     method: "POST",
@@ -23,4 +23,3 @@ export async function OfertaAcademica(
     }),
   });
 }
-
