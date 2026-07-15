@@ -1,5 +1,5 @@
 import HttpError from "@common/httpError";
-import type { Carreras } from "@interfaces/carreras/Carreras";
+import type { Carreras } from "@interfaces/carreras";
 import type { Client } from "source/client";
 
 interface ValidarRegistroProps {
@@ -34,4 +34,3 @@ export async function ValidarRegistro(
     return false;
   }
 }
-

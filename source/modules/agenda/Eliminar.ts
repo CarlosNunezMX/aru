@@ -1,4 +1,4 @@
-import type { Carreras } from "@interfaces/carreras/Carreras";
+import type { Carreras } from "@interfaces/carreras";
 import type { Client } from "source/client";
 
 interface EliminarMateriaProps {

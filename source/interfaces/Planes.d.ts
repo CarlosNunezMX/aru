@@ -1,5 +1,5 @@
 import type { Centros } from "./Centros";
-import type { Carreras } from "./carreras/Carreras";
+import type { Carreras } from "./carreras";
 
 export default interface Plan {
   idcentro: string;

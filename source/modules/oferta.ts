@@ -1,12 +1,12 @@
-import {
-  type OfertaCiclos,
-  type OfertaCarreras,
-  type OfertaCentro,
+import type {
+  OfertaCiclos,
+  OfertaCarreras,
+  OfertaCentro,
+  Oferta,
 } from "@interfaces/modules/Oferta";
 import type { Client } from "source/client";
 import type { Centros } from "@interfaces/Centros";
-import type { Carreras } from "@interfaces/carreras/Carreras";
-import type { Oferta } from "@interfaces/modules/Oferta";
+import type { Carreras } from "@interfaces/carreras";
 import buildURL from "@common/url";
 
 // Centros para oferta academica
