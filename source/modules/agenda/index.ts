@@ -1,3 +1,3 @@
-export { EliminarMateria } from "./Eliminar";
-export { RegistrarMaterias } from "./Registrar";
-export { ValidarRegistro } from "./Validar";
+export * from "./Eliminar";
+export * from "./Registrar";
+export * from "./Validar";

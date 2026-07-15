@@ -1,5 +1,5 @@
-export { Adeudos } from "./Adeudos";
-export { Alumno } from "./Alumno";
-export { Horario } from "./Horario";
-export { PlanesEstudios } from "./Planes";
-export { EmailAccounts } from "./Email";
+export * from "./Adeudos";
+export * from "./Alumno";
+export * from "./Horario";
+export * from "./Planes";
+export * from "./Email";

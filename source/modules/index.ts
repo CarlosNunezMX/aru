@@ -1,11 +1,5 @@
-
-export * as Oferta from "./oferta";
-
-export * as Agenda from "./agenda";
-
-export * as Credencial from "./soyalumno/credencial";
-
-export * as PlanesEstudios from "./alumno/Planes";
-
-export * as Alumno from "./alumno";
-
+export * from "./oferta";
+export * from "./agenda";
+export * from "./soyalumno/credencial";
+export * from "./alumno/Planes";
+export * from "./alumno";
