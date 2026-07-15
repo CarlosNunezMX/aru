@@ -2,13 +2,11 @@ import type { Carreras } from "@interfaces/carreras/Carreras";
 import type { Centros } from "@interfaces/Centros";
 import type { Schedule } from "./Horarios";
 
-
 export interface OfertaCentro {
   idcentro: string;
   siglas: Centros;
   descripcion: string;
 }
-
 
 export interface OfertaCarreras<T extends Centros> {
   idcentro: string;
@@ -16,9 +14,12 @@ export interface OfertaCarreras<T extends Centros> {
   desprograma: string;
 }
 
-export interface Oferta<Centro extends Centros, Carrera extends Carreras.SelectCentroCarreras<Centro>> {
+export interface Oferta<
+  Centro extends Centros,
+  Carrera extends Carreras.SelectCentroCarreras<Centro>,
+> {
   idciclo: string;
-  subjmateria: string
+  subjmateria: string;
   idsede: string;
   idprograma: Carrera;
   crn: string;
@@ -33,3 +34,7 @@ export interface Oferta<Centro extends Centros, Carrera extends Carreras.SelectC
   profesores: Schedule.Professor[];
 }
 
+export interface OfertaCiclos {
+  ciclo: string;
+  descripcion: string;
+}
