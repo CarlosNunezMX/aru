@@ -1,6 +1,6 @@
 import type { Carreras } from "@interfaces/carreras/Carreras";
-import type { Centros } from "@interfaces/Centros";
-import type { Schedule } from "./Horarios";
+import type { Centros } from "@interfaces/centros";
+import type { Schedule } from "./horarios";
 
 export interface OfertaCentro {
   idcentro: string;

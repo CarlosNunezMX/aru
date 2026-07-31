@@ -1,7 +1,7 @@
-import type { Centros } from "./Centros";
+import type { Centros } from "./centros";
 import type { Carreras } from "./carreras";
 
-export default interface Plan {
+export interface Plan {
   idcentro: string;
   siglacentro: Centros;
   siiacampus: Centros;

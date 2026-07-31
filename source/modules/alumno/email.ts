@@ -1,7 +1,7 @@
 import buildURL from "@common/url";
 import type { CorreoElectronico, Email } from "@interfaces/modules/email";
 import type { Client } from "source/client";
-import { AccountSecurityKit } from "./emails/SecurityKit";
+import { AccountSecurityKit } from "../../auth/SecurityKit";
 
 export async function EmailAccounts(client: Client, idCentro: string) {
   // Cuenta de Microsoft 365

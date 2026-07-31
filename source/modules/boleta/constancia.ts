@@ -1,6 +1,5 @@
 import buildURL from "@common/url";
-import type { Carreras } from "@interfaces/carreras/Carreras";
-import type { Constancia } from "@interfaces/modules/status/Constancia";
+import type { Carreras, Constancia} from "@interfaces/index";
 import type { Client } from "source/client";
 
 interface Props {

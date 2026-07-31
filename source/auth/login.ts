@@ -1,20 +1,21 @@
 import type Fetch from "@common/fetch";
-import type Verification from "@interfaces/Verification";
+import type { Verification } from "@interfaces/index";
 import { hashPassword } from "./password";
 import { Session } from "./session";
+import { ClientCredentials } from "./credentials";
 
 export default async function createSession(
-  usr: string,
-  pwd: string,
+  credentials: ClientCredentials,
   fetch: Fetch,
-  hashedPassword?: boolean,
 ): Promise<Session> {
   const url = "https://leoalumnos-svc.udg.mx/alum/api/login/validar";
   const res = await fetch.fetch<Verification>(url, {
     method: "POST",
     body: JSON.stringify({
-      usr: usr,
-      pwd: hashedPassword ? pwd : await hashPassword(pwd),
+      usr: credentials.user,
+      pwd: credentials.isPasswordHashed
+        ? credentials.password
+        : await hashPassword(credentials.password),
     }),
   });
 

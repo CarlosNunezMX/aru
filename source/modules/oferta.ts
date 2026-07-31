@@ -5,7 +5,7 @@ import type {
   Oferta,
 } from "@interfaces/modules/Oferta";
 import type { Client } from "source/client";
-import type { Centros } from "@interfaces/Centros";
+import type { Centros } from "@interfaces/centros";
 import type { Carreras } from "@interfaces/carreras";
 import buildURL from "@common/url";
 

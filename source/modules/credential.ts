@@ -1,13 +1,19 @@
 import buildURL from "@common/url";
 import type { Card } from "@interfaces/modules/soyalumno";
-import SoyAlumnoNoDisponible from "./NoDisponible";
+
+export default class SoyAlumnoNoDisponible extends Error {
+  constructor() {
+    super("Soy Alumno no disponible");
+    this.name = "SoyAlumnoNoDisponible";
+  }
+}
 
 function Encode(code: string): string {
   const format = `${code}-${Math.floor(Date.now() / 1e3)}`;
   return btoa(btoa(format));
 }
 
-export async function Credencial(id: string) {
+export async function Credential(id: string) {
   const url = buildURL(
     "https://soyudg.udg.mx/alumnos/show?encryptedId=:studentCode",
     {

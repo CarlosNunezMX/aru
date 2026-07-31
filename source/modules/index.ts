@@ -1,5 +1,5 @@
 export * from "./oferta";
 export * from "./agenda";
-export * from "./soyalumno/credencial";
-export * from "./alumno/Planes";
+export * from "./credential";
+export * from "./alumno/planes";
 export * from "./alumno";

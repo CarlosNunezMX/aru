@@ -1,4 +1,4 @@
-import type { Kardex } from "@interfaces/modules/status/Kardex";
+import type { Kardex } from "@interfaces/index";
 import type { Client } from "source/client";
 
 interface Props {

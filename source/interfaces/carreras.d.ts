@@ -1,4 +1,4 @@
-import type { Centros } from "./Centros";
+import type { Centros } from "./centros";
 
 export namespace Carreras {
   export type CUAAD =
