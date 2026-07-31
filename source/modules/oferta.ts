@@ -3,7 +3,7 @@ import type {
   OfertaCarreras,
   OfertaCentro,
   Oferta,
-} from "@interfaces/modules/Oferta";
+} from "@interfaces/index";
 import type { Client } from "source/client";
 import type { Centros } from "@interfaces/centros";
 import type { Carreras } from "@interfaces/carreras";

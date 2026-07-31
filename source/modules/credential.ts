@@ -1,5 +1,5 @@
 import buildURL from "@common/url";
-import type { Card } from "@interfaces/modules/soyalumno";
+import type { Card } from "@interfaces/index";
 
 export default class SoyAlumnoNoDisponible extends Error {
   constructor() {

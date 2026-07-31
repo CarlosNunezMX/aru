@@ -1,21 +1,21 @@
 export interface Kardex {
-  datosPersonales: DatosPersonales;
-  planesEstudios: PlanesEstudios;
-  creditos: Creditos;
+  datosPersonales: KardexDatosPersonales;
+  planesEstudios: KardexPlanesEstudios;
+  creditos: KardexCreditos;
   promedios: Promedios;
   historiaAcademicaKardex: MateriaKardex[];
   curriculares: null | unknown; // Aparece como null en el ejemplo
-  resumenCreditos: ResumenCreditos[];
+  resumenCreditos: KardexResumenCreditos[];
   certificado: string;
   informacion: null | unknown;
   aviso: string;
 }
 
-export interface DatosPersonales {
+export interface KardexDatosPersonales {
   nombre: string;
 }
 
-export interface PlanesEstudios {
+export interface KardexPlanesEstudios {
   idcentro: string;
   siglacentro: string;
   siiacampus: string;
@@ -36,18 +36,18 @@ export interface PlanesEstudios {
   emailudg: string;
 }
 
-export interface Creditos {
+export interface KardexCreditos {
   credadquirido: string; // Nota: El JSON lo entrega como string "130"
   credporcentaj: string;
   credfaltantes: string;
   credtotaprogr: string;
 }
 
-export interface Promedios {
+export interface KardexPromedios {
   promgeneral: string;
 }
 
-export interface MateriaKardex {
+export interface KardexMateria {
   crn: string;
   idsede: string | null;
   clavmateria: string;
@@ -64,7 +64,7 @@ export interface MateriaKardex {
   descarea: string;
 }
 
-export interface ResumenCreditos {
+export interface KardexResumenCreditos {
   areaformacion: string;
   credrequaerea: string;
   credadquaerea: string;
