@@ -1,14 +1,11 @@
-import type { Centros } from "../centros";
-import type { Carreras } from "../carreras";
-
 export interface RawPlan {
   idcentro: string;
-  siglacentro: Centros;
-  siiacampus: Centros;
+  siglacentro: string;
+  siiacampus: string;
   desccentro: string;
   idsede: string;
   descsede: string;
-  idprograma: Carreras.AnyCentro;
+  idprograma: string;
   descprograma: string;
   cicladmision: string;
   ciclefectivo: string;

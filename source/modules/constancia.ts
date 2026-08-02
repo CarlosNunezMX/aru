@@ -11,10 +11,10 @@ interface Props {
   cycleId: string;
 }
 
-export default async function Constancia(
+export async function Constancy(
   client: Client,
   { cycleId, programId }: Props,
-) {
+): Promise<Constancia> {
   const studentId = client.session.studentId;
   const url = buildURL(
     "https://leoalumnos-svc.udg.mx/alum/api/alumnos-esc/:studentId/:programId/:cycleId/constancias",

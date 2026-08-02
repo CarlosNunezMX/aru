@@ -1,7 +1,7 @@
 import type { Client } from "@client";
 import { buildURL } from "@common/url";
 
-import * as Offer from "@interfaces/modules/offer";
+import type * as Offer from "@interfaces/modules/offer";
 import { OfferTransformer } from "@transformers/offer";
 
 // Centros para oferta academica

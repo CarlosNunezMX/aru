@@ -1,7 +1,7 @@
 import type { Client } from "@client";
 import { buildURL } from "@common/url";
 
-import type { RawReport, Report } from "@interfaces/modules/report";
+import type { RawReport, Report as TReport } from "@interfaces/modules/report";
 import { ReportTransformer } from "@transformers/report";
 
 interface ReportProps {
@@ -12,7 +12,7 @@ interface ReportProps {
 export async function Report(
   client: Client,
   { cycleId, programId }: ReportProps,
-): Promise<Report[]> {
+): Promise<TReport[]> {
   const studentId = client.session.studentId;
   const url = buildURL(
     "https://leoalumnos-svc.udg.mx/alum/api/alumnos-esc/:studentId/:programId/:cycleId/boletas",
