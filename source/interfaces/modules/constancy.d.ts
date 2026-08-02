@@ -1,17 +1,13 @@
-export interface Constancia {
-  datosPersonales: DatosPersonales;
-  planesEstudios: PlanesEstudios;
-  creditosPrograma: CreditosPrograma;
-  creditos: ResumenCreditos;
-  promedios: Promedios;
-  materiasAprobadas: MateriaAprobada[];
+export interface RawConstancy {
+  datosPersonales: { nombre: string };
+  planesEstudios: RawConstancyStudentPlans;
+  creditosPrograma: RawConstancyProgramCredits;
+  creditos: RawConstancyCreditsSummary;
+  promedios: { promgeneral: string };
+  materiasAprobadas: RawConstancyApprovedCourse[];
 }
 
-export interface DatosPersonales {
-  nombre: string;
-}
-
-export interface PlanesEstudios {
+export interface RawConstancyStudentPlans {
   idcentro: string;
   siglacentro: string;
   siiacampus: string;
@@ -32,7 +28,7 @@ export interface PlanesEstudios {
   emailudg: string;
 }
 
-export interface CreditosPrograma {
+export interface RawConstancyProgramCredits {
   idprograma: string;
   descprograma: string;
   idnivel: string;
@@ -43,18 +39,14 @@ export interface CreditosPrograma {
   indiprograma: string;
 }
 
-export interface ResumenCreditos {
+interface RawConstancyCreditsSummary {
   credadquirido: string; // "130"
   credporcentaj: string; // "34.66"
   credfaltantes: string; // "245"
   credtotaprogr: string; // "375"
 }
 
-export interface Promedios {
-  promgeneral: string; // "88.18"
-}
-
-export interface MateriaAprobada {
+interface RawConstancyApprovedCourse {
   crn: string;
   idmateria: string;
   idsubj: string;

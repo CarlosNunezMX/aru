@@ -24,6 +24,8 @@ interface RawAddress {
   cp: string;
 }
 
+// ==| New Student Object |==
+
 export interface Address {
   country: string;
   state: string;

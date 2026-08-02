@@ -1,7 +1,7 @@
-import type { Schedule } from "@interfaces/modules";
+import type { Hour, Item, ItemRaw, RawHour, RawSchedule, RawTeacher, Schedule, Teacher } from "@interfaces/modules";
 
 export class ScheduleTransformer {
-  public static transformHour(raw: Schedule.RawHour): Schedule.Hour {
+  public static transformHour(raw: RawHour): Hour {
     const [start, end] = raw.hora.split("-");
     const startHour = start.slice(0, 2),
       startMinutes = start.slice(-2);
@@ -19,8 +19,8 @@ export class ScheduleTransformer {
   }
 
   public static transformSchedule(
-    raw: Schedule.RawSchedule,
-  ): Schedule.Schedule {
+    raw: RawSchedule,
+  ): Schedule {
     const transformDateString = (str: string) => {
       const [day, month, year] = str.trim().split("-");
       return `${year}/${month}/${day}`;
@@ -32,7 +32,7 @@ export class ScheduleTransformer {
     };
   }
 
-  public static transformTeacher(raw: Schedule.RawTeacher): Schedule.Teacher {
+  public static transformTeacher(raw: RawTeacher): Teacher {
     return {
       id: raw.idprofesor,
       lastName: raw.apellidos,
@@ -40,7 +40,7 @@ export class ScheduleTransformer {
     };
   }
 
-  public static transform(raw: Schedule.ItemRaw): Schedule.Item {
+  public static transform(raw: ItemRaw): Item {
     return {
       campusId: raw.idcampus,
       courseId: raw.idcurso,

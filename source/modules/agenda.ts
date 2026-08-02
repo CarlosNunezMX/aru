@@ -1,8 +1,6 @@
 import type { Client } from "@client";
 import HttpError from "@common/httpError";
 
-import type { RegistroInit } from "@interfaces/index";
-
 interface AgendaSharedProps {
   programId: string;
   hostId: string;
@@ -51,7 +49,7 @@ export async function RegisterCourses(
     idciclo: cycleId,
     idprograma: programId,
     nivel: level,
-  } satisfies RegistroInit;
+  };
 
   await client.fetch.fetch(url, {
     method: "POST",

@@ -1,7 +1,6 @@
 import type {
   RawOfferCourse,
   OfferCourse,
-  Schedule,
   RawOfferHours,
   RawOfferSchedule,
   RawOfferHost,
@@ -10,10 +9,12 @@ import type {
   OfferProgram,
   RawOfferCycle,
   OfferCycle,
+  Hour,
+  Schedule,
 } from "@interfaces/modules";
 
 export class OfferTransformer {
-  static transformHours(raw: RawOfferHours): Schedule.Hour {
+  static transformHours(raw: RawOfferHours): Hour {
     const parseRawHourStr = (str: string) =>
       `${str.slice(0, 2)}:${str.slice(-2)}`;
     return {
@@ -26,7 +27,7 @@ export class OfferTransformer {
     };
   }
 
-  static transformSchedule(raw: RawOfferSchedule): Schedule.Schedule {
+  static transformSchedule(raw: RawOfferSchedule): Schedule {
     return {
       end: new Date(raw.fechfin),
       start: new Date(raw.fechinicio),

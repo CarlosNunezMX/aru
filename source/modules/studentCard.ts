@@ -1,5 +1,9 @@
 import { buildURL } from "@common/url";
-import type { Card } from "@interfaces/index";
+import type {
+  RawStudentCard,
+  StudentCard as TStudentCard,
+} from "@interfaces/index";
+import StudentCardTransformer from "@transformers/studentCard";
 
 export default class SoyAlumnoNoDisponible extends Error {
   constructor() {
@@ -13,7 +17,7 @@ function Encode(code: string): string {
   return btoa(btoa(format));
 }
 
-export async function Credential(id: string) {
+export async function StudentCard(id: string): Promise<TStudentCard> {
   const url = buildURL(
     "https://soyudg.udg.mx/alumnos/show?encryptedId=:studentCode",
     {
@@ -26,7 +30,8 @@ export async function Credential(id: string) {
       rejectUnauthorized: false,
     },
   });
-  const json = (await data.json()) as { code: number; data: Card };
-  if (!json.data) new SoyAlumnoNoDisponible();
-  return json.data;
+  const json = (await data.json()) as { code: number; data: RawStudentCard };
+  if (!json.data || json.data.error) new SoyAlumnoNoDisponible();
+
+  return StudentCardTransformer(json.data);
 }

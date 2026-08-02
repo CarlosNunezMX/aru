@@ -1,11 +1,11 @@
 import { beforeAll, describe, test, expect } from "bun:test";
 import Session from "./_session";
-import { PlanesEstudios } from "../source/modules";
+import { StudentPlans } from "../source/modules";
 import { Plan } from "../source/interfaces";
 
 describe("Student Plans", async () => {
   const session = await Session;
-  let plans = await PlanesEstudios(session);
+  let plans = await StudentPlans(session);
 
   test("Test Student Plan", () => {
     expect(plans).toBeArray();

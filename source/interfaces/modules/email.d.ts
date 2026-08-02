@@ -8,7 +8,7 @@ export interface CorreoElectronico {
 }
 
 export interface Email {
-    mail: string;
-    status: boolean;
-    password: string;
+  mail: string;
+  status: boolean;
+  password: string;
 }

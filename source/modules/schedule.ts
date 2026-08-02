@@ -1,6 +1,6 @@
 import type { Client } from "@client";
 import { buildURL } from "@common/url";
-import type { Schedule as TSchedule } from "@interfaces/modules/schedules";
+import type { Item, ItemRaw } from "@interfaces/modules/schedules";
 import { ScheduleTransformer } from "@transformers/schedule";
 
 interface ScheduleProps {
@@ -11,7 +11,7 @@ interface ScheduleProps {
 export async function Schedule(
   client: Client,
   { programId, cycleId }: ScheduleProps,
-): Promise<TSchedule.Item[]> {
+): Promise<Item[]> {
   const studentId = client.session!.studentId;
 
   const url = buildURL(
@@ -19,6 +19,6 @@ export async function Schedule(
     { programId, cycleId, studentId },
   );
 
-  const items = await client.fetch.fetch<TSchedule.ItemRaw[]>(url);
+  const items = await client.fetch.fetch<ItemRaw[]>(url);
   return items.map((item) => ScheduleTransformer.transform(item));
 }

@@ -1,11 +1,11 @@
 import Session from "./_session";
-import { PlanesEstudios, Report } from "../source/modules";
+import { StudentPlans, Report } from "../source/modules";
 import { describe, expect, test } from "bun:test";
 import { Plan, type Report as TReport } from "../source/interfaces";
 
 describe("Student Report", async () => {
   const session = await Session;
-  const plans = (await PlanesEstudios(session)) as Plan[];
+  const plans = (await StudentPlans(session)) as Plan[];
 
   const active = plans.find((plan) => plan.statusId === "AC")!;
   const report = (await Report(session, {
