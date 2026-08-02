@@ -1,23 +1,20 @@
-import buildURL from "@common/url";
-import type { CorreoElectronico, Email } from "@interfaces/modules/email";
-import type { Client } from "source/client";
-import { AccountSecurityKit } from "../../auth/SecurityKit";
+import type { Client } from "@client";
+import { buildURL } from "@common/url";
+import { AccountSecurityKit } from "@auth/SecurityKit";
 
-export async function EmailAccounts(client: Client, idCentro: string) {
+import type { CorreoElectronico, Email } from "@interfaces/modules/email";
+
+export async function EmailAccounts(client: Client, hostId: string) {
+  const studentId = client.session!.sessionID;
   // Cuenta de Microsoft 365
   const url365 = buildURL(
-    "https://leoalumnos-svc.udg.mx/alum/api/servicios-sii/:codigo/cuentas-office",
-    {
-      codigo: client.session.userID,
-    },
+    "https://leoalumnos-svc.udg.mx/alum/api/servicios-sii/:studentId/cuentas-office",
+    { studentId },
   );
   // Cuenta de Google
   const urlGogle = buildURL(
-    "https://leoalumnos-svc.udg.mx/alum/api/servicios-esc/:codigo/:idCentro/cuentas-google",
-    {
-      codigo: client.session.userID,
-      idCentro,
-    },
+    "https://leoalumnos-svc.udg.mx/alum/api/servicios-esc/:studentId/:hostId/cuentas-google",
+    { studentId, hostId },
   );
 
   const [MicrosoftRaw, GoogleRaw] = await Promise.all([

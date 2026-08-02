@@ -1,5 +1,5 @@
 import { Session, createSession } from "@auth/index";
-import Fetch from "@common/fetch";
+import { Fetch } from "@common/fetch";
 import NotSessionError from "@common/sessionError";
 import type { ClientCredentials } from "@auth/credentials";
 import type { PrivateKey } from "jsonwebtoken";

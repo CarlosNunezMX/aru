@@ -11,6 +11,7 @@ export interface Kardex {
   aviso: string;
 }
 
+
 export interface KardexDatosPersonales {
   nombre: string;
 }

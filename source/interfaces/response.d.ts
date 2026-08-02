@@ -1,3 +1,9 @@
+export interface Response<T> {
+  codigo: number;
+  mensaje: string;
+  respuesta?: T | { error: string }[];
+}
+
 export interface Verification {
   id_token: string;
   vigencia: string;

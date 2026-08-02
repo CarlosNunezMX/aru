@@ -1,40 +1,35 @@
-import type { Carreras } from "@interfaces/carreras";
-import type { Client } from "source/client";
-import type { RegistroInit } from "@interfaces/index";
+import type { Client } from "@client";
 import HttpError from "@common/httpError";
 
+import type { RegistroInit } from "@interfaces/index";
+
 interface AgendaSharedProps {
-  carrera: Carreras.AnyCentro;
-  centro: string;
-  ciclo: string;
-  nivel: string | "LI";
-}
-
-interface EliminarMateriaProps extends AgendaSharedProps {
-  cursos: string[];
-}
-
-interface RegistroMateriasProps extends AgendaSharedProps {
-  materias: string[];
+  programId: string;
+  hostId: string;
+  cycleId: string;
+  level: string | "LI";
+  courses: string[];
 }
 
 type ValidarRegistroProps = Pick<
   AgendaSharedProps,
-  "carrera" | "centro" | "ciclo"
+  "programId" | "hostId" | "cycleId"
 >;
 
-export async function EliminarMateria(
+export async function DeleteCourse(
   client: Client,
-  { carrera, centro, ciclo, cursos, nivel = "LI" }: EliminarMateriaProps,
+  { courses, cycleId, hostId, level = "LI", programId }: AgendaSharedProps,
 ): Promise<void> {
+  const studentId = client.session.studentId;
   const url = "https://leoalumnos-svc.udg.mx/alum/api/registro/cursos";
+
   const body = {
-    idalumno: client.session!.userID,
-    idprograma: carrera,
-    nivel,
-    idciclo: ciclo,
-    idcentro: centro,
-    cursos,
+    idalumno: studentId,
+    idprograma: programId,
+    nivel: level,
+    idciclo: cycleId,
+    idcentro: hostId,
+    cursos: courses,
   };
 
   await client.fetch.fetch(url, {
@@ -43,18 +38,19 @@ export async function EliminarMateria(
   });
 }
 
-export async function RegistrarMaterias(
+export async function RegisterCourses(
   client: Client,
-  { carrera, centro, ciclo, materias, nivel = "LI" }: RegistroMateriasProps,
+  { courses, cycleId, hostId, programId, level = "LI" }: AgendaSharedProps,
 ): Promise<void> {
   const url = "https://leoalumnos-svc.udg.mx/alum/api/registro/";
+  const studentId = client.session.studentId;
   const body = {
-    cursos: materias,
-    idalumno: client.session!.userID,
-    idcentro: centro,
-    idciclo: ciclo,
-    idprograma: carrera,
-    nivel,
+    cursos: courses,
+    idalumno: studentId,
+    idcentro: hostId,
+    idciclo: cycleId,
+    idprograma: programId,
+    nivel: level,
   } satisfies RegistroInit;
 
   await client.fetch.fetch(url, {
@@ -63,18 +59,20 @@ export async function RegistrarMaterias(
   });
 }
 
-export async function ValidarRegistro(
+export async function IsAgendaOpened(
   client: Client,
-  { carrera, centro, ciclo }: ValidarRegistroProps,
+  { cycleId, hostId, programId }: ValidarRegistroProps,
 ): Promise<boolean> {
   try {
     const url =
       "https://leoalumnos-svc.udg.mx/alum/api/registro/validaciones-alumnos";
+    const studentId = client.session.studentId;
+
     const body = {
-      idalumno: client.session!.userID,
-      idcentro: centro,
-      idciclo: ciclo,
-      idprograma: carrera,
+      idalumno: studentId,
+      idcentro: hostId,
+      idciclo: cycleId,
+      idprograma: programId,
     };
 
     await client.fetch.fetch<{ error?: string }[]>(url, {

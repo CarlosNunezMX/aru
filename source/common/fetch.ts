@@ -1,10 +1,10 @@
 import type { PrivateKey } from "jsonwebtoken";
-import HttpError from "./httpError.js";
-import type { Response } from "@interfaces/index.js";
-import { debugLogger } from "./log.js";
-import SecurityToken, { Session, createISS } from "@auth/index.js";
+import SecurityToken, { Session, createISS } from "@auth/index";
+import type { Response } from "@interfaces/index";
+import HttpError from "./httpError";
+import { debugLogger } from "./log";
 
-export default class Fetch {
+export class Fetch {
   constructor(
     private key: PrivateKey,
     private session?: Session,

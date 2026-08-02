@@ -1,4 +1,4 @@
-import type Fetch from "@common/fetch";
+import type { Fetch } from "@common/fetch";
 import type { Verification } from "@interfaces/index";
 import { hashPassword } from "./password";
 import { Session } from "./session";

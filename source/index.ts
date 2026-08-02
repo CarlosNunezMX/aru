@@ -1,16 +1,11 @@
-export * from "./auth/index";
-
-import Fetch from "./common/fetch";
-export { Fetch };
-
-import HttpError from "./common/httpError";
-import type NotSession from "./common/sessionError";
-export { type NotSession };
-export { HttpError };
+export * from "@auth/index";
 
 import { Client } from "./client";
+export { Fetch } from "@common/fetch";
+
+import HttpError from "@common/httpError";
+import NotSession from "./common/sessionError";
+
+export { buildURL } from "./common/url";
+export { Client, HttpError, NotSession };
 export default Client;
-
-import buildURL from "./common/url";
-
-export { buildURL };

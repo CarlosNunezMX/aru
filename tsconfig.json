@@ -1,9 +1,7 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "lib": [
-      "ESNext"
-    ],
+    "lib": ["ESNext"],
     "target": "ESNext",
     "module": "ESNext",
     // Bundler mode
@@ -17,29 +15,18 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
     "paths": {
-      "@common/*": [
-        "./source/common/*"
-      ],
-      "@auth/*": [
-        "./source/auth/*"
-      ],
-      "@modules/*": [
-        "./source/modules/*"
-      ],
-      "@interfaces/*": [
-        "./source/interfaces/*"
-      ]
+      "@common/*": ["./source/common/*"],
+      "@auth/*": ["./source/auth/*"],
+      "@modules/*": ["./source/modules/*"],
+      "@interfaces/*": ["./source/interfaces/*"],
+      "@transformers/*": ["./source/transformers/*"],
+      "@client": ["./source/client.ts"]
     },
     "declaration": true,
     "emitDeclarationOnly": true,
     "outDir": "dist",
-    "isolatedModules": true
+    "isolatedModules": true,
   },
-  "include": [
-    "source"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules"
-  ]
+  "include": ["source"],
+  "exclude": ["dist", "node_modules"],
 }

@@ -1,3 +1,7 @@
+import type { Plan } from "./planes";
+
+
+
 export interface Constancia {
   datosPersonales: DatosPersonales;
   planesEstudios: PlanesEstudios;

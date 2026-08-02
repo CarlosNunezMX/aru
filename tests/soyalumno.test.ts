@@ -1,7 +1,25 @@
-import { expect, test } from "bun:test";
-import { Card } from "../source/interfaces/modules/credential";
+import { describe, expect, test } from "bun:test";
+import { Card } from "../source/interfaces";
 import { Credential } from "../source/modules/credential";
 
-const user: Card = await Credential(process.env["LEO_USER"]!);
+describe("Student Identification", async () => {
+  const card = (await Credential(process.env["LEO_USER"]!)) as Card;
 
-console.log(user.foto);
+  test("Test Student Identification Fields", () => {
+    expect(card).toBeObject();
+
+    expect(card.curp).toBeString();
+    expect(card.curp).toHaveLength(18);
+
+    expect(card.apellido_materno).toBeString();
+    expect(card.apellido_paterno).toBeString();
+    expect(card.nombre).toBeString();
+
+    expect(card.centro).toBeString();
+    expect(card.centroDesc).toBeString();
+    expect(card.sede).toBeString();
+
+    expect(card.imss).toBeString();
+    expect(card.imss).toHaveLength(11);
+  });
+});

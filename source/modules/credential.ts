@@ -1,4 +1,4 @@
-import buildURL from "@common/url";
+import { buildURL } from "@common/url";
 import type { Card } from "@interfaces/index";
 
 export default class SoyAlumnoNoDisponible extends Error {
