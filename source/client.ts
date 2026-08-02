@@ -16,6 +16,15 @@ export class Client {
     this.credentials = credentials;
     return this;
   }
+
+  public hasCredentials(): boolean {
+    return !!this.credentials;
+  }
+
+  public isClientReady(): boolean {
+    return !!this.hasCredentials() && !!this._session;
+  }
+
   async login(credentials?: ClientCredentials): Promise<Client> {
     if (!credentials && !this.credentials)
       throw "Expected credentials be filled before login.";
