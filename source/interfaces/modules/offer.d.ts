@@ -74,6 +74,7 @@ export interface OfferCourse {
   subjectId: string;
 
   section: string;
+  sectionId: string;
   credits: number;
   availableSeats: number;
   seats: number;

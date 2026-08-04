@@ -48,6 +48,7 @@ export class OfferTransformer {
       subjectId: raw.idmateria,
 
       section: raw.seccion,
+      sectionId: raw.crn,
       seats: Number(raw.cupos),
       availableSeats: Number(raw.cupodisponibl),
       credits: Number(raw.creditos),
