@@ -31,7 +31,7 @@ export class OfferTransformer {
     return {
       end: new Date(raw.fechfin),
       start: new Date(raw.fechinicio),
-      horas: raw.horas.map((h) => this.transformHours(h)),
+      hours: raw.horas ? raw.horas.map((h) => this.transformHours(h)) : [],
     };
   }
 

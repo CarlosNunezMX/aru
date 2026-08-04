@@ -33,7 +33,7 @@ export interface RawOfferTeacher {
 export interface RawOfferSchedule {
   fechinicio: string;
   fechfin: string;
-  horas: RawOfferHours[];
+  horas?: RawOfferHours[];
 }
 export interface RawOfferHours {
   horainicio: string;

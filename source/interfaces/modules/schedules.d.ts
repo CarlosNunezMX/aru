@@ -78,5 +78,5 @@ export type RawSchedule = {
 export interface Schedule {
   start: Date;
   end: Date;
-  horas: Hour[];
+  hours: Hour[];
 }
