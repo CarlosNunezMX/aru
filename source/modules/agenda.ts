@@ -1,5 +1,6 @@
 import type { Client } from "@client";
 import HttpError from "@common/httpError";
+import { parseRegistrationPeriod } from "@transformers/agenda";
 
 interface AgendaSharedProps {
   programId: string;
@@ -60,7 +61,7 @@ export async function RegisterCourses(
 export async function IsAgendaOpened(
   client: Client,
   { cycleId, hostId, programId }: ValidarRegistroProps,
-): Promise<boolean> {
+): Promise<boolean | { start: Date; end: Date }> {
   try {
     const url =
       "https://leoalumnos-svc.udg.mx/alum/api/registro/validaciones-alumnos";
@@ -82,6 +83,6 @@ export async function IsAgendaOpened(
   } catch (err) {
     if (!(err instanceof HttpError)) throw err;
     if (err.code !== 201) throw err;
-    return false;
+    return parseRegistrationPeriod(err.message);
   }
 }
