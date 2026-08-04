@@ -3,8 +3,8 @@ export class Session {
     public sessionID: string,
     public studentId: string,
     public readonly expiration: Date,
-  ) {}
+  ) { }
   public isExpirated(): boolean {
-    return this.expiration >= new Date();
+    return this.expiration <= new Date();
   }
 }

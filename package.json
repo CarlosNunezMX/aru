@@ -1,53 +1,53 @@
 {
-  "name": "@carlosnunezmx/aru",
-  "version": "2.6.3",
-  "author": {
-    "email": "carlitosnu41@gmail.com",
-    "url": "https://carlosnunezmx.qzz.io",
-    "name": "CarlosNuñezMX"
-  },
-  "main": "source/index.ts",
-  "module": "source/index.ts",
-  "devDependencies": {
-    "@types/bun": "^1.3.8",
-    "@types/jsonwebtoken": "^9.0.10",
-    "esbuild-plugin-tsconfig-paths": "^1.0.2",
-    "tsc-alias": "^1.8.16",
-    "tsup": "^8.5.1"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "optionalDependencies": {
-    "bcrypt": "^5.1.1"
-  },
-  "bugs": {
-    "email": "carlitosnu41@gmail.com",
-    "url": "https://github.com/CarlosNunezMX/aru/issues"
-  },
-  "description": "Just another UdeG Leo Wrapper",
-  "homepage": "https://github.com/CarlosNunezMX/aru",
-  "type": "module",
-  "dependencies": {
-    "@types/bcrypt": "^6.0.0",
-    "jsonwebtoken": "^9.0.2"
-  },
-  "private": true,
-  "scripts": {
-    "build": "tsup",
-    "clean": "rm -rf dist"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
-    },
-    "./modules": {
-      "import": "./dist/modules/index.js",
-      "types": "./dist/modules/index.d.ts"
-    },
-    "./types": {
-      "types": "./source/interfaces/index.ts"
-    }
-  }
+	"name": "@carlosnunezmx/aru",
+	"version": "2.6.4",
+	"author": {
+		"email": "carlitosnu41@gmail.com",
+		"url": "https://carlosnunezmx.qzz.io",
+		"name": "CarlosNuñezMX"
+	},
+	"main": "source/index.ts",
+	"module": "source/index.ts",
+	"devDependencies": {
+		"@types/bun": "^1.3.8",
+		"@types/jsonwebtoken": "^9.0.10",
+		"esbuild-plugin-tsconfig-paths": "^1.0.2",
+		"tsc-alias": "^1.8.16",
+		"tsup": "^8.5.1"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"optionalDependencies": {
+		"bcrypt": "^5.1.1"
+	},
+	"bugs": {
+		"email": "carlitosnu41@gmail.com",
+		"url": "https://github.com/CarlosNunezMX/aru/issues"
+	},
+	"description": "Just another UdeG Leo Wrapper",
+	"homepage": "https://github.com/CarlosNunezMX/aru",
+	"type": "module",
+	"dependencies": {
+		"@types/bcrypt": "^6.0.0",
+		"jsonwebtoken": "^9.0.2"
+	},
+	"private": true,
+	"scripts": {
+		"build": "tsup",
+		"clean": "rm -rf dist"
+	},
+	"exports": {
+		".": {
+			"import": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"./modules": {
+			"import": "./dist/modules/index.js",
+			"types": "./dist/modules/index.d.ts"
+		},
+		"./types": {
+			"types": "./source/interfaces/index.ts"
+		}
+	}
 }
